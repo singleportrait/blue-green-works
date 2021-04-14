@@ -9,3 +9,34 @@
     display: none;
   }
 }
+
+.linkContainer {
+  padding-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+.link {
+  padding: .5rem 0;
+  display: block;
+}
+
+.link::before {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1rem;
+  position: relative;
+  left: -1rem;
+  top: 0.125rem;
+  content: " ";
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.instagramLink::before {
+  background-image: url('../images/instagram.svg');
+}
+
+.emailLink::before {
+  background-image: url('../images/email.svg');
+}

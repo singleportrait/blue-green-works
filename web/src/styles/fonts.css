@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Standard';
+  src: url('../fonts/standard-book-webfont.woff2') format('woff2'),
+       url('../fonts/standard-book-webfont.woff') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+}

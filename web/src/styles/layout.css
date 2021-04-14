@@ -2,9 +2,15 @@
 
 html {
   background-color: var(--bg-color);
+  font-family: var(--sans);
 }
 
 /* Temporary override */
 body {
   background-color: var(--bg-color);
+}
+
+a, a:visited, a:hover {
+  color: var(--dark-color);
+  text-decoration: none;
 }

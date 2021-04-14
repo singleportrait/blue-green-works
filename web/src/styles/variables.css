@@ -1,3 +1,7 @@
 :root {
   --bg-color: #8A7342;
+  --sans: 'Standard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --dark-color: #222;
+  --light-color: #fff;
+  --beige: #EBE0C6;
 }

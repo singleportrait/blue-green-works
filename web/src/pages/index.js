@@ -12,6 +12,7 @@ import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import logo from '../images/blueGreenWorksComingSoon.svg';
 import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
+import { cn } from "../lib/helpers";
 
 import * as styles from './index.module.css';
 
@@ -54,8 +55,19 @@ const IndexPage = props => {
     <Layout fullPage>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       {/* <Container> */}
-      <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
-      <img src={logo} alt="Logo" className={styles.logo} />
+      <div></div>
+      <div>
+        <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
+        <img src={logo} alt="Logo" className={styles.logo} />
+      </div>
+      <div className={styles.linkContainer}>
+        <a href="http://instagram.com/bluegreenworks" target="_blank" rel="noopener noreferrer" className={cn(styles.link, styles.instagramLink)}>
+          @bluegreenworks
+        </a>
+        <a href="mailto:info@bluegreenworks.com" target="_blank" rel="noopener noreferrer" className={cn(styles.link, styles.emailLink)}>
+          info@bluegreenworks.com
+        </a>
+      </div>
         {/* {projectNodes && ( */}
         {/*   <ProjectPreviewGrid */}
         {/*     title="Latest projects" */}
