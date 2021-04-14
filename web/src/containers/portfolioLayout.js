@@ -1,6 +1,6 @@
 import { graphql, StaticQuery } from "gatsby";
 import React, { useState } from "react";
-import Layout from "../components/layout";
+import PortfolioLayout from "../components/portfolioLayout";
 
 const query = graphql`
   query SiteTitleQuery {
@@ -10,7 +10,7 @@ const query = graphql`
   }
 `;
 
-function LayoutContainer(props) {
+function PortfolioLayoutContainer(props) {
   const [showNav, setShowNav] = useState(false);
   function handleShowNav() {
     setShowNav(true);
@@ -28,7 +28,7 @@ function LayoutContainer(props) {
           );
         }
         return (
-          <Layout
+          <PortfolioLayout
             {...props}
             showNav={showNav}
             siteTitle={data.site.title}
@@ -41,4 +41,4 @@ function LayoutContainer(props) {
   );
 }
 
-export default LayoutContainer;
+export default PortfolioLayoutContainer;

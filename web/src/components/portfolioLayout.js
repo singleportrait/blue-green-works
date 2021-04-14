@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "./header";
 
-import "../styles/layout.css";
-import * as styles from "./layout.module.css";
+import "../styles/portfolioLayout.css";
+import * as styles from "./portfolioLayout.module.css";
 
-const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
+const PortfolioLayout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
     <div className={styles.content}>{children}</div>
@@ -20,4 +20,4 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   </>
 );
 
-export default Layout;
+export default PortfolioLayout;
