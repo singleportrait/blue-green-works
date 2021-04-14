@@ -20,13 +20,13 @@ export default {
                 {
                   buildHookId: '60762c1774eee51314ae8445',
                   title: 'Sanity Studio',
-                  name: 'sanity-gatsby-portfolio-studio-cxhvv8o9',
+                  name: 'blue-green-works-studio',
                   apiId: '0d9228cb-a2d5-4d94-abc1-110d11474e6c'
                 },
                 {
                   buildHookId: '60762c18546dc6128a477380',
-                  title: 'Portfolio Website',
-                  name: 'sanity-gatsby-portfolio-web-upo7qbx8',
+                  title: 'Website',
+                  name: 'blue-green-works-web',
                   apiId: '5bb61685-1db2-4ae9-a6e8-5aeafb7dcc09'
                 }
               ]
@@ -41,7 +41,7 @@ export default {
           },
           {
             title: 'Frontend',
-            value: 'https://sanity-gatsby-portfolio-web-upo7qbx8.netlify.app',
+            value: 'https://blue-green-works-web.netlify.app',
             category: 'apps'
           }
         ]

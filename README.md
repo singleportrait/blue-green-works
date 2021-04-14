@@ -1,6 +1,6 @@
-# sanity-gatsby-portfolio
+# blue-green-works-studio
 
-A portfolio using structured content and a static site builder.
+A portfolio using structured content and a static site builder. Built from sanity-gatsby-portfolio
 
 Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-io%2Fsanity-template-gatsby-portfolio).
 
