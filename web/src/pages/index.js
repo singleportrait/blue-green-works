@@ -1,15 +1,20 @@
 import React from "react";
 import { graphql } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../lib/helpers";
+import { useMediaQuery } from 'react-responsive';
+// import {
+//   mapEdgesToNodes,
+//   filterOutDocsWithoutSlugs,
+//   filterOutDocsPublishedInTheFuture
+// } from "../lib/helpers";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
-import ProjectPreviewGrid from "../components/project-preview-grid";
+// import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
-import PortfolioLayout from "../containers/portfolioLayout";
+import Layout from "../containers/layout";
+import logo from '../images/blueGreenWorksComingSoon.svg';
+import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
+
+import * as styles from './index.module.css';
 
 export const query = graphql`
   query IndexPageQuery {
@@ -19,49 +24,13 @@ export const query = graphql`
       description
       keywords
     }
-    projects: allSanitySampleProject(
-      limit: 6
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-    ) {
-      edges {
-        node {
-          id
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
   }
 `;
 
 const IndexPage = props => {
   const { data, errors } = props;
+
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
   if (errors) {
     return (
@@ -72,11 +41,11 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site;
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
-    : [];
+  // const projectNodes = (data || {}).projects
+  //   ? mapEdgesToNodes(data.projects)
+  //       .filter(filterOutDocsWithoutSlugs)
+  //       .filter(filterOutDocsPublishedInTheFuture)
+  //   : [];
 
   if (!site) {
     throw new Error(
@@ -85,20 +54,20 @@ const IndexPage = props => {
   }
 
   return (
-    <PortfolioLayout>
+    <Layout fullPage>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <h1>Welcome to {site.title}</h1>
-        <p>{site.subtitle}</p>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title="Latest projects"
-            nodes={projectNodes}
-            browseMoreHref="/archive/"
-          />
-        )}
-      </Container>
-    </PortfolioLayout>
+      {/* <Container> */}
+      { isTabletOrMobile && <img src={narrowLogo} alt="Logo" /> }
+      { !isTabletOrMobile && <img src={logo} alt="Logo" className={styles.logo} /> }
+        {/* {projectNodes && ( */}
+        {/*   <ProjectPreviewGrid */}
+        {/*     title="Latest projects" */}
+        {/*     nodes={projectNodes} */}
+        {/*     browseMoreHref="/archive/" */}
+        {/*   /> */}
+        {/* )} */}
+      {/* </Container> */}
+    </Layout>
   );
 };
 

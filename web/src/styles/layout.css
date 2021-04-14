@@ -1,0 +1,10 @@
+@import './variables.css';
+
+html {
+  background-color: var(--bg-color);
+}
+
+/* Temporary override */
+body {
+  background-color: var(--bg-color);
+}
