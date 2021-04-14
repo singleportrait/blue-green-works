@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useMediaQuery } from 'react-responsive';
 // import {
 //   mapEdgesToNodes,
 //   filterOutDocsWithoutSlugs,
@@ -30,8 +29,6 @@ export const query = graphql`
 const IndexPage = props => {
   const { data, errors } = props;
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-
   if (errors) {
     return (
       <PortfolioLayout>
@@ -57,8 +54,8 @@ const IndexPage = props => {
     <Layout fullPage>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       {/* <Container> */}
-      { isTabletOrMobile && <img src={narrowLogo} alt="Logo" /> }
-      { !isTabletOrMobile && <img src={logo} alt="Logo" className={styles.logo} /> }
+      <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
+      <img src={logo} alt="Logo" className={styles.logo} />
         {/* {projectNodes && ( */}
         {/*   <ProjectPreviewGrid */}
         {/*     title="Latest projects" */}
