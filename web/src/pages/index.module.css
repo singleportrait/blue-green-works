@@ -1,11 +1,11 @@
 .logo {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1100px) {
     display: none;
   }
 }
 
 .narrowLogo {
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1101px) {
     display: none;
   }
 }
