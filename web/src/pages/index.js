@@ -12,6 +12,8 @@ import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import logo from '../images/blueGreenWorksComingSoon.svg';
 import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
+import instagram from '../images/instagram.svg';
+import email from '../images/email.svg';
 import { cn } from "../lib/helpers";
 
 import * as styles from './index.module.css';
@@ -61,11 +63,11 @@ const IndexPage = props => {
         <img src={logo} alt="Logo" className={styles.logo} />
       </div>
       <div className={styles.linkContainer}>
-        <a href="http://instagram.com/bluegreenworks" target="_blank" rel="noopener noreferrer" className={cn(styles.link, styles.instagramLink)}>
-          @bluegreenworks
+        <a href="http://instagram.com/bluegreenworks" target="_blank" rel="noopener noreferrer" className={styles.link}>
+          <img src={instagram} alt="Instagram Link" className={styles.linkImage} />
         </a>
         <a href="mailto:info@bluegreenworks.com" target="_blank" rel="noopener noreferrer" className={cn(styles.link, styles.emailLink)}>
-          info@bluegreenworks.com
+          <img src={email} alt="Email Link" className={styles.linkImage} />
         </a>
       </div>
         {/* {projectNodes && ( */}
