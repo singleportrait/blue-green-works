@@ -41,7 +41,7 @@ export default {
           },
           {
             title: 'Frontend',
-            value: 'https://blue-green-works-web.netlify.app',
+            value: 'https://www.bluegreenworks.com/',
             category: 'apps'
           }
         ]

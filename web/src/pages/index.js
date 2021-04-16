@@ -62,7 +62,7 @@ const IndexPage = props => {
         <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
         <img src={logo} alt="Logo" className={styles.logo} />
       </div>
-      <div className={styles.linkContainer}>
+      <div>
         <a href="http://instagram.com/bluegreenworks" target="_blank" rel="noopener noreferrer" className={styles.link}>
           <img src={instagram} alt="Instagram Link" className={styles.linkImage} />
         </a>

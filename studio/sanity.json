@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "Portfolio with Gatsby"
+    "name": "Blue Green Works - Studio"
   },
   "api": {
     "projectId": "hontxz4x",
@@ -16,7 +16,8 @@
     "@sanity/desk-tool",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
-    "dashboard-widget-netlify"
+    "dashboard-widget-netlify",
+    "@sanity/vision"
   ],
   "parts": [
     {
