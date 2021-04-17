@@ -1,0 +1,10 @@
+h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 36px;
+}

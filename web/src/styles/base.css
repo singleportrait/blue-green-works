@@ -1,0 +1,33 @@
+@import './reset.css';
+@import './fonts.css';
+@import './variables.css';
+
+@import './typography.css';
+
+html {
+  background-color: var(--bg-color);
+  font-family: var(--sans);
+}
+
+/* Temporary override */
+body {
+  background-color: var(--bg-color);
+  line-height: 1.4;
+}
+
+a, a:visited, a:hover {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+hr {
+  border-top: 2px solid var(--dark-color);
+}
+
+.paddingTop {
+  padding-top: var(--padding);
+}
+
+.largePaddingTop {
+  padding-top: var(--large-padding);
+}

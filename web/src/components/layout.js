@@ -1,9 +1,8 @@
 import React from "react";
 // import Header from "./header";
 
-import "../styles/reset.css";
-import "../styles/fonts.css";
-import "../styles/layout.css";
+import "../styles/base.css";
+
 import * as styles from './layout.module.css';
 
 // import "../styles/portfolioLayout.css";

@@ -1,0 +1,50 @@
+@import '../styles/customMedia.css';
+
+.headerLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  @media (--media-max-large) {
+    display: none;
+  }
+}
+
+.narrowLogo {
+  @media (--media-min-large) {
+    display: none;
+  }
+}
+
+.headerImageContainer {
+  width: 100%;
+}
+
+.headerImage {
+  display: block;
+  width: 100%;
+}
+
+.smallLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.series {
+  display: flex;
+}
+
+.seriesImages {
+  display: flex;
+  flex-basis: 66%;
+}
+
+.seriesText {
+  flex-basis: 33%;
+}
+
+.seriesImage {
+  margin-right: var(--padding);
+}

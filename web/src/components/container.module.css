@@ -1,12 +1,12 @@
-@import '../styles/custom-media.css';
+@import '../styles/customMedia.css';
 
-.root {
+.container {
   box-sizing: border-box;
-  max-width: 960px;
-  padding: 1.5em;
+  max-width: var(--page-max-width);
+  padding: var(--large-padding);
   margin: 0 auto;
 
-  @media (--media-min-small) {
-    padding: 2em;
+  @media (--media-max-medium) {
+    padding: var(--mobile-padding);
   }
 }
