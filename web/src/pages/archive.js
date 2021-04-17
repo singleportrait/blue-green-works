@@ -20,8 +20,10 @@ export const query = graphql`
         node {
           id
           mainImage {
-            asset {
-              _id
+            image {
+              asset {
+                _id
+              }
             }
             alt
           }

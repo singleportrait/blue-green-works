@@ -14,7 +14,7 @@ function RoleList({ items, title }) {
           <li key={item._key} className={styles.listItem}>
             <div>
               <div className={styles.avatar}>
-                {item.person && item.person.image && item.person.image.asset && (
+                {item.person && item.person.image && item.person.image.image && item.person.image.asset && (
                   <img
                     src={imageUrlFor(buildImageObj(item.person.image))
                       .width(100)

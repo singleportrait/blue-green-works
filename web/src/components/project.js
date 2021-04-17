@@ -13,7 +13,7 @@ function Project(props) {
   const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props;
   return (
     <article className={styles.root}>
-      {props.mainImage && mainImage.asset && (
+      {props.mainImage && mainImage.image && mainImage.image.asset && (
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))

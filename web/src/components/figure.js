@@ -6,11 +6,11 @@ import clientConfig from "../../client-config";
 import * as styles from "./figure.module.css";
 
 export function Figure({ node }) {
-  if (!node.asset) {
+  if (!node.image.asset) {
     return null;
   }
 
-  const imageData = getGatsbyImageData(node.asset, { maxWidth: 675 }, clientConfig.sanity);
+  const imageData = getGatsbyImageData(node.image.asset, { maxWidth: 675 }, clientConfig.sanity);
 
   return (
     <figure className={styles.root}>

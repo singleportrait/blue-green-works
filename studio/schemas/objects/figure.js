@@ -1,11 +1,17 @@
 export default {
   name: 'figure',
   title: 'Image',
-  type: 'image',
-  options: {
-    hotspot: true
-  },
+  type: 'object',
   fields: [
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      validation: Rule => Rule.error('You must add an image').required(),
+      options: {
+        hotspot: true
+      },
+    },
     {
       title: 'Caption',
       name: 'caption',
@@ -27,7 +33,7 @@ export default {
   ],
   preview: {
     select: {
-      imageUrl: 'asset.url',
+      imageUrl: 'image.asset.url',
       title: 'caption'
     }
   }
