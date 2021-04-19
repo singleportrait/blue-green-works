@@ -23,7 +23,7 @@ export function getBlogUrl(publishedAt, slug) {
 
 export function buildImageObj(source) {
   const imageObj = {
-    asset: { _ref: source.asset._ref || source.asset._id }
+    asset: { _ref: source._ref || source._id }
   };
 
   if (source.crop) imageObj.crop = source.crop;
