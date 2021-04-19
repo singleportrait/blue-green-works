@@ -88,11 +88,11 @@
 
       @media (--max-large) {
         grid-column: 5 / span 8;
+      }
 
-        @media (--max-medium) {
-          grid-column: 1 / span 4;
-          grid-row: 2 / span 1;
-        }
+      @media (--max-medium) {
+        grid-column: 1 / span 4;
+        grid-row: 2 / span 1;
       }
     }
 
