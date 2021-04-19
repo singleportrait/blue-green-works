@@ -1,3 +1,5 @@
+const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
 export default {
   name: 'siteSettings',
   type: 'document',
@@ -15,11 +17,6 @@ export default {
       title: 'Title'
     },
     {
-      name: 'subtitle',
-      type: 'string',
-      title: 'Subtitle',
-    },
-    {
       name: 'description',
       type: 'text',
       title: 'Description',
@@ -34,6 +31,23 @@ export default {
       options: {
         layout: 'tags'
       }
+    },
+    {
+      name: 'email',
+      type: 'string',
+      title: 'Contact Email',
+      validation: Rule => Rule.regex(emailRegex, {name: 'email'})
+    },
+    {
+      name: 'instagram',
+      type: 'url',
+      title: 'Instagram URL',
+    },
+    {
+      name: 'footer',
+      type: 'siteFooter',
+      title: 'Site Footer',
+      description: 'Use shift+enter to make 1 line break, and enter to make a paragraph break'
     },
     {
       name: 'author',

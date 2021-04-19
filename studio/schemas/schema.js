@@ -21,6 +21,7 @@ import simplePortableText from './objects/simplePortableText'
 import figure from './objects/figure'
 import homepageSeries from './objects/homepageSeries'
 import tearSheet from './objects/tearSheet'
+import siteFooter from './objects/siteFooter'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -47,5 +48,6 @@ export default createSchema({
 
     homepageSeries,
     tearSheet,
+    siteFooter,
   ])
 })

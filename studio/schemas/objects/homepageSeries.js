@@ -18,6 +18,7 @@ export default {
       type: 'array',
       title: 'Images',
       of: [{ type: 'figure' }],
+      validation: Rule => Rule.error('You must have between 1 and 4 images').min(1).max(4)
     },
     {
       name: 'tearSheets',
