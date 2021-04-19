@@ -165,6 +165,7 @@
   height: 1rem;
   padding-top: .5rem;
   color: var(--accent-color);
+  -webkit-font-smoothing: antialiased;
 
   @media (--max-medium) {
     display: none;
@@ -183,4 +184,5 @@
 
 .seriesText {
   color: var(--light-color);
+  -webkit-font-smoothing: antialiased;
 }
