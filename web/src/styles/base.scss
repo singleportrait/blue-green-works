@@ -12,6 +12,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Gatsby overrides */
+html,
+body,
+body > div,
+body > div > div {
+  height: 100%;
+}
+
 html {
   background-color: var(--bg-color);
   font-family: var(--sans);
