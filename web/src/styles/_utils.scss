@@ -1,0 +1,48 @@
+$amounts: (1: $spacing1x, 2: $spacing2x, 4: $spacing4x);
+$sides: (top, bottom, left, right);
+
+/*
+  .pl-1
+  .pl-2
+  .pl-4
+*/
+
+@each $amount, $space in $amounts {
+  .m-#{$amount} {
+    margin: #{$space} !important;
+  }
+
+  .p-#{$amount} {
+    margin: #{$space} !important;
+  }
+
+  .my-#{$amount} {
+    margin-top: #{$space} !important;
+    margin-bottom: #{$space} !important;
+  }
+
+  .py-#{$amount} {
+    margin-top: #{$space} !important;
+    margin-bottom: #{$space} !important;
+  }
+
+  .mx-#{$amount} {
+    margin-left: #{$space} !important;
+    margin-right: #{$space} !important;
+  }
+
+  .px-#{$amount} {
+    margin-left: #{$space} !important;
+    margin-right: #{$space} !important;
+  }
+
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$amount} {
+      margin-#{$side}: #{$space} !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$amount} {
+      padding-#{$side}: #{$space} !important;
+    }
+  }
+}

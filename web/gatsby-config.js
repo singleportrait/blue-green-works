@@ -15,6 +15,8 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-source-sanity',
       options: {

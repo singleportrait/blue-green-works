@@ -1,0 +1,19 @@
+:root {
+  --bg-color: #8A7342;
+  --sans: 'Standard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: 'Bodoni Moda', serif;
+  --dark-color: #{$darkColor};
+  --dark-color-barely-transparent: #{rgba($darkColor, 0.7)};
+  --dark-color-very-transparent: #{rgba($darkColor, 0.1)};
+  --light-color: #{$lightColor};
+  --accent-color: #{$accentColor};
+
+  --page-max-width: 1400px;
+
+  --spacing1x: #{$spacing1x};
+  --spacing2x: #{$spacing2x};
+  --spacing4x: #{$spacing4x};
+
+  --mobile-spacing1x: #{$mobileSpacing1x};
+  --mobile-spacing2x: #{$mobileSpacing2x};
+}

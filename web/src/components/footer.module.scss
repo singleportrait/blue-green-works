@@ -1,0 +1,58 @@
+@import '../styles/customMedia.css';
+@import '../styles/variableMixins';
+
+.footer {
+  position: relative;
+
+  @media (--max-medium) {
+    margin-bottom: var(--spacing1x);
+  }
+}
+
+.infoAndIcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.centeredFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (--max-medium) {
+    flex-direction: column;
+    padding-top: var(--spacing1x);
+  }
+
+  @media (--min-medium) {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+}
+
+.emailLabel {
+  @media (--max-medium) {
+    padding-bottom: var(--spacing1x);
+  }
+
+  @media (--min-medium) {
+    padding-right: var(--spacing1x);
+  }
+}
+
+.link {
+  padding: var(--spacing1x);
+  display: inline-block;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: -#{$spacing1x};
+}
+
+.linkImage {
+  display: block;
+  width: 100%;
+}

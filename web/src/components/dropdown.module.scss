@@ -1,0 +1,40 @@
+@import '../styles/customMedia.css';
+
+.dropdown {
+  position: relative;
+  margin-top: var(--spacing1x);
+  width: 100%;
+}
+
+.dropdownTrigger {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (--min-medium) {
+  .dropdownReversed {
+    flex-direction: row-reverse;
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: -2px;
+  z-index: 1;
+  border: 2px solid var(--dark-color);
+  background-color: var(--bg-color);
+}
+
+.dropdownMenuLink {
+  display: block;
+  padding: 0.6em 0.6em 0.5em;
+  transition: background-color .2s ease;
+
+  &:hover {
+    background-color: var(--dark-color-very-transparent);
+  }
+}

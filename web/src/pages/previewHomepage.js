@@ -2,29 +2,23 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-// import {
-//   mapEdgesToNodes,
-//   filterOutDocsWithoutSlugs,
-//   filterOutDocsPublishedInTheFuture
-// } from "../lib/helpers";
-import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
-// import ProjectPreviewGrid from "../components/project-preview-grid";
+import Container from "../components/container";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import Dropdown from '../components/dropdown';
 import logo from '../images/blueGreenWorksComingSoon.svg';
 import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
 import instagram from '../images/instagram.svg';
 import email from '../images/email.svg';
 import { cn } from "../lib/helpers";
 
-import * as styles from './previewHomepage.module.css';
+import * as styles from './previewHomepage.module.scss';
 
 export const query = graphql`
   query PreviewHomepagePageQuery {
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       title
-      subtitle
       description
       keywords
     }
@@ -49,21 +43,29 @@ export const query = graphql`
             asset {
               _id
               gatsbyImageData(fit: FILLMAX)
+              metadata {
+                dimensions {
+                  aspectRatio
+                }
+              }
             }
           }
           caption
           alt
         }
+        tearSheets {
+          _key
+          title
+          PDF {
+            asset {
+              url
+            }
+          }
+        }
       }
     }
   }
 `;
-
-const SmallLabel = props => {
-  return (
-    <span className={styles.smallLabel}>{props.children}</span>
-  );
-}
 
 const PreviewHomepagePage = props => {
   const { data, errors } = props;
@@ -85,6 +87,10 @@ const PreviewHomepagePage = props => {
     );
   }
 
+  const isEven = (i) => {
+    return (i % 2) !== 0;
+  }
+
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
@@ -93,29 +99,44 @@ const PreviewHomepagePage = props => {
           <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
           <img src={logo} alt="Logo" className={styles.logo} />
         </div>
-        <div className={cn(styles.headerImageContainer, 'largePaddingTop')}>
-          <GatsbyImage image={previewHomepage.headerImage.image.asset.gatsbyImageData} width={1400} height={500} alt={previewHomepage.headerImage.alt} className={styles.headerImage} />
+        <div className="mt-1 mb-2">
+          <GatsbyImage
+            image={previewHomepage.headerImage.image.asset.gatsbyImageData}
+            alt={previewHomepage.headerImage.alt}
+            className={styles.headerImageContainer}
+          />
         </div>
 
         <hr />
 
         {previewHomepage.series.map((series, i) =>
-          <div key={series._key} className={styles.series}>
+          <div key={series._key} className={cn(styles.series, 'my-2')}>
             <div className={styles.seriesImages}>
               {series.images.map((figure, i) =>
-                <div key={figure._key} className={styles.seriesImage}>
+                <div key={figure._key} className={styles.seriesImageContainer}>
                   { figure.image &&
-                    <GatsbyImage image={figure.image.asset.gatsbyImageData} alt={figure.alt} />
+                    <GatsbyImage
+                      image={figure.image.asset.gatsbyImageData}
+                      alt={figure.alt}
+                      className={styles.seriesImage}
+                      style={{display: 'block'}}
+                    />
                   }
-                  <SmallLabel>{figure.caption}</SmallLabel>
-                  {figure.alt}
-                  <hr />
+                  <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
+                    {figure.caption}
+                  </div>
                 </div>
               )}
             </div>
-            <div className={styles.seriesText}>
-              <h2>{series.title}</h2>
-              <p>{series.description}</p>
+            <div className={styles.seriesInfo}>
+              <div className={styles.seriesText}>
+                <h2>{series.title}</h2>
+                <p>{series.description}</p>
+              </div>
+              { series.tearSheets.length !== 0 &&
+                <Dropdown tearSheets={series.tearSheets} reversed={isEven(i)} />
+              }
+              <div className={styles.seriesImageCaptionSpacer}></div>
             </div>
           </div>
         )}

@@ -15,7 +15,6 @@ export const query = graphql`
   query PortfolioPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
-      subtitle
       description
       keywords
     }

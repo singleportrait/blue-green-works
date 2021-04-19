@@ -1,10 +1,23 @@
-h1 {
+h1, h2 {
   font-family: var(--serif);
   font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: var(--spacing1x);
+}
+
+h1 {
+  font-size: 36px;
 }
 
 h2 {
-  font-family: var(--serif);
-  font-weight: 500;
   font-size: 36px;
+}
+
+.label {
+  text-transform: uppercase;
+}
+
+.smallLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
 }

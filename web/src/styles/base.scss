@@ -1,0 +1,71 @@
+@import './customMedia.css';
+@import './reset.css';
+@import './fonts.css';
+
+@import './variableMixins';
+@import './rootVariables';
+
+@import './utils';
+@import './typography.css';
+
+html {
+  background-color: var(--bg-color);
+  font-family: var(--sans);
+  font-size: 16px;
+
+  @media (--max-medium) {
+    font-size: 15px;
+  }
+}
+
+/* Temporary override */
+body {
+  background-color: var(--bg-color);
+  line-height: 1.4;
+}
+
+a, a:visited, a:hover {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+hr {
+  border-top: 2px solid var(--dark-color);
+  margin: $spacing2x 0;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid var(--dark-color);
+  background-color: var(--dark-color);
+  padding: 0.6em 0.6em 0.5em;
+  transition: background-color .2s ease;
+  text-transform: uppercase;
+
+  &, &:visited, &:hover {
+    color: var(--bg-color);
+  }
+
+  &:hover {
+    background-color: var(--dark-color-barely-transparent);
+  }
+}
+
+.button--reversed {
+  background-color: var(--bg-color);
+
+  &, &:visited, &:hover {
+    color: var(--dark-color);
+  }
+
+  &:hover {
+    background-color: var(--dark-color-very-transparent);
+  }
+}
+
+.button--fullWidth {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}

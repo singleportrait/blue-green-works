@@ -1,7 +1,8 @@
 import React from "react";
 // import Header from "./header";
+import Footer from './footer';
 
-import "../styles/base.css";
+import "../styles/base.scss";
 
 import * as styles from './layout.module.css';
 
@@ -12,6 +13,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle, fullPage }
   <>
     {/* <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} /> */}
     <div className={fullPage && styles.fullpage}>{children}</div>
+    <Footer />
     {/* <footer className={styles.footer}> */}
     {/*   <div className={styles.footerWrapper}> */}
     {/*     <div className={styles.siteInfo}> */}
