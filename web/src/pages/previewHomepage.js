@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import GraphQLErrorList from "../components/graphql-error-list";
-import Container from "../components/container";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import Dropdown from '../components/dropdown';
@@ -25,6 +24,15 @@ export const query = graphql`
     previewHomepage: sanityPreviewHomepage(_id: { regex: "/(drafts.|)previewHomepage/" }) {
       title,
       headerImage {
+        image {
+          asset {
+            _id
+            gatsbyImageData(fit: FILLMAX)
+          }
+        }
+        alt
+      }
+      headerImageNarrow {
         image {
           asset {
             _id
@@ -94,53 +102,58 @@ const PreviewHomepagePage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <div className={styles.headerLink}>
-          <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
-          <img src={logo} alt="Logo" className={styles.logo} />
-        </div>
-        <div className="mt-1 mb-2">
-          <GatsbyImage
-            image={previewHomepage.headerImage.image.asset.gatsbyImageData}
-            alt={previewHomepage.headerImage.alt}
-            className={styles.headerImageContainer}
-          />
-        </div>
+      <div className={styles.headerLink}>
+        <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
+        <img src={logo} alt="Logo" className={styles.logo} />
+      </div>
+      <div className="mt-1 mb-2">
+        <GatsbyImage
+          image={previewHomepage.headerImage.image.asset.gatsbyImageData}
+          alt={previewHomepage.headerImage.alt}
+          className={cn(styles.headerImageContainer, styles.headerImageWide)}
+          style={{display: 'block'}}
+        />
+        <GatsbyImage
+          image={previewHomepage.headerImageNarrow.image.asset.gatsbyImageData}
+          alt={previewHomepage.headerImageNarrow.alt}
+          className={cn(styles.headerImageContainer, styles.headerImageNarrow)}
+          style={{display: 'block'}}
+        />
+      </div>
 
-        <hr />
+      <hr />
 
-        {previewHomepage.series.map((series, i) =>
-          <div key={series._key} className={cn(styles.series, 'my-2')}>
-            <div className={styles.seriesImages}>
-              {series.images.map((figure, i) =>
-                <div key={figure._key} className={styles.seriesImageContainer}>
-                  { figure.image &&
-                    <GatsbyImage
-                      image={figure.image.asset.gatsbyImageData}
-                      alt={figure.alt}
-                      className={styles.seriesImage}
-                      style={{display: 'block'}}
-                    />
-                  }
-                  <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
-                    {figure.caption}
-                  </div>
+      {previewHomepage.series.map((series, i) =>
+        <div key={series._key} className={cn(styles.series, 'my-2')}>
+          <div className={styles.seriesImages}>
+            {series.images.map((figure, i) =>
+              <div key={figure._key} className={styles.seriesImageContainer}>
+                { figure.image &&
+                  <GatsbyImage
+                    image={figure.image.asset.gatsbyImageData}
+                    alt={figure.alt}
+                    className={styles.seriesImage}
+                    style={{display: 'block'}}
+                  />
+                }
+                <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
+                  {figure.caption}
                 </div>
-              )}
-            </div>
-            <div className={styles.seriesInfo}>
-              <div className={styles.seriesText}>
-                <h2>{series.title}</h2>
-                <p>{series.description}</p>
               </div>
-              { series.tearSheets.length !== 0 &&
-                <Dropdown tearSheets={series.tearSheets} reversed={isEven(i)} />
-              }
-              <div className={styles.seriesImageCaptionSpacer}></div>
-            </div>
+            )}
           </div>
-        )}
-      </Container>
+          <div className={styles.seriesInfo}>
+            <div className={styles.seriesText}>
+              <h2>{series.title}</h2>
+              <p>{series.description}</p>
+            </div>
+            { series.tearSheets.length !== 0 &&
+              <Dropdown tearSheets={series.tearSheets} reversed={isEven(i)} />
+            }
+            <div className={styles.seriesImageCaptionSpacer}></div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };

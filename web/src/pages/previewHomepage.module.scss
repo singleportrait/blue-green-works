@@ -20,7 +20,19 @@
 
 .headerImageContainer {
   width: 100%;
-  height: 80vh;
+  height: 78vh;
+}
+
+.headerImageWide {
+  @media (--max-medium) {
+    display: none !important;
+  }
+}
+
+.headerImageNarrow {
+  @media (--min-medium) {
+    display: none !important;
+  }
 }
 
 .series {
@@ -41,6 +53,10 @@
       grid-row: 1;
     }
 
+    @media (--max-large) {
+      grid-column: 1 / span 8;
+    }
+
     @media (--max-medium) {
       grid-column: 1 / span 4;
       grid-row: 2 / span 1;
@@ -53,6 +69,10 @@
       grid-row: 1;
     }
 
+    @media (--max-large) {
+      grid-column: 9 / span 4;
+    }
+
     @media (--max-medium) {
       grid-column: 1 / span 4;
       grid-row: 1 / span 1;
@@ -61,14 +81,34 @@
 
   /* Swap Series even & odd layouts on desktop */
   &:nth-child(odd) {
-    @media (--min-medium) {
-      div:first-child {
+    > div:first-child {
+      @media (--min-medium) {
         grid-column: 4 / span 9;
       }
 
-      div:nth-child(2) {
+      @media (--max-large) {
+        grid-column: 5 / span 8;
+
+        @media (--max-medium) {
+          grid-column: 1 / span 4;
+          grid-row: 2 / span 1;
+        }
+      }
+    }
+
+    > div:nth-child(2) {
+      @media (--min-medium) {
         grid-column: 1 / span 3;
         text-align: right;
+      }
+
+      @media (--max-large) {
+        grid-column: 1 / span 4;
+      }
+
+      @media (--max-medium) {
+        grid-column: 1 / span 4;
+        grid-row: 1 / span 1;
       }
     }
   }
@@ -76,6 +116,21 @@
 
 .seriesImages {
   display: flex;
+
+  /* Show images in a 2x2 grid on medium screens */
+  @media (--max-large) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: var(--spacing1x);
+  }
+
+  /* And full width on narrow screens */
+  @media (--max-medium) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+  }
 }
 
 .seriesImageContainer {
@@ -83,12 +138,27 @@
 
   &:last-child {
     margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  @media (--max-large) {
+    margin-right: 0;
+    margin-bottom: var(--mobile-spacing1x);
   }
 }
 
 .seriesImage {
   /* height: 50vh; */
   height: 29vw;
+
+  @media (--max-large) {
+    height: 38vw;
+  }
+
+  @media (--max-medium) {
+    // height: 60vw;
+    height: 80vw;
+  }
 }
 
 .seriesImageCaptionSpacer {
@@ -105,6 +175,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  @media (--max-large) {
+    justify-content: flex-start;
+  }
 }
 
 .seriesText {

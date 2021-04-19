@@ -2,7 +2,6 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { cn } from '../lib/helpers';
 
-import Container from './container';
 import BlockContent from './block-content';
 import Button from './button';
 import instagram from '../images/instagram.svg';
@@ -23,7 +22,7 @@ const footerQuery = graphql`
 
 const Footer = () => {
   return (
-    <Container>
+    <>
       <hr />
       <StaticQuery
         query={footerQuery}
@@ -56,7 +55,7 @@ const Footer = () => {
           )
         }}
       />
-    </Container>
+    </>
   );
 }
 

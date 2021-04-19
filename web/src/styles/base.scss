@@ -8,6 +8,10 @@
 @import './utils';
 @import './typography.css';
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
   background-color: var(--bg-color);
   font-family: var(--sans);

@@ -16,7 +16,12 @@ export default {
     },
     {
       name: 'headerImage',
-      title: 'Header Image',
+      title: 'Header Image - Horizontal',
+      type: 'figure',
+    },
+    {
+      name: 'headerImageNarrow',
+      title: 'Header Image - Vertical',
       type: 'figure',
     },
     {
