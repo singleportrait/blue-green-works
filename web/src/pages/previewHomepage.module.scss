@@ -80,7 +80,7 @@
   }
 
   /* Swap Series even & odd layouts on desktop */
-  &:nth-child(odd) {
+  &:nth-child(even) {
     > div:first-child {
       @media (--min-medium) {
         grid-column: 4 / span 9;
@@ -111,6 +111,15 @@
         grid-row: 1 / span 1;
       }
     }
+  }
+}
+
+.divider {
+  grid-column-start: 1;
+  grid-column-end: -1;
+
+  @media (--min-large) {
+    display: none;
   }
 }
 

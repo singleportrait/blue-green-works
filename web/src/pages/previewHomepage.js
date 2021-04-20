@@ -119,37 +119,42 @@ const PreviewHomepagePage = props => {
 
       <hr />
 
-      {previewHomepage.series.map((series, i) =>
-        <div key={series._key} className={cn(styles.series, 'my-2')}>
-          <div className={styles.seriesImages}>
-            {series.images.map((figure, i) =>
-              <div key={figure._key} className={styles.seriesImageContainer}>
-                { figure.image &&
-                  <GatsbyImage
-                    image={figure.image.asset.gatsbyImageData}
-                    alt={figure.alt}
-                    className={styles.seriesImage}
-                    style={{display: 'block'}}
-                  />
-                }
-                <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
-                  {figure.caption}
+      <div>
+        {previewHomepage.series.map((series, i) =>
+          <div key={series._key} className={cn(styles.series, 'my-2')}>
+            <div className={styles.seriesImages}>
+              {series.images.map((figure, i) =>
+                <div key={figure._key} className={styles.seriesImageContainer}>
+                  { figure.image &&
+                    <GatsbyImage
+                      image={figure.image.asset.gatsbyImageData}
+                      alt={figure.alt}
+                      className={styles.seriesImage}
+                      style={{display: 'block'}}
+                    />
+                  }
+                  <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
+                    {figure.caption}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-          <div className={styles.seriesInfo}>
-            <div className={styles.seriesText}>
-              <h2>{series.title}</h2>
-              <p>{series.description}</p>
+              )}
             </div>
-            { series.tearSheets.length !== 0 &&
-              <Dropdown tearSheets={series.tearSheets} reversed={isEven(i)} />
+            <div className={styles.seriesInfo}>
+              <div className={styles.seriesText}>
+                <h2>{series.title}</h2>
+                <p>{series.description}</p>
+              </div>
+              { series.tearSheets.length !== 0 &&
+                <Dropdown tearSheets={series.tearSheets} reversed={isEven(i)} />
+              }
+              <div className={styles.seriesImageCaptionSpacer}></div>
+            </div>
+            { i !== (previewHomepage.series.length - 1) &&
+              <hr className={cn(styles.divider, 'my-0 mt-1')} />
             }
-            <div className={styles.seriesImageCaptionSpacer}></div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </Layout>
   );
 };
