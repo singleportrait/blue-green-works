@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #8A7342;
+  --bg-color: #{$bgColor};
   --sans: 'Standard', -apple-system, BlinkMacSystemFont, sans-serif;
   --serif: 'Bodoni Moda', serif;
   --dark-color: #{$darkColor};
