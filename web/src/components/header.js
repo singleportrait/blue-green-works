@@ -1,28 +1,22 @@
-import { Link } from "gatsby";
 import React from "react";
-import Icon from "./icon";
 import { cn } from "../lib/helpers";
 
-import * as styles from "./header.module.css";
+import Logo from './logo';
+import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
-  <div className={styles.root}>
-    <div className={styles.wrapper}>
-      <div className={styles.branding}>
-        <Link to="/">{siteTitle}</Link>
-      </div>
+import * as styles from "./header.module.scss";
 
-      <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-        <Icon symbol="hamburger" />
-      </button>
-
-      <nav className={cn(styles.nav, showNav && styles.showNav)}>
-        <ul>
-          <li>
-            <Link to="/archive/">Archive</Link>
-          </li>
-        </ul>
-      </nav>
+const Header = () => (
+  <div className={styles.header}>
+    <div className={cn(styles.text, 'label')}>
+      Coming Soon
+    </div>
+    <div className={styles.logoContainer}>
+      <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
+      <Logo className={styles.logo} />
+    </div>
+    <div className={cn(styles.text, 'label')}>
+      May 2021
     </div>
   </div>
 );

@@ -8,7 +8,7 @@
   --light-color: #{$lightColor};
   --accent-color: #{$accentColor};
 
-  --page-max-width: 1400px;
+  --page-max-width: #{$pageMaxWidth};
 
   --spacing1x: #{$spacing1x};
   --spacing2x: #{$spacing2x};

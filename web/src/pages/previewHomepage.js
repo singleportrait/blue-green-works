@@ -102,10 +102,6 @@ const PreviewHomepagePage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <div className={styles.headerLink}>
-        <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
-        <img src={logo} alt="Logo" className={styles.logo} />
-      </div>
       <div className="mt-1 mb-2">
         <GatsbyImage
           image={previewHomepage.headerImage.image.asset.gatsbyImageData}
