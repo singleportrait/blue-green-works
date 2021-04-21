@@ -31,7 +31,7 @@
 
 .dropdownMenuLink {
   display: block;
-  padding: 0.6em 0.6em 0.5em;
+  padding: var(--button-padding);
   transition: background-color .2s ease;
 
   &:hover {

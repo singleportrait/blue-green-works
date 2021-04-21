@@ -59,7 +59,7 @@ hr {
   cursor: pointer;
   border: 2px solid var(--dark-color);
   background-color: var(--dark-color);
-  padding: 0.6em 0.6em 0.5em;
+  padding: var(--button-padding);
   transition: background-color .2s ease;
   text-transform: uppercase;
 
