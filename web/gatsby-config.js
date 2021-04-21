@@ -17,6 +17,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
     'gatsby-plugin-emotion',
+    'gatsby-plugin-portal',
     {
       resolve: 'gatsby-source-sanity',
       options: {
