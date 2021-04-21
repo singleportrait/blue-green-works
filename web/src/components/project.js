@@ -16,7 +16,7 @@ function Project(props) {
       {props.mainImage && mainImage.image && mainImage.image.asset && (
         <div className={styles.mainImage}>
           <img
-            src={imageUrlFor(buildImageObj(mainImage))
+            src={imageUrlFor(buildImageObj(mainImage.image))
               .width(1200)
               .height(Math.floor((9 / 16) * 1200))
               .fit("crop")
