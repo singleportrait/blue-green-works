@@ -125,7 +125,7 @@ const PreviewHomepagePage = props => {
             <div className={styles.seriesImages}>
               {series.images.map((figure, i) =>
                 <div key={figure._key} className={styles.seriesImageContainer}>
-                  { figure.image &&
+                  { figure.image && figure.image.asset &&
                     <GatsbyImage
                       image={figure.image.asset.gatsbyImageData}
                       alt={figure.alt}
