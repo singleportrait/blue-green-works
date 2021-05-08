@@ -36,7 +36,7 @@ export default {
       name: 'email',
       type: 'string',
       title: 'Contact Email',
-      validation: Rule => Rule.regex(emailRegex, {name: 'email'})
+      validation: Rule => Rule.regex(emailRegex, {name: 'email'}).required()
     },
     {
       name: 'productContactText',

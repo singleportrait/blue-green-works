@@ -31,7 +31,8 @@ export default {
           return `${series.title} ${doc.title}`;
         },
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'description',

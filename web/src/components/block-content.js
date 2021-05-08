@@ -3,7 +3,7 @@ import React from "react";
 import clientConfig from "../../client-config";
 import serializers from "./serializers";
 
-const BlockContent = ({ blocks }) => (
+const BlockContent = ({ blocks = [] }) => (
   <BaseBlockContent blocks={blocks} serializers={serializers} {...clientConfig.sanity} />
 );
 
