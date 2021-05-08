@@ -12,6 +12,8 @@ import instagram from '../images/instagram.svg';
 import email from '../images/email.svg';
 import { cn } from "../lib/helpers";
 
+// import { offlineData } from '../offlineData/indexData';
+
 import * as styles from './previewHomepage.module.scss';
 
 export const query = graphql`
@@ -86,6 +88,8 @@ const IndexPage = props => {
     );
   }
 
+  // const site = (data || offlineData || {}).site;
+  // const previewHomepage = (data || offlineData || {}).previewHomepage;
   const site = (data || {}).site;
   const previewHomepage = (data || {}).previewHomepage;
 
