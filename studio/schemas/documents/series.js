@@ -1,12 +1,12 @@
 export default {
-  name: 'category',
+  name: 'series',
   type: 'document',
-  title: 'Category',
+  title: 'Series',
   fields: [
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Series Title'
     },
     {
       name: 'slug',
@@ -17,10 +17,5 @@ export default {
         maxLength: 96
       }
     },
-    {
-      name: 'description',
-      type: 'text',
-      title: 'Description - to be deprecated'
-    }
   ]
 }

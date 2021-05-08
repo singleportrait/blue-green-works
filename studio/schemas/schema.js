@@ -11,6 +11,9 @@ import sampleProject from './documents/sampleProject'
 
 import siteSettings from './documents/siteSettings'
 import previewHomepage from './documents/previewHomepage'
+import product from './documents/product'
+import option from './documents/option'
+import series from './documents/series'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -21,6 +24,7 @@ import simplePortableText from './objects/simplePortableText'
 import figure from './objects/figure'
 import homepageSeries from './objects/homepageSeries'
 import tearSheet from './objects/tearSheet'
+import optionOption from './objects/optionOption'
 import siteFooter from './objects/siteFooter'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -39,15 +43,19 @@ export default createSchema({
     simplePortableText,
     // The following are document types which will appear
     // in the studio.
-    category,
     person,
     sampleProject,
     siteSettings,
 
     previewHomepage,
+    product,
+    option,
+    series,
+    category,
 
     homepageSeries,
     tearSheet,
+    optionOption,
     siteFooter,
   ])
 })

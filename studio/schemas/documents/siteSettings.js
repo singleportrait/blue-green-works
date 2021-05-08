@@ -39,6 +39,12 @@ export default {
       validation: Rule => Rule.regex(emailRegex, {name: 'email'})
     },
     {
+      name: 'productContactText',
+      type: 'string',
+      title: 'Product Contact Button Text',
+      description: "If blank, this will fall back to 'Contact'"
+    },
+    {
       name: 'instagram',
       type: 'url',
       title: 'Instagram URL',
