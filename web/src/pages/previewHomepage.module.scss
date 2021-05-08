@@ -159,6 +159,7 @@
 .seriesImage {
   /* height: 50vh; */
   height: 29vw;
+  position: relative;
 
   @media (--max-large) {
     height: 38vw;
