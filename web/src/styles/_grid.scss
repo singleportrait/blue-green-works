@@ -1,0 +1,33 @@
+@import './customMedia.css';
+@import './variableMixins';
+
+$columns: 10;
+
+.row {
+  display: grid;
+
+  @media (--min-medium) {
+    grid-template-columns: repeat(#{$columns}, 1fr);
+    column-gap: $spacing1x;
+  }
+}
+
+$breakpoints: (md: --min-medium, lg: --min-large);
+
+$colStarts: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+$colSpans: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+@each $breakpoint, $breakpointVariable in $breakpoints {
+  @media (#{$breakpointVariable}) {
+    @each $colStart in $colStarts {
+      @each $colSpan in $colSpans {
+        @if ($colStart + $colSpan <= $columns + 1) {
+          .col-#{$breakpoint}-start-#{$colStart}-span-#{$colSpan} {
+            grid-column: #{$colStart} / span #{$colSpan};
+          }
+        }
+      }
+    }
+  }
+}
