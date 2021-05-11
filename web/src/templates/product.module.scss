@@ -1,0 +1,54 @@
+@import '../styles/variableMixins';
+@import '../styles/customMedia.css';
+
+$approxHeaderHeight: 9.79vh;
+$totalPadding: $spacing2 * 3;
+$headerPadding: $spacing2 * 2;
+$heightAboveProduct: calc(#{$approxHeaderHeight} + #{$headerPadding}px);
+$aboveTheFoldHeight: calc(100vh - #{$approxHeaderHeight} - #{$totalPadding}px);
+
+.product {
+  @media (--min-medium) {
+    margin-top: $spacing2x;
+    min-height: $aboveTheFoldHeight;
+  }
+}
+
+.productInfo {
+  @media (--min-medium) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: $aboveTheFoldHeight;
+    position: sticky;
+    top: $heightAboveProduct;
+  }
+}
+
+.lightText {
+  color: var(--light-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.description {
+  @media (--min-medium) {
+    text-align: right;
+  }
+}
+
+.image {
+  width: 100%;
+  display: block;
+
+  margin-bottom: $spacing2x;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.firstImage {
+  @media (--min-medium) {
+    height: $aboveTheFoldHeight;
+  }
+}
