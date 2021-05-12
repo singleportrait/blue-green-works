@@ -1,15 +1,13 @@
 @import '../styles/variableMixins';
 @import '../styles/customMedia.css';
 
-$approxHeaderHeight: 9.79vh;
 $totalPadding: $spacing2 * 3;
 $headerPadding: $spacing2 * 2;
-$heightAboveProduct: calc(#{$approxHeaderHeight} + #{$headerPadding}px);
-$aboveTheFoldHeight: calc(100vh - #{$approxHeaderHeight} - #{$totalPadding}px);
+$heightAboveProduct: calc(#{$desktopLogoHeight} + #{$headerPadding}px);
+$aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
 
 .product {
   @media (--min-medium) {
-    margin-top: $spacing2x;
     min-height: $aboveTheFoldHeight;
   }
 }
@@ -40,7 +38,7 @@ $aboveTheFoldHeight: calc(100vh - #{$approxHeaderHeight} - #{$totalPadding}px);
   width: 100%;
   display: block;
 
-  margin-bottom: $spacing2x;
+  margin-bottom: var(--spacing2x);
 
   &:last-child {
     margin-bottom: 0;
