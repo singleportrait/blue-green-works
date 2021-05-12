@@ -1,14 +1,16 @@
 import React from 'react';
 import { cn } from '../lib/helpers';
 
-const Button = ({text, link, targetBlank, reversed, fullWidth}) => {
+const Button = ({text, link, targetBlank, filled, fullWidth, light, className = ''}) => {
   return (
     <a
       href={link}
       className={cn(
         'button',
-        reversed && 'button--reversed',
-        fullWidth && 'button--fullWidth'
+        filled && 'button--filled',
+        fullWidth && 'button--fullWidth',
+        light && 'button--light',
+        className
       )}
       target={targetBlank && '_blank'}
       rel={targetBlank && 'noopener noreferrer'}

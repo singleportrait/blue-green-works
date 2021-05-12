@@ -3,10 +3,7 @@
 .container {
   box-sizing: border-box;
   max-width: var(--page-max-width);
-  padding: var(--spacing1x) var(--spacing2x) var(--spacing2x);
+  padding: 0 var(--spacing2x) var(--spacing2x);
   margin: 0 auto;
-
-  @media (--max-medium) {
-    padding: var(--mobile-spacing1x);
-  }
+  margin-top: calc(var(--logo-height) + var(--spacing2x) + var(--spacing2x));
 }

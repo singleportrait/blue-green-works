@@ -73,7 +73,7 @@ hr {
   }
 }
 
-.button--reversed {
+.button--filled {
   background-color: var(--bg-color);
 
   &, &:visited, &:hover {
@@ -82,6 +82,17 @@ hr {
 
   &:hover {
     background-color: var(--dark-color-very-transparent);
+  }
+}
+
+.button--light {
+  border-color: var(--light-color);
+  background-color: var(--light-color);
+  transition: none;
+
+  &:hover {
+    border-color: var(--dark-color);
+    background-color: var(--dark-color);
   }
 }
 

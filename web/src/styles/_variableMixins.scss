@@ -10,8 +10,15 @@ $accentColor: #ebe0c6;
 
 $pageMaxWidth: 1400px;
 
-$spacing1x: 20px;
-$spacing2x: 40px;
+$desktopLogoHeight: 8vh;
+$mobileLogoHeight: 9vh;
+
+$spacing1: 25;
+$spacing1x: #{$spacing1}px;
+
+$spacing2: 40;
+$spacing2x: #{$spacing2}px;
+
 $spacing4x: 80px;
 $mobileSpacing1x: 25px;
 $mobileSpacing2x: 50px;

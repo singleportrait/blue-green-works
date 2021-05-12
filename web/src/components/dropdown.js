@@ -31,7 +31,7 @@ const Dropdown = ({tearSheets, reversed}) => {
     <div ref={node} className={cn(styles.dropdown, 'label')}>
       <div
         className={cn(
-          'button button--reversed button--fullWidth',
+          'button button--filled button--fullWidth',
           styles.dropdownTrigger,
           reversed && styles.dropdownReversed
         )}

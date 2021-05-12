@@ -13,7 +13,7 @@ $sides: (top, bottom, left, right);
   }
 
   .p-#{$amount} {
-    margin: #{$space} !important;
+    padding: #{$space} !important;
   }
 
   .my-#{$amount} {
@@ -22,8 +22,8 @@ $sides: (top, bottom, left, right);
   }
 
   .py-#{$amount} {
-    margin-top: #{$space} !important;
-    margin-bottom: #{$space} !important;
+    padding-top: #{$space} !important;
+    padding-bottom: #{$space} !important;
   }
 
   .mx-#{$amount} {
@@ -32,8 +32,8 @@ $sides: (top, bottom, left, right);
   }
 
   .px-#{$amount} {
-    margin-left: #{$space} !important;
-    margin-right: #{$space} !important;
+    padding-left: #{$space} !important;
+    padding-right: #{$space} !important;
   }
 
   @each $side in $sides {

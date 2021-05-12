@@ -10,7 +10,7 @@
 
   --page-max-width: #{$pageMaxWidth};
 
-  --button-padding: 0.5em 0.5em 0.4em;
+  --button-padding: 0.4em 0.4em 0.2em;
 
   --spacing1x: #{$spacing1x};
   --spacing2x: #{$spacing2x};
@@ -18,4 +18,16 @@
 
   --mobile-spacing1x: #{$mobileSpacing1x};
   --mobile-spacing2x: #{$mobileSpacing2x};
+
+  --logo-height: #{$desktopLogoHeight};
+}
+
+@media (--max-medium) {
+  :root {
+    --spacing1x: #{$mobileSpacing1x};
+    --spacing2x: #{$mobileSpacing1x};
+    --spacing4x: #{$mobileSpacing2x};
+
+    --logo-height: #{$mobileLogoHeight};
+  }
 }
