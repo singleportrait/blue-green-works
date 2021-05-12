@@ -29,7 +29,7 @@ async function createProductPages (graphql, actions) {
   productEdges.forEach(edge => {
     const id = edge.node.id;
     const slug = edge.node.slug.current;
-    const path = `/product/${slug}`;
+    const path = `/products/${slug}`;
 
     createPage({
       path: path,
