@@ -108,7 +108,11 @@ const ProductTemplate = props => {
           styles.description
         )}>
           <div className={styles.lightText}>
-            <h2>{ product.series.title } <br />{product.title}</h2>
+            <h2>
+              { product.series && product.series.title }
+              <br />
+              { product.title }
+            </h2>
             { product._rawDescription &&
               <BlockContent blocks={product._rawDescription || []} />
             }

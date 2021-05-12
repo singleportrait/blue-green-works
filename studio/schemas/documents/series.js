@@ -6,7 +6,8 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Series Title'
+      title: 'Series Title',
+      validation: Rule => Rule.required()
     },
     {
       name: 'description',
