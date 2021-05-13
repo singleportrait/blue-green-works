@@ -56,11 +56,29 @@ export const query = graphql`
           slug {
             current
           }
-          firstImage {
+          firstImageNarrow {
             image {
+              crop {
+                _key
+                _type
+                top
+                bottom
+                left
+                right
+              }
               asset {
                 _id
-                gatsbyImageData(fit: FILLMAX)
+                url
+                metadata {
+                  dimensions {
+                    aspectRatio
+                  }
+                  palette {
+                    dominant {
+                      foreground
+                    }
+                  }
+                }
               }
             }
             alt
@@ -125,15 +143,12 @@ const PreviewHomepagePage = props => {
                 <React.Fragment key={product && product._id}>
                   { product &&
                     <Link className={styles.seriesImageContainer} to={`/products/${product.slug.current}`}>
-                      { product.firstImage && product.firstImage.image.asset &&
-                        <div>
-                          <GatsbyImage
-                            image={product.firstImage.image.asset.gatsbyImageData}
-                            alt={product.firstImage.alt}
-                            className={styles.seriesImage}
-                            style={{display: 'block'}}
-                          />
-                        </div>
+                      { product.firstImageNarrow && product.firstImageNarrow.image.asset &&
+                        <SanityImage
+                          image={product.firstImageNarrow.image}
+                          alt={product.firstImageNarrow.alt}
+                          className={styles.seriesImage}
+                        />
                       }
                       <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
                         { series.series.title } { product.title }
