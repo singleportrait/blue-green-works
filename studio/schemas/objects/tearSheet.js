@@ -7,13 +7,13 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => Rule.error('The title is required!').required()
+      // validation: Rule => Rule.error('The title is required!').required()
     },
     {
       name: 'PDF',
       title: 'PDF Tear Sheet',
       type: 'file',
-      validation: Rule => Rule.error('The file is required!').required(),
+      // validation: Rule => Rule.error('The file is required!').required(),
       options: {
         accept: '.pdf',
       },
