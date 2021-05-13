@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { Link } from "gatsby";
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -21,7 +22,7 @@ export const query = graphql`
       description
       keywords
     }
-    previewHomepage: sanityPreviewHomepage(_id: { regex: "/(drafts.|)previewHomepage/" }) {
+    homepage: sanityHomepage(_id: { regex: "/(drafts.|)homepage/" }) {
       title,
       headerImage {
         image {
@@ -41,33 +42,27 @@ export const query = graphql`
         }
         alt
       }
-      series {
+      seriesHighlights {
         _key
-        title
-        description
-        images {
-          _key
-          image {
-            asset {
-              _id
-              gatsbyImageData(fit: FILLMAX)
-              metadata {
-                dimensions {
-                  aspectRatio
-                }
-              }
-            }
-          }
-          caption
-          alt
-        }
-        tearSheets {
+        series {
           _key
           title
-          PDF {
-            asset {
-              url
+          description
+        }
+        products {
+          _id
+          title
+          slug {
+            current
+          }
+          firstImage {
+            image {
+              asset {
+                _id
+                gatsbyImageData(fit: FILLMAX)
+              }
             }
+            alt
           }
         }
       }
@@ -87,7 +82,9 @@ const PreviewHomepagePage = props => {
   }
 
   const site = (data || {}).site;
-  const previewHomepage = (data || {}).previewHomepage;
+  const homepage = (data || {}).homepage;
+
+  // console.log(homepage);
 
   if (!site) {
     throw new Error(
@@ -100,18 +97,18 @@ const PreviewHomepagePage = props => {
   }
 
   return (
-    <Layout previewHeader>
+    <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <div className="mt-1 mb-2">
         <GatsbyImage
-          image={previewHomepage.headerImage.image.asset.gatsbyImageData}
-          alt={previewHomepage.headerImage.alt}
+          image={homepage.headerImage.image.asset.gatsbyImageData}
+          alt={homepage.headerImage.alt}
           className={cn(styles.headerImageContainer, styles.headerImageWide)}
           style={{display: 'block'}}
         />
         <GatsbyImage
-          image={previewHomepage.headerImageNarrow.image.asset.gatsbyImageData}
-          alt={previewHomepage.headerImageNarrow.alt}
+          image={homepage.headerImageNarrow.image.asset.gatsbyImageData}
+          alt={homepage.headerImageNarrow.alt}
           className={cn(styles.headerImageContainer, styles.headerImageNarrow)}
           style={{display: 'block'}}
         />
@@ -120,36 +117,39 @@ const PreviewHomepagePage = props => {
       <hr />
 
       <div>
-        {previewHomepage.series.map((series, i) =>
+        {homepage.seriesHighlights && homepage.seriesHighlights.map((series, i) =>
           <div key={series._key} className={cn(styles.series, 'my-2')}>
             <div className={styles.seriesImages}>
-              {series.images.map((figure, i) =>
-                <div key={figure._key} className={styles.seriesImageContainer}>
-                  { figure.image && figure.image.asset &&
-                    <GatsbyImage
-                      image={figure.image.asset.gatsbyImageData}
-                      alt={figure.alt}
-                      className={styles.seriesImage}
-                      style={{display: 'block'}}
-                    />
+              {series.products && series.products.map((product, i) =>
+                <React.Fragment key={product && product._id}>
+                  { product &&
+                    <Link className={styles.seriesImageContainer} to={`/products/${product.slug.current}`}>
+                      { product.firstImage && product.firstImage.image.asset &&
+                        <div>
+                          <GatsbyImage
+                            image={product.firstImage.image.asset.gatsbyImageData}
+                            alt={product.firstImage.alt}
+                            className={styles.seriesImage}
+                            style={{display: 'block'}}
+                          />
+                        </div>
+                      }
+                      <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
+                        { series.series.title } { product.title }
+                      </div>
+                    </Link>
                   }
-                  <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
-                    {figure.caption}
-                  </div>
-                </div>
+                </React.Fragment>
               )}
             </div>
             <div className={styles.seriesInfo}>
               <div className={styles.seriesText}>
-                <h2>{series.title}</h2>
-                <p>{series.description}</p>
+                <h2>{series.series.title} SERIES</h2>
+                <p>{series.series.description}</p>
               </div>
-              { series.tearSheets.length !== 0 &&
-                <Dropdown tearSheets={series.tearSheets} reversed={isEven(i)} />
-              }
               <div className={styles.seriesImageCaptionSpacer}></div>
             </div>
-            { i !== (previewHomepage.series.length - 1) &&
+            { i !== (homepage.seriesHighlights.length - 1) &&
               <hr className={cn(styles.divider, 'my-0 mt-1')} />
             }
           </div>
