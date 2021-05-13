@@ -10,6 +10,11 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   @media (--min-medium) {
     min-height: $aboveTheFoldHeight;
   }
+
+  @media (--max-medium) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .productInfo {
@@ -32,6 +37,17 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   @media (--min-medium) {
     text-align: right;
   }
+
+  @media (--max-medium) {
+    order: 2;
+    margin-bottom: var(--spacing2x);
+  }
+}
+
+.images {
+  @media (--max-medium) {
+    order: 4;
+  }
 }
 
 .image {
@@ -48,5 +64,43 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
 .firstImage {
   @media (--min-medium) {
     height: $aboveTheFoldHeight;
+  }
+
+  @media (--max-medium) {
+    display: none !important;
+  }
+}
+
+.mobileHeaderImage {
+  @media (--min-medium) {
+    display: none;
+  }
+
+  @media (--max-medium) {
+    order: 1;
+    margin-bottom: var(--spacing2x);
+  }
+}
+
+.details {
+  @media (--max-medium) {
+    order: 3;
+    margin-bottom: var(--spacing2x);
+  }
+}
+
+.buttons {
+  margin-top: var(--spacing1x);
+}
+
+.desktopButtons {
+  @media (--max-medium) {
+    display: none;
+  }
+}
+
+.mobileButtons {
+  @media (--min-medium) {
+    display: none;
   }
 }

@@ -102,6 +102,30 @@ export const query = graphql`
   }
 `;
 
+const Buttons = ({ className = '', productContactText, email, tearSheet }) => {
+  return (
+    <div className={cn(styles.buttons, className)}>
+      <Button
+        text={productContactText || "Contact Us"}
+        link={`mailto:${email}`}
+        targetBlank
+        fullWidth
+        light
+      />
+      { tearSheet && tearSheet.PDF && tearSheet.PDF.asset &&
+        <Button
+          text="Download Tear Sheet"
+          link={tearSheet.PDF.asset.url}
+          targetBlank
+          fullWidth
+          light
+          className="mt-1"
+        />
+      }
+    </div>
+  );
+}
+
 const ProductTemplate = props => {
   const { data, errors } = props;
   const product = data && data.product;
@@ -121,6 +145,16 @@ const ProductTemplate = props => {
     <Layout>
       <SEO title={product.title} description={product.description} />
       <div className={cn(styles.product, 'row')}>
+        { firstImage &&
+          <div className={styles.mobileHeaderImage}>
+            <GatsbyImage
+              image={firstImage.image.asset.gatsbyImageData}
+              alt={firstImage.alt}
+              className={styles.image}
+              style={{display: 'block'}}
+            />
+          </div>
+        }
         <div className={cn(
           "col-lg-start-1-span-2",
           "col-md-start-1-span-3",
@@ -137,26 +171,17 @@ const ProductTemplate = props => {
               <BlockContent blocks={product._rawDescription || []} />
             }
           </div>
-          <br />
-          <Button
-            text={site.productContactText || "Contact Us"}
-            link={`mailto:${site.email}`}
-            targetBlank
-            fullWidth
-            light
+          <Buttons
+            className={styles.desktopButtons}
+            productContactText={site.productContactText}
+            email={site.email}
+            tearSheet={product.tearSheet}
           />
-          { product.tearSheet && product.tearSheet.PDF && product.tearSheet.PDF.asset &&
-            <Button
-              text="Download Tear Sheet"
-              link={product.tearSheet.PDF.asset.url}
-              targetBlank
-              fullWidth
-              light
-              className="mt-1"
-            />
-          }
         </div>
-        <div className="col-lg-start-3-span-6 col-md-start-4-span-5">
+        <div className={cn(
+          "col-lg-start-3-span-6 col-md-start-4-span-5",
+          styles.images
+        )}>
           { firstImage &&
             <GatsbyImage
               image={firstImage.image.asset.gatsbyImageData}
@@ -179,10 +204,9 @@ const ProductTemplate = props => {
             </React.Fragment>
           )}
         </div>
-        <div className={cn("col-md-start-9-span-2", styles.productInfo)}>
+        <div className={cn("col-md-start-9-span-2", styles.productInfo, styles.details)}>
           { product._rawMaterials &&
             <>
-              <br />
               <h3 className="label">Materials:</h3>
               <BlockContent className={styles.lightText} blocks={product._rawMaterials} />
             </>
@@ -214,6 +238,12 @@ const ProductTemplate = props => {
               <BlockContent className={styles.lightText} blocks={product._rawDimensions} />
             </>
           }
+          <Buttons
+            className={styles.mobileButtons}
+            productContactText={site.productContactText}
+            email={site.email}
+            tearSheet={product.tearSheet}
+          />
         </div>
       </div>
       {errors && (
