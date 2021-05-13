@@ -53,7 +53,6 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
 .image {
   width: 100%;
   display: block;
-
   margin-bottom: var(--spacing2x);
 
   &:last-child {
@@ -71,7 +70,7 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   }
 }
 
-.mobileHeaderImage {
+.mobileHeaderImageContainer {
   @media (--min-medium) {
     display: none;
   }
@@ -79,7 +78,14 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   @media (--max-medium) {
     order: 1;
     margin-bottom: var(--spacing2x);
+    height: 65vh;
   }
+}
+
+.mobileHeaderImage {
+  width: 100%;
+  display: block;
+  height: 100%;
 }
 
 .details {

@@ -7,6 +7,7 @@ import Layout from "../containers/layout";
 import SEO from '../components/seo';
 import BlockContent from '../components/block-content';
 import Button from '../components/button';
+import SanityImage from '../components/sanityImage';
 
 import * as styles from './product.module.scss';
 import { cn } from "../lib/helpers";
@@ -19,6 +20,33 @@ export const imageQuery = graphql`
         asset {
           _id
           gatsbyImageData(fit: FILLMAX)
+        }
+      }
+      alt
+    }
+    firstImageNarrow {
+      image {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        asset {
+          _id
+          url
+          metadata {
+            dimensions {
+              aspectRatio
+            }
+            palette {
+              dominant {
+                background
+              }
+            }
+          }
         }
       }
       alt
@@ -43,7 +71,7 @@ export const imageQuery = graphql`
             }
             palette {
               dominant {
-                foreground
+                background
               }
             }
           }
@@ -132,6 +160,7 @@ const ProductTemplate = props => {
   const site = data && data.site;
 
   const firstImage = (product.firstImage && product.firstImage.image && product.firstImage.image.asset) && product.firstImage;
+  const firstImageNarrow = (product.firstImageNarrow && product.firstImageNarrow.image && product.firstImageNarrow.image.asset) && product.firstImageNarrow;
 
   // console.log(product);
 
@@ -145,13 +174,13 @@ const ProductTemplate = props => {
     <Layout>
       <SEO title={product.title} description={product.description} />
       <div className={cn(styles.product, 'row')}>
-        { firstImage &&
-          <div className={styles.mobileHeaderImage}>
-            <GatsbyImage
-              image={firstImage.image.asset.gatsbyImageData}
-              alt={firstImage.alt}
-              className={styles.image}
-              style={{display: 'block'}}
+        { firstImageNarrow &&
+          <div className={styles.mobileHeaderImageContainer}>
+            <SanityImage
+              image={firstImageNarrow.image}
+              alt={firstImageNarrow.alt}
+              className={styles.mobileHeaderImage}
+              fullHeight
             />
           </div>
         }

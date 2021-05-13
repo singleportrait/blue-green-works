@@ -6,7 +6,7 @@ import { imageUrlFor } from "../lib/image-url";
 
 import * as styles from './sanityImage.module.scss';
 
-const SanityImage = ({image, alt, className = ""}) => {
+const SanityImage = ({image, alt, className = "", fullHeight}) => {
   // const aspectRatio = image.asset.metadata.dimensions.aspectRatio;
   const backgroundColor = image.asset.metadata.palette.dominant.background;
 
@@ -35,7 +35,10 @@ const SanityImage = ({image, alt, className = ""}) => {
 
   return (
     <div
-      className={styles.container}
+      className={cn(
+        styles.container,
+        fullHeight ? styles.fullHeight : ''
+      )}
       style={{
         backgroundColor: backgroundColor,
         // paddingBottom: `${aspectRatio * 100}%`
