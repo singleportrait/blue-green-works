@@ -10,7 +10,7 @@ const SanityImage = ({image, alt, className = ""}) => {
   // const aspectRatio = image.asset.metadata.dimensions.aspectRatio;
   const backgroundColor = image.asset.metadata.palette.dominant.background;
 
-  const sizes = [800, 1200, 1600, 2400, null];
+  const sizes = [800, 1200, 1600, 2000, null];
   const htmlSizes = "(max-width: 600px) 800px, (min-width: 601px) 1200px, (min-width: 1000px) 1600px, 2400";
 
   const getImageUrl = (size) => {

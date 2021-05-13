@@ -75,7 +75,7 @@ export const query = graphql`
                   }
                   palette {
                     dominant {
-                      foreground
+                      background
                     }
                   }
                 }
@@ -142,7 +142,14 @@ const PreviewHomepagePage = props => {
               {series.products && series.products.map((product, i) =>
                 <React.Fragment key={product && product._id}>
                   { product &&
-                    <Link className={styles.seriesImageContainer} to={`/products/${product.slug.current}`}>
+                    <Link
+                      className={cn(
+                        styles.seriesImageContainer,
+                        series.products.length == 3 ? styles.seriesImageThirds : '',
+                        series.products.length == 4 ? styles.seriesImageQuarters : '',
+                      )}
+                      to={`/products/${product.slug.current}`}
+                    >
                       { product.firstImageNarrow && product.firstImageNarrow.image.asset &&
                         <SanityImage
                           image={product.firstImageNarrow.image}

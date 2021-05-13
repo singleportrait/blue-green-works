@@ -144,6 +144,7 @@
 
 .seriesImageContainer {
   margin-right: var(--spacing1x);
+  display: block;
 
   &:last-child {
     margin-right: 0;
@@ -154,6 +155,14 @@
     margin-right: 0;
     margin-bottom: var(--mobile-spacing1x);
   }
+}
+
+.seriesImageThirds {
+  width: 33.33%;
+}
+
+.seriesImageQuarters {
+  width: 25%;
 }
 
 .seriesImage {
