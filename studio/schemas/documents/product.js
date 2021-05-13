@@ -73,7 +73,10 @@ export default {
       type: 'array',
       of: [{
         type: 'reference',
-        to: [{type: 'option'}]
+        to: [{type: 'option'}],
+        options: {
+          filter: "!(_id in path('drafts.**'))"
+        }
       }]
     },
     {
@@ -85,7 +88,10 @@ export default {
       name: 'category',
       type: 'reference',
       title: 'Category (Optional)',
-      to: [{type: 'category'}]
+      to: [{type: 'category'}],
+      options: {
+        filter: "!(_id in path('drafts.**'))"
+      }
     }
   ],
   preview: {

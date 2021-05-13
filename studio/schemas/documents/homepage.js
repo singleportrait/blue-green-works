@@ -25,15 +25,6 @@ export default {
       type: 'figure',
     },
     {
-      name: 'series',
-      title: 'Series',
-      type: 'array',
-      of: [{
-        type: 'reference',
-        to: [{type: 'series' }]
-      }]
-    },
-    {
       name: 'seriesHighlights',
       title: 'Series Highlights',
       type: 'array',

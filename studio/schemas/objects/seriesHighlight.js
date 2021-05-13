@@ -12,6 +12,9 @@ export default {
       to: [{ type: 'series' }],
       description: 'Pick a series',
       validation: Rule => Rule.required(),
+      options: {
+        filter: "!(_id in path('drafts.**'))"
+      }
     },
     {
       name: 'products',
@@ -25,6 +28,9 @@ export default {
           filter: ({document, parent, parentPath}) => {
             const parentPathKey = parentPath[1]._key;
             const matchingSeriesHighlight = document.seriesHighlights.filter(obj => obj._key == parentPathKey)[0]
+
+            // console.log("Document", document);
+            // console.log("Parent", parent);
             // console.log("Parent path key", parentPathKey);
             // console.log("Matching series?", matchingSeriesHighlight);
 
@@ -36,7 +42,7 @@ export default {
             }
 
             return {
-              filter: 'series._ref == $ref',
+              filter: "!(_id in path('drafts.**')) && series._ref == $ref",
               params: {
                 ref: matchingSeriesHighlight.series._ref
               }
