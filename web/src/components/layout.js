@@ -9,7 +9,7 @@ import "../styles/base.scss";
 import * as styles from './layout.module.css';
 
 const Layout = ({ children, fullPage, previewHeader }) => (
-  <Container>
+  <Container noFixedHeader={previewHeader}>
     { previewHeader && <PreviewHeader /> }
     { !previewHeader && <Header /> }
     <div className={fullPage && styles.fullpage}>{children}</div>

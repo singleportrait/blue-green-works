@@ -1,9 +1,13 @@
 import React from "react";
+import { cn } from "../lib/helpers";
 
 import * as styles from "./container.module.css";
 
-const Container = ({ children }) => {
-  return <div className={styles.container}>{children}</div>;
+const Container = ({ children, noFixedHeader }) => {
+  return <div className={cn(
+    styles.container,
+    noFixedHeader && styles.containerNoFixedHeader
+  )}>{children}</div>;
 };
 
 export default Container;

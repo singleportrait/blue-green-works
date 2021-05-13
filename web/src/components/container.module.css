@@ -7,3 +7,7 @@
   margin: 0 auto;
   margin-top: calc(var(--logo-height) + var(--spacing2x) + var(--spacing2x));
 }
+
+.containerNoFixedHeader {
+  margin-top: var(--spacing2x);
+}
