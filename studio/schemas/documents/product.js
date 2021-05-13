@@ -39,6 +39,18 @@ export default {
       type: 'simplePortableText',
     },
     {
+      name: 'firstImage',
+      title: 'First Product Image - Horizontal',
+      type: 'figure',
+      description: 'For wide screens',
+    },
+    {
+      name: 'firstImageNarrow',
+      title: 'First Product Image - Vertical',
+      type: 'figure',
+      description: 'For narrow screens and mobile'
+    },
+    {
       name: 'images',
       type: 'array',
       title: 'Images',
@@ -80,7 +92,7 @@ export default {
     select: {
       title: 'title',
       series: 'series.title',
-      media: 'images.0.image',
+      media: 'firstImage.image',
     },
     prepare(selection) {
       const {title, series, media} = selection;

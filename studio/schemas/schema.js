@@ -11,6 +11,7 @@ import sampleProject from './documents/sampleProject'
 
 import siteSettings from './documents/siteSettings'
 import previewHomepage from './documents/previewHomepage'
+import homepage from './documents/homepage'
 import product from './documents/product'
 import option from './documents/option'
 import series from './documents/series'
@@ -23,6 +24,7 @@ import simplePortableText from './objects/simplePortableText'
 
 import figure from './objects/figure'
 import homepageSeries from './objects/homepageSeries'
+import seriesHighlight from './objects/seriesHighlight'
 import tearSheet from './objects/tearSheet'
 import optionOption from './objects/optionOption'
 import siteFooter from './objects/siteFooter'
@@ -48,12 +50,14 @@ export default createSchema({
     siteSettings,
 
     previewHomepage,
+    homepage,
     product,
     option,
     series,
     category,
 
     homepageSeries,
+    seriesHighlight,
     tearSheet,
     optionOption,
     siteFooter,
