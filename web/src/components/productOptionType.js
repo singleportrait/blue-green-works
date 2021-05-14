@@ -4,7 +4,7 @@ import { imageUrlFor } from "../lib/image-url";
 
 import * as styles from './productOptionType.module.scss';
 
-const ProductOptionType = ({type}) => {
+const ProductOptionType = ({type, i}) => {
   const [showDetail, setShowDetail] = useState(false);
 
   const imageUrl = imageUrlFor(buildImageObj(type.image.image)).width("200").fit("crop").url();
@@ -24,8 +24,11 @@ const ProductOptionType = ({type}) => {
         alt={type.image.alt}
       />
       { showDetail &&
-        <div className={styles.detail}>
-          <h3 className="label">{type.title}</h3>
+        <div className={cn(
+          styles.detail,
+          i >=3 && styles.rightDetail
+        )}>
+          <h3 className={cn(styles.detailTitle, "label")}>{type.title}</h3>
           <div
             className={styles.detailImageContainer}
             style={{

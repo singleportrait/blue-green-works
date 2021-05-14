@@ -15,7 +15,7 @@ const ProductOptions = ({options}) => {
               <h3 className={styles.title}>{option.title}:</h3>
               <div className={styles.productTypes}>
                 {option.types.map((type, i) =>
-                  <ProductOptionType type={type} key={type._key} />
+                  <ProductOptionType type={type} key={type._key} i={i} />
                 )}
               </div>
             </div>

@@ -1,3 +1,5 @@
+@import '../styles/customMedia.css';
+
 .type {
   width: var(--spacing1x);
   height: var(--spacing1x);
@@ -21,18 +23,19 @@
   height: 100%;
 }
 
-$imageWidth: 100px;
+$imageWidth: 120px;
 $halfImageWidth: $imageWidth / 2;
+$detailPadding: 1rem;
 
 .detail {
   z-index: 1;
   position: absolute;
-  top: calc(var(--spacing1x) + .5rem);
+  top: calc(var(--spacing1x) + #{$detailPadding});
   background-color: black;
-  padding: .5rem;
+  padding: $detailPadding;
 
   @media (--min-medium) {
-    left: calc(-#{$halfImageWidth} - .5rem + (var(--spacing1x) / 2));
+    left: calc(-#{$halfImageWidth} - #{$detailPadding} + (var(--spacing1x) / 2));
   }
 
   @media (--max-medium) {
@@ -40,9 +43,20 @@ $halfImageWidth: $imageWidth / 2;
   }
 }
 
+.rightDetail {
+  @media (--min-medium) {
+    left: auto;
+    right: 0;
+  }
+}
+
 .detailImageContainer {
   width: $imageWidth;
   position: relative;
+}
+
+.detailTitle {
+  padding-bottom: .5rem;
 }
 
 .detailImage {
