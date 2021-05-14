@@ -7,6 +7,7 @@ import SEO from '../components/seo';
 import BlockContent from '../components/block-content';
 import Button from '../components/button';
 import SanityImage from '../components/sanityImage';
+import ProductOptions from '../components/productOptions';
 
 import * as styles from './product.module.scss';
 import { cn } from "../lib/helpers";
@@ -124,7 +125,32 @@ export const query = graphql`
             _type
             caption
             alt
-            _rawImage
+            image {
+              crop {
+                _key
+                _type
+                top
+                bottom
+                left
+                right
+              }
+              asset {
+                _id
+                metadata {
+                  hasAlpha
+                  dimensions {
+                    aspectRatio
+                    height
+                    width
+                  }
+                  palette {
+                    dominant {
+                      background
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -264,20 +290,7 @@ const ProductTemplate = props => {
           { product.options.length > 0 &&
             <>
               <h3 className="label">Options:</h3>
-              { product.options.map((option, i) =>
-                <React.Fragment key={option && option._id}>
-                  { option &&
-                    <div className={styles.lightText}>
-                      <h3>{option.title}:</h3>
-                      {option.types.map((type, i) =>
-                        <p key={type._key}>
-                          - {type.title}
-                        </p>
-                      )}
-                    </div>
-                  }
-                </React.Fragment>
-              )}
+              <ProductOptions options={product.options} />
             </>
           }
           { product._rawDimensions &&

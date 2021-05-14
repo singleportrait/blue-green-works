@@ -25,3 +25,8 @@ h3 {
   font-size: 0.75rem;
   text-transform: uppercase;
 }
+
+.lightText {
+  color: var(--light-color);
+  -webkit-font-smoothing: antialiased;
+}
