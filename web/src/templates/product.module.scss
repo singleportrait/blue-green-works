@@ -60,7 +60,7 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   }
 }
 
-.firstImage {
+.firstImageContainer {
   @media (--min-medium) {
     height: $aboveTheFoldHeight;
   }

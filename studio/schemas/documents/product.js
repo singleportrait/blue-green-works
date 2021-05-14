@@ -49,7 +49,7 @@ export default {
       name: 'firstImageNarrow',
       title: 'First Product Image - Vertical',
       type: 'figure',
-      description: 'For narrow screens and mobile'
+      description: 'For narrow screens, mobile, and the homepage'
     },
     {
       name: 'images',

@@ -170,9 +170,9 @@
 }
 
 .seriesImage {
-  /* height: 50vh; */
-  height: 29vw;
-  position: relative;
+  @media (--min-large) {
+    height: 29vw;
+  }
 
   @media (--max-large) {
     height: 38vw;

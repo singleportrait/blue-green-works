@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
-import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Layout from "../containers/layout";
 import SEO from '../components/seo';
@@ -17,9 +16,27 @@ export const imageQuery = graphql`
     firstImage {
       _key
       image {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
         asset {
           _id
-          gatsbyImageData(fit: FILLMAX)
+          metadata {
+            hasAlpha
+            dimensions {
+              aspectRatio
+            }
+            palette {
+              dominant {
+                background
+              }
+            }
+          }
         }
       }
       alt
@@ -36,8 +53,8 @@ export const imageQuery = graphql`
         }
         asset {
           _id
-          url
           metadata {
+            hasAlpha
             dimensions {
               aspectRatio
             }
@@ -63,11 +80,13 @@ export const imageQuery = graphql`
           right
         }
         asset {
-          gatsbyImageData(fit: FILLMAX)
-          url
+          _id
           metadata {
+            hasAlpha
             dimensions {
               aspectRatio
+              height
+              width
             }
             palette {
               dominant {
@@ -212,25 +231,26 @@ const ProductTemplate = props => {
           styles.images
         )}>
           { firstImage &&
-            <GatsbyImage
-              image={firstImage.image.asset.gatsbyImageData}
-              alt={firstImage.alt}
-              className={cn(styles.firstImage, styles.image)}
-              style={{display: 'block'}}
-            />
+            <div className={cn(styles.firstImageContainer, styles.image)}>
+              <SanityImage
+                image={firstImage.image}
+                alt={firstImage.alt}
+                fullHeight
+              />
+            </div>
           }
           { product.images.map((figure, i) =>
-            <React.Fragment key={figure._key}>
+            <div
+              key={figure._key}
+              className={cn(!product.firstImage ? styles.firstImageContainer : '', styles.image)}
+            >
               { figure.image && figure.image.asset &&
-                <GatsbyImage
-                  key={figure._key}
-                  image={figure.image.asset.gatsbyImageData}
+                <SanityImage
+                  image={figure.image}
                   alt={figure.alt}
-                  className={cn(!product.firstImage ? styles.firstImage : '', styles.image)}
-                  style={{display: 'block'}}
                 />
               }
-            </React.Fragment>
+            </div>
           )}
         </div>
         <div className={cn("col-md-start-9-span-2", styles.productInfo, styles.details)}>

@@ -154,7 +154,8 @@ const PreviewHomepagePage = props => {
                         <SanityImage
                           image={product.firstImageNarrow.image}
                           alt={product.firstImageNarrow.alt}
-                          className={styles.seriesImage}
+                          containerClassName={styles.seriesImage}
+                          fullHeight
                         />
                       }
                       <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
