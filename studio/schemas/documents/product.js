@@ -93,6 +93,11 @@ export default {
       options: {
         filter: "!(_id in path('drafts.**'))"
       }
+    },
+    {
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO Product Info',
     }
   ],
   preview: {

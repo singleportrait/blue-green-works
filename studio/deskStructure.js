@@ -1,5 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings } from "react-icons/md";
+import React from 'react';
+import Emoji from "react-emoji-render";
 
 const hiddenDocTypes = listItem =>
   !['category', 'person', 'sampleProject', 'siteSettings', 'previewHomepage', 'homepage', 'product', 'about', 'option', 'series'].includes(listItem.getId())
@@ -9,7 +11,7 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('Site Settings')
         .child(
           S.editor()
             .id('siteSettings')
@@ -27,6 +29,7 @@ export default () =>
         ),
       S.listItem()
         .title('Homepage')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="🏠" />)
         .child(
           S.editor()
             .id('homepage')
@@ -35,18 +38,27 @@ export default () =>
         ),
       S.listItem()
         .title('Products')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="✨" />)
         .schemaType('product')
         .child(S.documentTypeList('product').title('Products')),
       S.listItem()
         .title('Product Options')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="🎨" />)
         .schemaType('option')
         .child(S.documentTypeList('option').title('Options')),
       S.listItem()
-        .title('Series')
+        .title('Product Series')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="📂" />)
         .schemaType('series')
         .child(S.documentTypeList('series').title('Series')),
       S.listItem()
+        .title('Product Categories')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="🗄" />)
+        .schemaType('category')
+        .child(S.documentTypeList('category').title('Categories')),
+      S.listItem()
         .title('About')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="📝" />)
         .child(
           S.editor()
             .id('about')
@@ -62,10 +74,6 @@ export default () =>
         .title('People')
         .schemaType('person')
         .child(S.documentTypeList('person').title('People')),
-      S.listItem()
-        .title('Categories')
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above

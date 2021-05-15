@@ -25,6 +25,11 @@ export default {
       type: 'figure',
     },
     {
+      name: 'description',
+      type: 'simplePortableText',
+      title: 'Description',
+    },
+    {
       name: 'seriesHighlights',
       title: 'Series Highlights',
       type: 'array',

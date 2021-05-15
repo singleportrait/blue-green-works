@@ -12,8 +12,8 @@ export default{
     {
       name: 'openGraphImage',
       title: 'OpenGraph Image',
-      type: 'figure',
-      description: 'Recommended size is 1200x630. No larger than 1mb.',
+      type: 'image',
+      description: 'Recommended size is 1200x630.',
     }
   ]
 }
