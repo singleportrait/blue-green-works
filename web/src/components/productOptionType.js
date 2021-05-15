@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import 'lazysizes';
+import 'lazysizes/plugins/attrchange/ls.attrchange';
+
 import { buildImageObj, cn } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
@@ -18,14 +21,18 @@ const ProductOptionType = ({type, i}) => {
       onMouseEnter={() => setShowDetail(true)}
       onMouseLeave={() => setShowDetail(false)}
     >
-      <img
-        className={styles.thumbnail}
-        src={imageUrl}
-        alt={type.image.alt}
+      <div
+        className={styles.thumbnailContainer}
         style={{
           backgroundColor: backgroundColor
         }}
-      />
+      >
+        <img
+          className={cn(styles.thumbnail, "lazyload")}
+          src={imageUrl}
+          alt={type.image.alt}
+        />
+      </div>
       { showDetail &&
         <div className={cn(
           styles.detail,
