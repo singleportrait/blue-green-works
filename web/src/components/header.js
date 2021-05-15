@@ -9,16 +9,16 @@ import * as styles from "./header.module.scss";
 
 const Header = () => (
   <div className={styles.header}>
-    <div className={cn(styles.text, 'label')}>
-      Coming Soon
-    </div>
+    <Link to={`/previewHomepage`} className={cn(styles.text, 'label')}>
+      Home
+    </Link>
     <Link className={styles.logoContainer} to={`/previewHomepage`}>
       <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
       <Logo className={styles.logo} />
     </Link>
-    <div className={cn(styles.text, 'label')}>
-      May 2021
-    </div>
+    <Link to={`/about`} className={cn(styles.text, 'label')}>
+      About
+    </Link>
   </div>
 );
 
