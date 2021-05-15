@@ -80,6 +80,12 @@ const AboutPage = props => {
     );
   }
 
+  if (!about) {
+    throw new Error(
+      'Missing "About". Open the studio at http://localhost:3333 and add some content to "About" and restart the development server.'
+    );
+  }
+
   return (
     <Layout>
       <SEO
