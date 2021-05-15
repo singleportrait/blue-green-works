@@ -13,6 +13,7 @@ import siteSettings from './documents/siteSettings'
 import previewHomepage from './documents/previewHomepage'
 import homepage from './documents/homepage'
 import product from './documents/product'
+import about from './documents/about'
 import option from './documents/option'
 import series from './documents/series'
 
@@ -28,6 +29,7 @@ import seriesHighlight from './objects/seriesHighlight'
 import tearSheet from './objects/tearSheet'
 import optionOption from './objects/optionOption'
 import siteFooter from './objects/siteFooter'
+import seo from './objects/seo'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -52,6 +54,7 @@ export default createSchema({
     previewHomepage,
     homepage,
     product,
+    about,
     option,
     series,
     category,
@@ -61,5 +64,6 @@ export default createSchema({
     tearSheet,
     optionOption,
     siteFooter,
+    seo,
   ])
 })
