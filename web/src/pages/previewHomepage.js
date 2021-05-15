@@ -3,16 +3,13 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from "gatsby";
 
+import { cn } from "../lib/helpers";
+
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import Dropdown from '../components/dropdown';
 import SanityImage from '../components/sanityImage';
-import logo from '../images/blueGreenWorksComingSoon.svg';
-import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
-import instagram from '../images/instagram.svg';
-import email from '../images/email.svg';
-import { cn } from "../lib/helpers";
 
 import * as styles from './previewHomepage.module.scss';
 

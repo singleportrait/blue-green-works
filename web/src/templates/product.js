@@ -2,6 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 
+import { cn } from "../lib/helpers";
+
 import Layout from "../containers/layout";
 import SEO from '../components/seo';
 import BlockContent from '../components/block-content';
@@ -10,7 +12,6 @@ import SanityImage from '../components/sanityImage';
 import ProductOptions from '../components/productOptions';
 
 import * as styles from './product.module.scss';
-import { cn } from "../lib/helpers";
 
 export const imageQuery = graphql`
   fragment ImagesQuery on SanityProduct {
@@ -295,7 +296,6 @@ const ProductTemplate = props => {
           }
           { product._rawDimensions &&
             <>
-              <br />
               <h3 className="label">Dimensions:</h3>
               <BlockContent className={styles.lightText} blocks={product._rawDimensions} />
             </>

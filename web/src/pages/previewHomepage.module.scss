@@ -1,4 +1,5 @@
 @import '../styles/customMedia.css';
+@import '../styles/variableMixins';
 
 .headerLink {
   display: flex;
@@ -21,6 +22,10 @@
 .headerImageContainer {
   width: 100%;
   height: 78vh;
+
+  @media (--min-medium) {
+    height: $aboveTheFoldHeight;
+  }
 }
 
 .headerImageWide {

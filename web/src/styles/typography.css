@@ -3,6 +3,7 @@ h1, h2 {
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: var(--spacing1x);
+  text-transform: uppercase;
 }
 
 h1 {

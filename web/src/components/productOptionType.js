@@ -22,6 +22,9 @@ const ProductOptionType = ({type, i}) => {
         className={styles.thumbnail}
         src={imageUrl}
         alt={type.image.alt}
+        style={{
+          backgroundColor: backgroundColor
+        }}
       />
       { showDetail &&
         <div className={cn(

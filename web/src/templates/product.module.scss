@@ -2,8 +2,6 @@
 @import '../styles/customMedia.css';
 
 $totalPadding: $spacing2 * 3;
-$headerPadding: $spacing2 * 2;
-$heightAboveProduct: calc(#{$desktopLogoHeight} + #{$headerPadding}px);
 $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
 
 .product {
@@ -24,7 +22,7 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
     justify-content: flex-end;
     height: $aboveTheFoldHeight;
     position: sticky;
-    top: $heightAboveProduct;
+    top: $totalHeaderHeight;
   }
 }
 
