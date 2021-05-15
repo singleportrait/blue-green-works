@@ -78,7 +78,7 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   @media (--max-medium) {
     order: 1;
     margin-bottom: var(--spacing2x);
-    height: 65vh;
+    height: var(--mobile-lead-image-height);
   }
 }
 

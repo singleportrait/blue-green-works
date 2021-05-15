@@ -1,0 +1,21 @@
+@import '../styles/variableMixins';
+@import '../styles/customMedia.css';
+
+.imageContainer {
+  @media (--min-medium) {
+    height: $aboveTheFoldHeight;
+  }
+
+  @media (--max-medium) {
+    margin-bottom: var(--spacing2x);
+    height: var(--mobile-lead-image-height);
+  }
+}
+
+.info {
+  @media (--min-medium) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}

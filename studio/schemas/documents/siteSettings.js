@@ -42,7 +42,7 @@ export default {
       name: 'productContactText',
       type: 'string',
       title: 'Product Contact Button Text',
-      description: "If blank, this will fall back to 'Contact'"
+      description: "If blank, this will fall back to 'Contact Us'"
     },
     {
       name: 'instagram',

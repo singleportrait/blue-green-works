@@ -23,3 +23,9 @@ $spacing4x: 80px;
 $mobileSpacing1x: 25px;
 $mobileSpacing2x: 50px;
 $mobileSpacing4x: 50px;
+
+$totalAboveTheFoldPadding: $spacing2 * 3;
+$aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalAboveTheFoldPadding}px);
+
+$headerPadding: $spacing2 * 2;
+$totalHeaderHeight: calc(#{$desktopLogoHeight} + #{$headerPadding}px);

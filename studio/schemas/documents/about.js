@@ -27,7 +27,8 @@ export default {
     {
       name: 'buttonText',
       type: 'string',
-      title: 'Email Button Text'
+      title: 'Email Button Text',
+      description: "If blank, this will fall back to 'Contact Us'"
     },
     {
       name: 'seo',
