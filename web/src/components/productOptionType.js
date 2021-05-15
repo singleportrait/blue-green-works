@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import 'lazysizes';
 import 'lazysizes/plugins/attrchange/ls.attrchange';
 
@@ -6,6 +6,8 @@ import { buildImageObj, cn } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
 import * as styles from './productOptionType.module.scss';
+
+const isDocument = typeof document !== `undefined`;
 
 const ProductOptionType = ({type, i}) => {
   const [showDetail, setShowDetail] = useState(false);
@@ -15,11 +17,34 @@ const ProductOptionType = ({type, i}) => {
   const aspectRatio = type.image.image.asset.metadata.dimensions.aspectRatio;
   const backgroundColor = type.image.image.asset.metadata.palette.dominant.background;
 
+  const ref = useRef(null);
+
+  function handleClickOutside(event) {
+    if (ref.current && !ref.current.contains(event.target)) {
+      // console.log("You clicked outside of me!");
+      setShowDetail(false);
+    }
+
+    if (isDocument) {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }
+
+  const setupShowDetail = () => {
+    setShowDetail(true);
+
+    if (isDocument) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+  };
+
   return (
     <div
       className={styles.type}
       onMouseEnter={() => setShowDetail(true)}
       onMouseLeave={() => setShowDetail(false)}
+      onClick={() => setupShowDetail()}
+      ref={ref}
     >
       <div
         className={styles.thumbnailContainer}
