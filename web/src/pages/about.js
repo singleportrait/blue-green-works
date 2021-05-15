@@ -99,7 +99,7 @@ const AboutPage = props => {
         title={about.title || site.title}
         description={about.seo.metaDescription || site.seo.metaDescription}
         keywords={site.keywords}
-        imageUrl={about.seo.openGraphImage.asset.url}
+        imageUrl={about.seo && about.seo.openGraphImage && about.seo.openGraphImage.asset.url}
       />
       <div className="row">
         <div className={cn("col-md-start-1-span-7", styles.imageContainer)}>

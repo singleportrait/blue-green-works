@@ -58,13 +58,26 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   }
 }
 
-.firstImageContainer {
+.firstImageContainer,
+.firstImageNarrowContainer {
   @media (--min-medium) {
     height: $aboveTheFoldHeight;
   }
+}
 
+.firstImageContainer {
   @media (--max-medium) {
-    display: none !important;
+    display: none;
+  }
+
+  @media (--max-large) {
+    display: none;
+  }
+}
+
+.firstImageNarrowContainer {
+  @media (--min-large) {
+    display: none;
   }
 }
 

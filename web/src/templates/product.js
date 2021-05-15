@@ -278,6 +278,15 @@ const ProductTemplate = props => {
               />
             </div>
           }
+          { firstImageNarrow &&
+            <div className={cn(styles.firstImageNarrowContainer, styles.image)}>
+              <SanityImage
+                image={firstImageNarrow.image}
+                alt={firstImageNarrow.alt}
+                fullHeight
+              />
+            </div>
+          }
           { product.images.map((figure, i) =>
             <div
               key={figure._key}
