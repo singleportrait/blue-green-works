@@ -8,6 +8,7 @@ export default{
       title: 'Meta Description',
       type: 'text',
       rows: 2,
+      description: 'Describe this page for search engines and social media.'
     },
     {
       name: 'openGraphImage',

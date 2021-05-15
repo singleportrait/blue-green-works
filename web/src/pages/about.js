@@ -17,9 +17,11 @@ export const query = graphql`
   query AboutPageQuery {
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       title
-      description
       keywords
       email
+      seo {
+        metaDescription
+      }
     },
     about: sanityAbout(_id: { regex: "/(drafts.|)about/" }) {
       title
@@ -27,6 +29,11 @@ export const query = graphql`
       buttonText
       seo {
         metaDescription
+        openGraphImage {
+          asset {
+            url
+          }
+        }
       }
       image {
         _key
@@ -90,8 +97,9 @@ const AboutPage = props => {
     <Layout>
       <SEO
         title={about.title || site.title}
-        description={about.seo.metaDescription || site.description}
+        description={about.seo.metaDescription || site.seo.metaDescription}
         keywords={site.keywords}
+        imageUrl={about.seo.openGraphImage.asset.url}
       />
       <div className="row">
         <div className={cn("col-md-start-1-span-7", styles.imageContainer)}>

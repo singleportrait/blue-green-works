@@ -17,8 +17,6 @@ export const query = graphql`
   query PreviewHomepagePageQuery {
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       title
-      description
-      keywords
     }
     homepage: sanityHomepage(_id: { regex: "/(drafts.|)homepage/" }) {
       title,
@@ -100,11 +98,18 @@ const PreviewHomepagePage = props => {
   const site = (data || {}).site;
   const homepage = (data || {}).homepage;
 
+  // console.log(site);
   // console.log(homepage);
 
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
+    );
+  }
+
+  if (!homepage) {
+    throw new Error(
+      'Missing "Homepage". Open the studio at http://localhost:3333 and add some content to "Homepage" and restart the development server.'
     );
   }
 
@@ -114,7 +119,7 @@ const PreviewHomepagePage = props => {
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO title={site.title} />
       <div className="mt-1 mb-2">
         <GatsbyImage
           image={homepage.headerImage.image.asset.gatsbyImageData}

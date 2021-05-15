@@ -56,11 +56,10 @@ export default {
       description: 'Use shift+enter to make 1 line break, and enter to make a paragraph break'
     },
     {
-      name: 'author',
-      type: 'reference',
-      description: 'Publish an author and set a reference to them here.',
-      title: 'Author',
-      to: [{type: 'person'}]
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO Default Site Info',
+      description: "This is the homepage social media share info, and the fallback share info for any pages' missing SEO"
     }
   ]
 }

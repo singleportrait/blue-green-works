@@ -172,6 +172,14 @@ export const query = graphql`
       series {
         title
       }
+      seo {
+        metaDescription
+        openGraphImage {
+          asset {
+            url
+          }
+        }
+      }
     }
   }
 `;
@@ -218,7 +226,11 @@ const ProductTemplate = props => {
 
   return (
     <Layout>
-      <SEO title={product.title} description={product.description} />
+      <SEO
+        title={product.title}
+        description={product.seo && product.seo.metaDescription}
+        imageUrl={product.seo && product.seo.openGraphImage.asset.url}
+      />
       <div className={cn(styles.product, 'row')}>
         { firstImageNarrow &&
           <div className={styles.mobileHeaderImageContainer}>

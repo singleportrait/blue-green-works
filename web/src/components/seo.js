@@ -3,14 +3,18 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, imageUrl = '' }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription = description || (data.site && data.site.description) || "";
+        const metaDescription = description || (data.site && data.site.seo && data.site.seo.metaDescription) || (data.site && data.site.description) || "";
         const siteTitle = (data.site && data.site.title) || "";
-        const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
+        const metaImage = imageUrl ? `${imageUrl}?fm=jpg&w=1200&fit=max` : (data.site && data.site.seo && data.site.seo.openGraphImage && `${data.site.seo.openGraphImage.asset.url}?fm=jpg&w=1200&fit=max`);
+
+        // console.log("Data");
+        // console.log(data.site && data.site.description);
+
         return (
           <Helmet
             htmlAttributes={{ lang }}
@@ -34,12 +38,12 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: "website"
               },
               {
-                name: "twitter:card",
-                content: "summary"
+                property: "og:image",
+                content: metaImage
               },
               {
-                name: "twitter:creator",
-                content: siteAuthor
+                name: "twitter:card",
+                content: "summary"
               },
               {
                 name: "twitter:title",
@@ -88,8 +92,13 @@ const detailsQuery = graphql`
       title
       description
       keywords
-      author {
-        name
+      seo {
+        openGraphImage {
+          asset {
+            url
+          }
+        }
+        metaDescription
       }
     }
   }
