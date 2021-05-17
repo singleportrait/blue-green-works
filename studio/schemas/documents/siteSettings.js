@@ -50,6 +50,12 @@ export default {
       title: 'Instagram URL',
     },
     {
+      name: 'instagramHandle',
+      type: 'string',
+      title: 'Instagram Handle',
+      description: "This gets used in the site footer. Don't include the @ symbol",
+    },
+    {
       name: 'footer',
       type: 'siteFooter',
       title: 'Site Footer',
