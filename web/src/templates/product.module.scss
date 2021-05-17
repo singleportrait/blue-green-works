@@ -106,6 +106,10 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   }
 }
 
+.detailTitle {
+  margin-bottom: .5rem;
+}
+
 .buttons {
   margin-top: var(--spacing1x);
 }

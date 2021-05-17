@@ -109,7 +109,12 @@ export const query = graphql`
   query ProductTemplateQuery($id: String!) {
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       email
-      productContactText
+      productSettings {
+        contactText
+        materialsLabel
+        optionsLabel
+        dimensionsLabel
+      }
     }
     product: sanityProduct(id: { eq: $id }) {
       id
@@ -184,11 +189,11 @@ export const query = graphql`
   }
 `;
 
-const Buttons = ({ className = '', productContactText, email, tearSheet }) => {
+const Buttons = ({ className = '', contactText, email, tearSheet }) => {
   return (
     <div className={cn(styles.buttons, className)}>
       <Button
-        text={productContactText || "Contact Us"}
+        text={contactText || "Contact Us"}
         link={`mailto:${email}`}
         targetBlank
         fullWidth
@@ -260,7 +265,7 @@ const ProductTemplate = props => {
           </div>
           <Buttons
             className={styles.desktopButtons}
-            productContactText={site.productContactText}
+            contactText={site.productSettings.contactText}
             email={site.email}
             tearSheet={product.tearSheet}
           />
@@ -304,20 +309,26 @@ const ProductTemplate = props => {
         <div className={cn("col-md-start-9-span-2", styles.productInfo, styles.details)}>
           { product._rawMaterials &&
             <>
-              <h3 className="label">Materials:</h3>
+              <h4 className={cn("label", styles.detailTitle)}>
+                { site.productSettings.materialsLabel || "Materials" }
+              </h4>
               <BlockContent className={styles.lightText} blocks={product._rawMaterials} />
             </>
           }
           <br />
           { product.options.length > 0 &&
             <>
-              <h3 className="label">Options:</h3>
+              <h4 className={cn("label", styles.detailTitle)}>
+                { site.productSettings.optionsLabel || "Options" }
+              </h4>
               <ProductOptions options={product.options} />
             </>
           }
           { product._rawDimensions &&
             <>
-              <h3 className="label">Dimensions:</h3>
+              <h4 className={cn("label", styles.detailTitle)}>
+                { site.productSettings.dimensionsLabel || "Dimensions" }
+              </h4>
               <BlockContent className={styles.lightText} blocks={product._rawDimensions} />
             </>
           }
