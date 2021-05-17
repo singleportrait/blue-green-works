@@ -36,16 +36,6 @@
   margin-bottom: 1rem;
 }
 
-.emailLabel {
-  @media (--max-large) {
-    padding-bottom: var(--spacing1x);
-  }
-
-  @media (--min-large) {
-    padding-right: var(--spacing1x);
-  }
-}
-
 .link {
   padding: var(--spacing1x);
   display: flex;
