@@ -13,14 +13,18 @@ const footerQuery = graphql`
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       email
       instagram
+      instagramHandle
       footer {
+        firstSectionTitle
         _rawText
+        secondSectionTitle
       }
     }
   }
 `;
 
 const Footer = () => {
+
   return (
     <>
       <hr />
@@ -29,28 +33,38 @@ const Footer = () => {
         render={({site}) => {
           return (
             <div className={styles.footer}>
-              <div className={styles.infoAndIcon}>
+              <div className={styles.footerSection}>
+                <h3 className={cn("lightText", styles.footerSectionTitle)}>
+                  { site.footer.firstSectionTitle || "Address" }
+                </h3>
                 { site.footer._rawText &&
-                  <BlockContent blocks={site.footer._rawText || []} />
+                  <BlockContent blocks={site.footer._rawText} />
+                }
+              </div>
+              <div className={cn(styles.footerSection, styles.contactSection)}>
+                <h3 className={cn("lightText", styles.footerSectionTitle)}>
+                  { site.footer.secondSectionTitle || "Contact" }
+                </h3>
+                { site.email &&
+                  <Button
+                    text={site.email}
+                    link={`mailto:${site.email}`}
+                    targetBlank
+                  />
                 }
                 { site.instagram &&
                   <a
-                    className={styles.link}
+                    className={cn(styles.link, "label")}
                     href={site.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     alt="Instagram Link"
                   >
                     <img src={instagram} className={styles.linkImage} />
+                    { site.instagramHandle && `@${site.instagramHandle}` || "@BLUEGREENWORKS" }
                   </a>
                 }
               </div>
-              { site.email &&
-                <div className={styles.centeredFooter}>
-                  <div className={cn(styles.emailLabel, 'label')}>All Inquiries:</div>
-                  <Button text={site.email} link={`mailto:${site.email}`} targetBlank />
-                </div>
-              }
             </div>
           )
         }}
