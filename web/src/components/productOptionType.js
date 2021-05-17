@@ -63,7 +63,7 @@ const ProductOptionType = ({type, i}) => {
           styles.detail,
           i >=3 && styles.rightDetail
         )}>
-          <h3 className={cn(styles.detailTitle, "label")}>{type.title}</h3>
+          <h4 className={cn(styles.detailTitle, "label")}>{type.title}</h4>
           <div
             className={styles.detailImageContainer}
             style={{

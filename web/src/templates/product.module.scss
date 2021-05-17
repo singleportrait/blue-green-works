@@ -26,11 +26,6 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
   }
 }
 
-.lightText {
-  color: var(--light-color);
-  -webkit-font-smoothing: antialiased;
-}
-
 .description {
   @media (--min-medium) {
     text-align: right;
@@ -104,10 +99,6 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
     order: 3;
     margin-bottom: var(--spacing2x);
   }
-}
-
-.detailTitle {
-  margin-bottom: .5rem;
 }
 
 .buttons {

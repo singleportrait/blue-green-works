@@ -9,7 +9,7 @@ import SEO from '../components/seo';
 import BlockContent from '../components/block-content';
 import Button from '../components/button';
 import SanityImage from '../components/sanityImage';
-import ProductOptions from '../components/productOptions';
+import ProductDetails from '../components/productDetails';
 
 import * as styles from './product.module.scss';
 
@@ -232,7 +232,7 @@ const ProductTemplate = props => {
   return (
     <Layout>
       <SEO
-        title={product.title}
+        title={product.fullTitle}
         description={product.seo && product.seo.metaDescription}
         imageUrl={product.seo && product.seo.openGraphImage.asset.url}
       />
@@ -253,7 +253,7 @@ const ProductTemplate = props => {
           styles.productInfo,
           styles.description
         )}>
-          <div className={styles.lightText}>
+          <div className="lightText">
             <h2>
               { product.series && product.series.title }
               <br />
@@ -265,7 +265,7 @@ const ProductTemplate = props => {
           </div>
           <Buttons
             className={styles.desktopButtons}
-            contactText={site.productSettings.contactText}
+            contactText={site.productSettings && site.productSettings.contactText}
             email={site.email}
             tearSheet={product.tearSheet}
           />
@@ -307,34 +307,12 @@ const ProductTemplate = props => {
           )}
         </div>
         <div className={cn("col-md-start-9-span-2", styles.productInfo, styles.details)}>
-          { product._rawMaterials &&
-            <>
-              <h4 className={cn("label", styles.detailTitle)}>
-                { site.productSettings.materialsLabel || "Materials" }
-              </h4>
-              <BlockContent className={styles.lightText} blocks={product._rawMaterials} />
-            </>
-          }
-          <br />
-          { product.options.length > 0 &&
-            <>
-              <h4 className={cn("label", styles.detailTitle)}>
-                { site.productSettings.optionsLabel || "Options" }
-              </h4>
-              <ProductOptions options={product.options} />
-            </>
-          }
-          { product._rawDimensions &&
-            <>
-              <h4 className={cn("label", styles.detailTitle)}>
-                { site.productSettings.dimensionsLabel || "Dimensions" }
-              </h4>
-              <BlockContent className={styles.lightText} blocks={product._rawDimensions} />
-            </>
+          { site.productSettings && product &&
+            <ProductDetails productSettings={site.productSettings} product={product} />
           }
           <Buttons
             className={styles.mobileButtons}
-            productContactText={site.productContactText}
+            contactText={site.productSettings && site.productSettings.contactText}
             email={site.email}
             tearSheet={product.tearSheet}
           />
