@@ -12,7 +12,7 @@ const ProductOptions = ({options}) => {
         <React.Fragment key={option && option._id}>
           { option &&
             <div className="lightText">
-              <h3 className={styles.title}>{option.title}:</h3>
+              <p className={styles.title}>{option.title}:</p>
               <div className={styles.productTypes}>
                 {option.types.map((type, i) =>
                   <ProductOptionType type={type} key={type._key} i={i} />
