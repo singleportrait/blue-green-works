@@ -104,7 +104,7 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout previewHeader>
+    <Layout previewPage>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <div className="mt-1 mb-2">
         <GatsbyImage
