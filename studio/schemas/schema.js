@@ -29,6 +29,7 @@ import seriesHighlight from './objects/seriesHighlight'
 import tearSheet from './objects/tearSheet'
 import optionOption from './objects/optionOption'
 import siteFooter from './objects/siteFooter'
+import productSettings from './objects/productSettings'
 import seo from './objects/seo'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -64,6 +65,7 @@ export default createSchema({
     tearSheet,
     optionOption,
     siteFooter,
+    productSettings,
     seo,
   ])
 })

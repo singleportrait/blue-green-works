@@ -56,6 +56,12 @@ export default {
       description: "This gets used in the site footer. Don't include the @ symbol",
     },
     {
+      name: 'productSettings',
+      type: 'productSettings',
+      title: 'Product Settings',
+      description: 'Override the default UI text for product pages'
+    },
+    {
       name: 'footer',
       type: 'siteFooter',
       title: 'Site Footer',

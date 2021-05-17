@@ -7,7 +7,7 @@ export default {
       name: 'firstSectionTitle',
       type: 'string',
       title: 'First Section Title',
-      description: "This defaults to 'Address'",
+      description: "If blank, this will default to 'Address'",
     },
     {
       name: 'text',
@@ -18,7 +18,7 @@ export default {
       name: 'secondSectionTitle',
       type: 'string',
       title: 'Second Section Title',
-      description: "This defaults to 'Contact'",
+      description: "If blank, this will default to 'Contact'",
     }
   ]
 }
