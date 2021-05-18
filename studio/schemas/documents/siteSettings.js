@@ -45,6 +45,12 @@ export default {
       description: "If blank, this will fall back to 'Contact Us'"
     },
     {
+      name: 'seriesDisplayName',
+      type: 'string',
+      title: 'Series Display Name',
+      description: "If blank, this will fall back to 'SERIES'"
+    },
+    {
       name: 'instagram',
       type: 'url',
       title: 'Instagram URL',
