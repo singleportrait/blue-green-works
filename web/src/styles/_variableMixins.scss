@@ -19,10 +19,11 @@ $spacing1x: #{$spacing1}px;
 $spacing2: 40;
 $spacing2x: #{$spacing2}px;
 
-$spacing4x: 80px;
+$spacing4x: 80;
+$spacing4x: #{$spacing4x}px;
+
 $mobileSpacing1x: 25px;
 $mobileSpacing2x: 50px;
-$mobileSpacing4x: 50px;
 
 $totalAboveTheFoldPadding: $spacing2 * 3;
 $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalAboveTheFoldPadding}px);

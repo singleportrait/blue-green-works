@@ -15,6 +15,7 @@
 
   --spacing1x: #{$spacing1x};
   --spacing2x: #{$spacing2x};
+  --spacing3x: #{$spacing2x};
   --spacing4x: #{$spacing4x};
 
   --mobile-spacing1x: #{$mobileSpacing1x};
@@ -27,6 +28,7 @@
   :root {
     --spacing1x: #{$mobileSpacing1x};
     --spacing2x: #{$mobileSpacing1x};
+    --spacing3x: #{$mobileSpacing2x};
     --spacing4x: #{$mobileSpacing2x};
 
     --logo-height: #{$mobileLogoHeight};

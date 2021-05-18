@@ -6,12 +6,20 @@ h1, h2, h3 {
   text-transform: uppercase;
 }
 
-h1 {
+h1, .h1 {
   font-size: 36px;
+
+  @media (--max-medium) {
+    font-size: 26px;
+  }
 }
 
 h2 {
   font-size: 30px;
+
+  @media (--max-medium) {
+    font-size: 22px;
+  }
 }
 
 h3 {
@@ -33,5 +41,8 @@ h4 {
 
 .lightText {
   color: var(--light-color);
-  -webkit-font-smoothing: antialiased;
+}
+
+.centeredText {
+  text-align: center;
 }

@@ -25,6 +25,7 @@ html {
   background-color: var(--bg-color);
   font-family: var(--sans);
   font-size: $fontSize;
+  -webkit-font-smoothing: antialiased;
 
   @media (--max-medium) {
     font-size: $mobileFontSize;
@@ -52,7 +53,7 @@ a, a:visited, a:hover {
 
 hr {
   border-top: 2px solid var(--dark-color);
-  margin: $spacing2x 0;
+  margin: var(--spacing3x) 0;
 }
 
 .button {

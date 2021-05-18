@@ -1,4 +1,4 @@
-$amounts: (0: 0, 1: $spacing1x, 2: $spacing2x, 4: $spacing4x);
+$amounts: (0: 0, 1: var(--spacing1x), 2: var(--spacing2x), 3: var(--spacing3x), 4: var(--spacing4x));
 $sides: (top, bottom, left, right);
 
 /*
