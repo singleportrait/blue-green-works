@@ -11,6 +11,7 @@ export const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       title
       email
+      seriesDisplayName
     }
     homepage: sanityHomepage(_id: { regex: "/(drafts.|)homepage/" }) {
       title

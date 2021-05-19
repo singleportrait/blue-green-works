@@ -10,6 +10,12 @@ export default {
       description: "If blank, this will default to 'Contact Us'"
     },
     {
+      name: 'tearSheetText',
+      type: 'string',
+      title: 'Tear Sheet Download Button Text',
+      description: "If blank, this will default to 'Download Tear Sheet'",
+    },
+    {
       name: 'materialsLabel',
       type: 'string',
       title: 'Materials Section Label',

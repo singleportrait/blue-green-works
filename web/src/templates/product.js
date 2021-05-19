@@ -19,6 +19,7 @@ export const query = graphql`
       email
       productSettings {
         contactText
+        tearSheetText
         materialsLabel
         optionsLabel
         dimensionsLabel
@@ -98,7 +99,7 @@ export const query = graphql`
   }
 `;
 
-const Buttons = ({ className = '', contactText, email, tearSheet }) => {
+const Buttons = ({ className = '', contactText, email, tearSheet, tearSheetText }) => {
   return (
     <div className={cn(styles.buttons, className)}>
       <Button
@@ -110,7 +111,7 @@ const Buttons = ({ className = '', contactText, email, tearSheet }) => {
       />
       { tearSheet && tearSheet.PDF && tearSheet.PDF.asset &&
         <Button
-          text="Download Tear Sheet"
+          text={tearSheetText || "Download Tear Sheet"}
           link={tearSheet.PDF.asset.url}
           targetBlank
           fullWidth
@@ -177,6 +178,7 @@ const ProductTemplate = props => {
             contactText={site.productSettings && site.productSettings.contactText}
             email={site.email}
             tearSheet={product.tearSheet}
+            tearSheetText={site.productSettings && site.productSettings.tearSheetText}
           />
         </div>
         <div className={cn(
@@ -224,6 +226,7 @@ const ProductTemplate = props => {
             contactText={site.productSettings && site.productSettings.contactText}
             email={site.email}
             tearSheet={product.tearSheet}
+            tearSheetText={site.productSettings && site.productSettings.tearSheetText}
           />
         </div>
       </div>
