@@ -1,5 +1,4 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from "gatsby";
 
 import { cn } from "../lib/helpers";
@@ -16,17 +15,17 @@ const Homepage = ({site, homepage}) => {
   return (
     <>
       <div className="mt-1 mb-2">
-        <GatsbyImage
-          image={homepage.headerImage.image.asset.gatsbyImageData}
+        <SanityImage
+          image={homepage.headerImage.image}
           alt={homepage.headerImage.alt}
-          className={cn(styles.headerImageContainer, styles.headerImageWide)}
-          style={{display: 'block'}}
+          containerClassName={cn(styles.headerImageContainer, styles.headerImageWide)}
+          fullHeight
         />
-        <GatsbyImage
-          image={homepage.headerImageNarrow.image.asset.gatsbyImageData}
+        <SanityImage
+          image={homepage.headerImageNarrow.image}
           alt={homepage.headerImageNarrow.alt}
-          className={cn(styles.headerImageContainer, styles.headerImageNarrow)}
-          style={{display: 'block'}}
+          containerClassName={cn(styles.headerImageContainer, styles.headerImageNarrow)}
+          fullHeight
         />
       </div>
 

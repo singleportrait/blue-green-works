@@ -16,24 +16,8 @@ export const query = graphql`
       title
       contactHeader
       _rawDescription
-      headerImage {
-        image {
-          asset {
-            _id
-            gatsbyImageData(fit: FILLMAX)
-          }
-        }
-        alt
-      }
-      headerImageNarrow {
-        image {
-          asset {
-            _id
-            gatsbyImageData(fit: FILLMAX)
-          }
-        }
-        alt
-      }
+      ...HomepageHeaderImageQuery
+      ...HomepageHeaderImageNarrowQuery
       seriesHighlights {
         _key
         series {
@@ -47,33 +31,7 @@ export const query = graphql`
           slug {
             current
           }
-          firstImageNarrow {
-            image {
-              crop {
-                _key
-                _type
-                top
-                bottom
-                left
-                right
-              }
-              asset {
-                _id
-                url
-                metadata {
-                  dimensions {
-                    aspectRatio
-                  }
-                  palette {
-                    dominant {
-                      background
-                    }
-                  }
-                }
-              }
-            }
-            alt
-          }
+          ...ProductFirstImageNarrowQuery
         }
       }
     }

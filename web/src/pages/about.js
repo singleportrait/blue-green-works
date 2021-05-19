@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage } from 'gatsby-plugin-image';
 import GraphQLErrorList from "../components/graphql-error-list";
 
 import { cn } from "../lib/helpers";

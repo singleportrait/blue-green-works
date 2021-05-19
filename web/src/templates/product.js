@@ -13,98 +13,6 @@ import ProductDetails from '../components/productDetails';
 
 import * as styles from './product.module.scss';
 
-export const imageQuery = graphql`
-  fragment ImagesQuery on SanityProduct {
-    firstImage {
-      _key
-      image {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        asset {
-          _id
-          metadata {
-            hasAlpha
-            dimensions {
-              aspectRatio
-            }
-            palette {
-              dominant {
-                background
-              }
-            }
-          }
-        }
-      }
-      alt
-    }
-    firstImageNarrow {
-      image {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        asset {
-          _id
-          metadata {
-            hasAlpha
-            dimensions {
-              aspectRatio
-            }
-            palette {
-              dominant {
-                background
-              }
-            }
-          }
-        }
-      }
-      alt
-    }
-    images {
-      _key
-      image {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        asset {
-          _id
-          metadata {
-            hasAlpha
-            dimensions {
-              aspectRatio
-              height
-              width
-            }
-            palette {
-              dominant {
-                background
-              }
-            }
-          }
-        }
-        _key
-      }
-      alt
-      caption
-    }
-  }
-`;
-
 export const query = graphql`
   query ProductTemplateQuery($id: String!) {
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
@@ -119,7 +27,9 @@ export const query = graphql`
     product: sanityProduct(id: { eq: $id }) {
       id
       title
-      ...ImagesQuery
+      ...ProductFirstImageQuery
+      ...ProductFirstImageNarrowQuery
+      ...ProductImagesQuery
       options {
         _id
         title
@@ -128,7 +38,6 @@ export const query = graphql`
           title
           image {
             _key
-            _type
             caption
             alt
             image {
