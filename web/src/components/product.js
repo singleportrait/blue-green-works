@@ -62,11 +62,11 @@ const Product = ({product, site}) => {
         <div className="lightText">
           <h2>
             { product.series && product.series.title }
-            <br />
+            { product.series && <br /> }
             { product.title }
           </h2>
           { product._rawDescription &&
-            <BlockContent blocks={product._rawDescription || []} />
+            <BlockContent blocks={product._rawDescription} />
           }
         </div>
         <Buttons
@@ -114,7 +114,7 @@ const Product = ({product, site}) => {
         )}
       </div>
       <div className={cn("col-md-start-9-span-2", styles.productInfo, styles.details)}>
-        { site.productSettings && product &&
+        { site.productSettings &&
           <ProductDetails productSettings={site.productSettings} product={product} />
         }
         <Buttons
