@@ -18,6 +18,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-emotion',
     'gatsby-plugin-portal',
+    'gatsby-plugin-gatsby-cloud',
     {
       resolve: 'gatsby-source-sanity',
       options: {
