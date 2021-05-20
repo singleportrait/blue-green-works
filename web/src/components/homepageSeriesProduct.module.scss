@@ -13,6 +13,12 @@
     margin-right: 0;
     margin-bottom: var(--mobile-spacing1x);
   }
+
+  @media (hover: hover) {
+    &:hover .seriesImageCaption {
+      color: var(--dark-color);
+    }
+  }
 }
 
 .seriesImageThirds {

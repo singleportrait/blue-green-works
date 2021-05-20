@@ -56,7 +56,7 @@ const Homepage = ({site, homepage}) => {
         {homepage.seriesHighlights && homepage.seriesHighlights.map((series, i) =>
           <React.Fragment key={series._key}>
             <h2 className="h1 lightText centeredText mt-4">
-              THE {series.series.title} {site.seriesDisplayName || "SERIES" }
+              {series.series.title} {site.seriesDisplayName || "SERIES" }
             </h2>
             <div className="mt-2 mb-4">
               <div className={styles.seriesImages}>
