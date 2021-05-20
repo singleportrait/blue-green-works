@@ -67,7 +67,7 @@ const Footer = () => {
                     alt="Instagram Link"
                   >
                     <InstagramIcon className={styles.linkImage} />
-                    { site.instagramHandle && `@${site.instagramHandle}` || "@BLUEGREENWORKS" }
+                    { site.instagramHandle && `@${site.instagramHandle}` || "Instagram" }
                   </a>
                 }
               </div>

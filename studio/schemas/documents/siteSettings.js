@@ -43,7 +43,7 @@ export default {
       name: 'instagramHandle',
       type: 'string',
       title: 'Instagram Handle',
-      description: "This gets used in the site footer. Don't include the @ symbol",
+      description: "This gets used in the site footer. Don't include the @ symbol. If blank, this will fall back to 'Instagram'",
     },
     {
       name: 'productSettings',
