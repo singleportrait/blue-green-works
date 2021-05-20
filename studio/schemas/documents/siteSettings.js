@@ -17,22 +17,6 @@ export default {
       title: 'Title'
     },
     {
-      name: 'description',
-      type: 'text',
-      title: 'Description',
-      description: 'Describe your portfolio for search engines and social media.'
-    },
-    {
-      name: 'keywords',
-      type: 'array',
-      title: 'Keywords',
-      description: 'Add keywords that describes your portfolio.',
-      of: [{type: 'string'}],
-      options: {
-        layout: 'tags'
-      }
-    },
-    {
       name: 'email',
       type: 'string',
       title: 'Contact Email',
@@ -72,6 +56,16 @@ export default {
       type: 'siteFooter',
       title: 'Site Footer',
       description: 'Use shift+enter to make 1 line break, and enter to make a paragraph break'
+    },
+    {
+      name: 'keywords',
+      type: 'array',
+      title: 'Keywords',
+      description: 'Add keywords that describes the site for search engines.',
+      of: [{type: 'string'}],
+      options: {
+        layout: 'tags'
+      }
     },
     {
       name: 'seo',

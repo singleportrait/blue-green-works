@@ -8,12 +8,11 @@ function SEO({ description, lang, meta, keywords, title, imageUrl = '' }) {
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription = description || (data.site && data.site.seo && data.site.seo.metaDescription) || (data.site && data.site.description) || "";
+        const metaDescription = description || (data.site && data.site.seo && data.site.seo.metaDescription) || "";
         const siteTitle = (data.site && data.site.title) || "";
         const metaImage = imageUrl ? `${imageUrl}?fm=jpg&w=1200&fit=max` : (data.site && data.site.seo && data.site.seo.openGraphImage && `${data.site.seo.openGraphImage.asset.url}?fm=jpg&w=1200&fit=max`);
 
         // console.log("Data");
-        // console.log(data.site && data.site.description);
 
         return (
           <Helmet
@@ -90,7 +89,6 @@ const detailsQuery = graphql`
   query DefaultSEOQuery {
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
       title
-      description
       keywords
       seo {
         openGraphImage {

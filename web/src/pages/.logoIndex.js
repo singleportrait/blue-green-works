@@ -22,8 +22,10 @@ export const query = graphql`
   query LogoIndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
-      description
       keywords
+      seo {
+        metaDescription
+      }
     }
   }
 `;
@@ -54,7 +56,7 @@ const LogoIndexPage = props => {
 
   return (
     <EmptyLayout fullPage>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO title={site.title} description={site.seo && site.seo.metaDescription} keywords={site.keywords} />
       {/* <Container> */}
       <div></div>
       <div>

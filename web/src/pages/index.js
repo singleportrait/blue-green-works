@@ -20,8 +20,10 @@ export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       title
-      description
       keywords
+      seo {
+        metaDescription
+      }
     }
     previewHomepage: sanityPreviewHomepage(_id: { regex: "/(drafts.|)previewHomepage/" }) {
       title,
@@ -105,7 +107,7 @@ const IndexPage = props => {
 
   return (
     <Layout previewPage>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO title={site.title} description={site.seo && site.seo.metaDescription} keywords={site.keywords} />
       <div className="mt-1 mb-2">
         <GatsbyImage
           image={previewHomepage.headerImage.image.asset.gatsbyImageData}

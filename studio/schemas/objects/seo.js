@@ -8,7 +8,8 @@ export default{
       title: 'Meta Description',
       type: 'text',
       rows: 2,
-      description: 'Describe this page for search engines and social media.'
+      description: 'Describe this page for search engines and social media.',
+      validation: Rule => Rule.min(50).max(150).warning("Descriptions between 50 and 150 characters show up best in search results")
     },
     {
       name: 'openGraphImage',
