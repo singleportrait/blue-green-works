@@ -30,6 +30,7 @@
     "react-emoji-render": "^1.2.4",
     "react-icons": "^3.11.0",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.11",
+    "sanity-plugin-dashboard-widget-gatsby": "^1.0.9",
     "sanity-plugin-dashboard-widget-netlify": "^1.1.0"
   },
   "devDependencies": {

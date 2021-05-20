@@ -17,6 +17,7 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
+    "dashboard-widget-gatsby",
     "@sanity/vision"
   ],
   "parts": [
