@@ -105,7 +105,7 @@ const ProductTemplate = props => {
     product.fullTitle = product.title
   }
 
-  const shareImageUrl = product.seo && product.seo.openGraphImage.asset.url || product.firstImage.image.asset.url
+  const shareImageUrl = (product.seo && product.seo.openGraphImage && product.seo.openGraphImage.asset.url) || (product.firstImage && product.firstImage.image.asset.url)
 
   return (
     <Layout>
