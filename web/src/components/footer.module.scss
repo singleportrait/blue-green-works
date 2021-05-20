@@ -1,5 +1,4 @@
 @import '../styles/customMedia.css';
-@import '../styles/variableMixins';
 
 .footer {
   position: relative;
@@ -37,19 +36,27 @@
 }
 
 .link {
-  padding: var(--spacing1x);
+  padding: .5rem 1rem;
   display: flex;
   align-items: center;
-  margin-right: -#{$spacing1x};
+  margin-right: -1rem;
 
   @media (--max-medium) {
-    margin-left: -#{$spacing1x};
+    margin-left: -1rem;
+  }
+
+  @media (hover: hover) {
+    &:hover, &:hover path {
+      color: var(--light-color);
+      fill: var(--light-color);
+    }
   }
 }
 
 .linkImage {
   display: inline-block;
   width: 1.3rem;
+  max-width: 100%;
   height: auto;
-  padding-right: .5rem;
+  padding-right: .7rem;
 }

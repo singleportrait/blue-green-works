@@ -4,7 +4,8 @@ import { cn } from '../lib/helpers';
 
 import BlockContent from './block-content';
 import Button from './button';
-import instagram from '../images/instagram.svg';
+import EmailIcon from './emailIcon';
+import InstagramIcon from './instagramIcon';
 
 import * as styles from './footer.module.scss';
 
@@ -46,11 +47,16 @@ const Footer = () => {
                   { site.footer.secondSectionTitle || "Contact" }
                 </h3>
                 { site.email &&
-                  <Button
-                    text={site.email}
-                    link={`mailto:${site.email}`}
-                    targetBlank
-                  />
+                  <a
+                    className={cn(styles.link, "label")}
+                    href={site.email}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="Email Link"
+                  >
+                    <EmailIcon className={styles.linkImage} />
+                    { site.email }
+                  </a>
                 }
                 { site.instagram &&
                   <a
@@ -60,7 +66,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     alt="Instagram Link"
                   >
-                    <img src={instagram} className={styles.linkImage} />
+                    <InstagramIcon className={styles.linkImage} />
                     { site.instagramHandle && `@${site.instagramHandle}` || "@BLUEGREENWORKS" }
                   </a>
                 }
