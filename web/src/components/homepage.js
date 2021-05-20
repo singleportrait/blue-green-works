@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from "gatsby";
 
 import { cn } from "../lib/helpers";
 
 import SanityImage from './sanityImage';
 import Button from './button';
 import BlockContent from '../components/block-content';
+import HomepageSeriesProduct from './homepageSeriesProduct';
 
 import * as styles from './homepage.module.scss';
 
@@ -61,30 +61,11 @@ const Homepage = ({site, homepage}) => {
             <div className="mt-2 mb-4">
               <div className={styles.seriesImages}>
                 {series.products && series.products.map((product, i) =>
-                  <React.Fragment key={product && product._id}>
-                    { product &&
-                      <Link
-                        className={cn(
-                          styles.seriesImageContainer,
-                          series.products.length == 3 ? styles.seriesImageThirds : '',
-                          series.products.length == 4 ? styles.seriesImageQuarters : '',
-                        )}
-                        to={`/products/${product.slug.current}`}
-                      >
-                        { product.firstImageNarrow && product.firstImageNarrow.image.asset &&
-                          <SanityImage
-                            image={product.firstImageNarrow.image}
-                            alt={product.firstImageNarrow.alt}
-                            containerClassName={styles.seriesImage}
-                            fullHeight
-                          />
-                        }
-                        <div className={cn(styles.seriesImageCaptionSpacer, 'smallLabel')}>
-                          { series.series.title } { product.title }
-                        </div>
-                      </Link>
-                    }
-                  </React.Fragment>
+                  <HomepageSeriesProduct
+                    product={product}
+                    series={series}
+                    key={product && product._id}
+                  />
                 )}
               </div>
               { i !== (homepage.seriesHighlights.length - 1) &&
