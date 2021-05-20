@@ -39,6 +39,39 @@ async function createProductPages (graphql, actions) {
   });
 }
 
+async function createProductsPage (graphql, actions) {
+  const {createPage} = actions;
+  const result = await graphql(`
+    {
+      allSanityProductsPage(filter: {slug: {current: {ne: null}}}, limit: 1) {
+        edges {
+          node {
+            id
+            title
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors
+
+  const productsPageNode = (result.data.allSanityProductsPage || {}).edges[0].node || [];
+
+  const id = productsPageNode.id;
+  const slug = productsPageNode.slug.current;
+  const path = `/${slug}`;
+
+  createPage({
+    path: path,
+    component: require.resolve('./src/templates/productsPage.js'),
+    context: {id}
+  });
+}
+
 // const {isFuture} = require('date-fns')
 
 // async function createProjectPages (graphql, actions) {
@@ -81,4 +114,5 @@ async function createProductPages (graphql, actions) {
 exports.createPages = async ({graphql, actions}) => {
   // await createProjectPages(graphql, actions)
   await createProductPages(graphql, actions)
+  await createProductsPage(graphql, actions)
 }
