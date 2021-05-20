@@ -4,7 +4,7 @@ import React from 'react';
 import Emoji from "react-emoji-render";
 
 const hiddenDocTypes = listItem =>
-  !['category', 'person', 'sampleProject', 'siteSettings', 'previewHomepage', 'homepage', 'product', 'about', 'option', 'series'].includes(listItem.getId())
+  !['category', 'person', 'sampleProject', 'siteSettings', 'previewHomepage', 'homepage', 'product', 'about', 'option', 'series', 'productsPage'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -56,6 +56,15 @@ export default () =>
         .icon(() => <Emoji style={{ fontSize: 30 }} text="🗄" />)
         .schemaType('category')
         .child(S.documentTypeList('category').title('Categories')),
+      S.listItem()
+        .title('Products Page')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text="💡" />)
+        .child(
+          S.editor()
+            .id('productsPage')
+            .schemaType('productsPage')
+            .documentId('productsPage')
+        ),
       S.listItem()
         .title('About')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="📝" />)

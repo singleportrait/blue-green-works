@@ -16,6 +16,7 @@ import product from './documents/product'
 import about from './documents/about'
 import option from './documents/option'
 import series from './documents/series'
+import productsPage from './documents/productsPage'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -56,6 +57,7 @@ export default createSchema({
     homepage,
     product,
     about,
+    productsPage,
     option,
     series,
     category,
