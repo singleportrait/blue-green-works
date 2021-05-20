@@ -105,12 +105,14 @@ const ProductTemplate = props => {
     product.fullTitle = product.title
   }
 
+  const shareImageUrl = product.seo && product.seo.openGraphImage.asset.url || product.firstImage.image.asset.url
+
   return (
     <Layout>
       <SEO
         title={product.fullTitle}
         description={product.seo && product.seo.metaDescription}
-        imageUrl={product.seo && product.seo.openGraphImage.asset.url}
+        imageUrl={shareImageUrl}
       />
       <Product
         product={product}

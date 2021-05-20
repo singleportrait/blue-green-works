@@ -78,6 +78,7 @@ export const productFirstImageQuery = graphql`
         }
         asset {
           _id
+          url # Used as fallback SEO image on product pages
           metadata {
             hasAlpha
             dimensions {
