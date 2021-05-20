@@ -36,6 +36,13 @@ export const query = graphql`
         }
       }
     }
+    productsPage: sanityProductsPage(_id: { regex: "/(drafts.|)productsPage/" }) {
+      title
+      productsCTA
+      slug {
+        current
+      }
+    }
   }
 `;
 
@@ -52,6 +59,7 @@ const PreviewHomepagePage = props => {
 
   const site = (data || {}).site;
   const homepage = (data || {}).homepage;
+  const productsPage = (data || {}).productsPage;
 
   // console.log(site);
   // console.log(homepage);
@@ -68,8 +76,10 @@ const PreviewHomepagePage = props => {
     );
   }
 
-  const isEven = (i) => {
-    return (i % 2) !== 0;
+  if (!productsPage) {
+    throw new Error(
+      'Missing "Products Page". Open the studio at http://localhost:3333 and add some content to "Products page" and restart the development server.'
+    );
   }
 
   return (
@@ -78,6 +88,7 @@ const PreviewHomepagePage = props => {
       <Homepage
         site={site}
         homepage={homepage}
+        productsPage={productsPage}
       />
 
     </Layout>

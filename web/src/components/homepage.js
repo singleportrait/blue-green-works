@@ -9,8 +9,8 @@ import HomepageSeriesProduct from './homepageSeriesProduct';
 
 import * as styles from './homepage.module.scss';
 
-const Homepage = ({site, homepage}) => {
-  if (!site || !homepage) return;
+const Homepage = ({site, homepage, productsPage}) => {
+  if (!site || !homepage || !productsPage) return;
 
   return (
     <>
@@ -52,28 +52,14 @@ const Homepage = ({site, homepage}) => {
 
       <hr />
 
-      <div>
-        {homepage.seriesHighlights && homepage.seriesHighlights.map((series, i) =>
-          <React.Fragment key={series._key}>
-            <h2 className="h1 lightText centeredText mt-4">
-              {series.series.title} {site.seriesDisplayName || "SERIES" }
-            </h2>
-            <div className="mt-2 mb-4">
-              <div className={styles.seriesImages}>
-                {series.products && series.products.map((product, i) =>
-                  <HomepageSeriesProduct
-                    product={product}
-                    series={series}
-                    key={product && product._id}
-                  />
-                )}
-              </div>
-              { i !== (homepage.seriesHighlights.length - 1) &&
-                <hr className={cn(styles.divider, 'my-0 mt-4')} />
-              }
-            </div>
-            </React.Fragment>
-          )}
+      <div className={cn("my-4", styles.productsButtonContainer)}>
+        <Button
+          text={ productsPage.productsCTA || "View All Lighting" }
+          link={`/${productsPage.slug.current}`}
+          light
+          internalLink
+          className={styles.productsButton}
+        />
       </div>
     </>
   );
