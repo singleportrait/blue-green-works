@@ -1,7 +1,6 @@
 @import '../styles/customMedia.css';
 
 .seriesImageContainer {
-  margin-right: var(--spacing1x);
   display: block;
 
   &:last-child {
@@ -9,7 +8,11 @@
     margin-bottom: 0;
   }
 
-  @media (--max-large) {
+  @media (--min-large) {
+    margin-right: var(--spacing1x);
+  }
+
+  @media (--max-medium) {
     margin-right: 0;
     margin-bottom: var(--mobile-spacing1x);
   }
