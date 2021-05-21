@@ -15,7 +15,6 @@ export const query = graphql`
     }
     homepage: sanityHomepage(_id: { regex: "/(drafts.|)homepage/" }) {
       title
-      contactHeader
       _rawDescription
       ...HomepageHeaderImageQuery
       ...HomepageHeaderImageNarrowQuery

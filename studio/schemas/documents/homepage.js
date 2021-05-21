@@ -34,6 +34,7 @@ export default {
       type: 'string',
       title: 'Contact Button Header',
       description: "If blank, this will default to 'Contact Us:'. Include a colon at the end if you want one.",
+      hidden: true
     },
     {
       name: 'seriesHighlights',

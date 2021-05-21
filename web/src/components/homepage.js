@@ -39,27 +39,15 @@ const Homepage = ({site, homepage, productsPage}) => {
         </div>
         { site.email &&
           <div className={cn("col-md-start-7-span-3", styles.descriptionSection)}>
-            <h2 className={cn("lightText", styles.descriptionHeader)}>{ homepage.contactHeader || "Contact Us:" }</h2>
             <Button
-              text={site.email}
-              link={`mailto:${site.email}`}
-              targetBlank
-              fullWidth
+              text={ productsPage.productsCTA || "View All Lighting" }
+              link={`/${productsPage.slug.current}`}
+              light
+              internalLink
+              className={styles.productsButton}
             />
           </div>
         }
-      </div>
-
-      <hr />
-
-      <div className={cn("my-4", styles.productsButtonContainer)}>
-        <Button
-          text={ productsPage.productsCTA || "View All Lighting" }
-          link={`/${productsPage.slug.current}`}
-          light
-          internalLink
-          className={styles.productsButton}
-        />
       </div>
     </>
   );
