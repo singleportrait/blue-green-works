@@ -40,7 +40,10 @@ export default () =>
         .title('Products')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="✨" />)
         .schemaType('product')
-        .child(S.documentTypeList('product').title('Products')),
+        .child(
+          S.documentTypeList('product')
+          .title('Products')
+        ),
       S.listItem()
         .title('Product Options')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="🎨" />)
