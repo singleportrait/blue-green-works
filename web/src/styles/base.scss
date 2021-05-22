@@ -16,8 +16,8 @@
 /* Gatsby overrides */
 html,
 body,
-body > div,
-body > div > div {
+body > div:not(#portal),
+body > div:not(#portal) > div {
   height: 100%;
 }
 
