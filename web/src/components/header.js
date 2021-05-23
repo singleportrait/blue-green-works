@@ -38,7 +38,7 @@ const Header = (props) => {
                   { productsPage.title }
                 </Link>
               }
-              <Link className={styles.logoContainer} to={`/previewHomepage`}>
+              <Link className={styles.logoContainer} to={`/`}>
                 <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
                 <Logo className={cn(styles.logo, styles.wideLogo)} />
               </Link>
@@ -52,7 +52,7 @@ const Header = (props) => {
               )}
             >
               <div className={styles.mobileLogoContainer}>
-                <Link to={`/previewHomepage`}>
+                <Link to={`/`}>
                   <Logo className={styles.logo} />
                 </Link>
                 <div
