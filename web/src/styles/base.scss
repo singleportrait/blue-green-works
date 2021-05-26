@@ -111,3 +111,13 @@ hr {
   opacity: 1;
   transition: opacity 300ms;
 }
+
+.richText {
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--light-color);
+    }
+  }
+}
