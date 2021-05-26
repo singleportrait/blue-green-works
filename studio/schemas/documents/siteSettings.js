@@ -52,6 +52,12 @@ export default {
       description: 'Override the default UI text for product pages'
     },
     {
+      name: 'backgroundColor',
+      type: 'string',
+      title: 'Background Color Override',
+      description: 'Include the hash at the beginning of the hex number. If blank, this falls back to #8A7342'
+    },
+    {
       name: 'footer',
       type: 'siteFooter',
       title: 'Site Footer',
