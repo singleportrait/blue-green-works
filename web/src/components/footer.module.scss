@@ -3,6 +3,7 @@
 .footer {
   position: relative;
   display: flex;
+  margin-top: var(--spacing4x);
 
   @media (--max-large) {
     margin-bottom: var(--spacing1x);

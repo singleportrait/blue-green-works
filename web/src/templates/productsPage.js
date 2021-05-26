@@ -88,6 +88,7 @@ const ProductsPage = props => {
         imageUrl={productsPage.seo && productsPage.seo.openGraphImage && productsPage.seo.openGraphImage.asset.url}
       />
 
+      <hr className={cn(styles.divider, 'my-0')} />
       <div>
         {homepageSeries.seriesHighlights && homepageSeries.seriesHighlights.map((series, i) =>
           <React.Fragment key={series._key}>
