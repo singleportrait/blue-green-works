@@ -21,7 +21,7 @@
 
 .headerImageContainer {
   width: 100%;
-  height: 78vh;
+  height: var(--mobile-homepage-lead-image-height);
 
   @media (--min-medium) {
     height: $aboveTheFoldHeight;
