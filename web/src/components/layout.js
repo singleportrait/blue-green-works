@@ -24,8 +24,8 @@ const Layout = ({ children, fullPage, previewPage }) => (
       query={layoutQuery}
       render={({site}) => {
         const css = `
-          html {
-            background-color: ${site.backgroundColor || ''};
+          :root {
+            --bg-color: ${site.backgroundColor || ''};
           }
         `;
         return (
