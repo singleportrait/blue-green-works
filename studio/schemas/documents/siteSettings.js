@@ -26,7 +26,8 @@ export default {
       name: 'productContactText',
       type: 'string',
       title: 'Product Contact Button Text',
-      description: "If blank, this will fall back to 'Contact Us'"
+      description: "If blank, this will fall back to 'Contact Us'",
+      hidden: true
     },
     {
       name: 'seriesDisplayName',
