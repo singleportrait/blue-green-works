@@ -18,6 +18,8 @@ export const homepageHeaderImageQuery = graphql`
           metadata {
             dimensions {
               aspectRatio
+              width
+              height
             }
             palette {
               dominant {
@@ -49,6 +51,8 @@ export const homepageHeaderImageNarrowQuery = graphql`
           metadata {
             dimensions {
               aspectRatio
+              width
+              height
             }
             palette {
               dominant {
@@ -83,6 +87,8 @@ export const productFirstImageQuery = graphql`
             hasAlpha
             dimensions {
               aspectRatio
+              width
+              height
             }
             palette {
               dominant {
@@ -116,6 +122,8 @@ export const productFirstImageNarrowQuery = graphql`
             hasAlpha
             dimensions {
               aspectRatio
+              width
+              height
             }
             palette {
               dominant {

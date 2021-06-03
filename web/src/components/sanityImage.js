@@ -53,9 +53,9 @@ const SanityImage = ({image, alt, className = "", containerClassName = "", fullH
   const getImageUrl = (size) => {
     let imageUrl;
     if (!size) {
-      imageUrl = imageUrlFor(buildImageObj(image)).fit("crop").url();
+      imageUrl = imageUrlFor(buildImageObj(image)).url();
     } else {
-      imageUrl = imageUrlFor(buildImageObj(image)).width(size).fit("crop").url();
+      imageUrl = imageUrlFor(buildImageObj(image)).width(size).url();
     }
 
     return imageUrl;
