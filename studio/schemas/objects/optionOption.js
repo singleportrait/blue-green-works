@@ -13,5 +13,11 @@ export default {
       title: 'Option Image',
       type: 'figure',
     }
-  ]
+  ],
+  preview: {
+    select: {
+      media: 'image.image',
+      title: 'title'
+    }
+  }
 }

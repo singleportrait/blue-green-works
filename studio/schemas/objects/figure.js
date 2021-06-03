@@ -33,8 +33,17 @@ export default {
   ],
   preview: {
     select: {
-      imageUrl: 'image.asset.url',
-      title: 'caption'
+      media: 'image',
+      caption: 'caption',
+      alt: 'alt'
+    },
+    prepare(selection) {
+      const { media, caption, alt } = selection;
+      return {
+        media: media,
+        title: caption || alt,
+        subtitle: !caption && !alt && "Missing alt text"
+      }
     }
   }
 }
