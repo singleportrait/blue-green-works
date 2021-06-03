@@ -20,14 +20,6 @@ export default () =>
         )
         .icon(MdSettings),
       S.listItem()
-        .title('Preview Homepage')
-        .child(
-          S.editor()
-            .id('previewHomepage')
-            .schemaType('previewHomepage')
-            .documentId('previewHomepage')
-        ),
-      S.listItem()
         .title('Homepage')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="🏠" />)
         .child(
