@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "gatsby";
 
 import { cn } from "../lib/helpers";
 
@@ -12,21 +13,25 @@ import * as styles from './homepage.module.scss';
 const Homepage = ({site, homepage, productsPage}) => {
   if (!site || !homepage || !productsPage) return;
 
+  const productsPageSlug = `/${productsPage.slug.current}`;
+
   return (
     <>
       <div className="mt-1 mb-2">
-        <SanityImage
-          image={homepage.headerImage.image}
-          alt={homepage.headerImage.alt}
-          containerClassName={cn(styles.headerImageContainer, styles.headerImageWide)}
-          fullHeight
-        />
-        <SanityImage
-          image={homepage.headerImageNarrow.image}
-          alt={homepage.headerImageNarrow.alt}
-          containerClassName={cn(styles.headerImageContainer, styles.headerImageNarrow)}
-          fullHeight
-        />
+        <Link to={productsPageSlug}>
+          <SanityImage
+            image={homepage.headerImage.image}
+            alt={homepage.headerImage.alt}
+            containerClassName={cn(styles.headerImageContainer, styles.headerImageWide)}
+            fullHeight
+          />
+          <SanityImage
+            image={homepage.headerImageNarrow.image}
+            alt={homepage.headerImageNarrow.alt}
+            containerClassName={cn(styles.headerImageContainer, styles.headerImageNarrow)}
+            fullHeight
+          />
+        </Link>
       </div>
 
       <hr />
@@ -41,7 +46,7 @@ const Homepage = ({site, homepage, productsPage}) => {
           <div className={cn("col-md-start-7-span-3", styles.descriptionSection)}>
             <Button
               text={ productsPage.productsCTA || "View All Lighting" }
-              link={`/${productsPage.slug.current}`}
+              link={productsPageSlug}
               light
               internalLink
               className={styles.productsButton}
