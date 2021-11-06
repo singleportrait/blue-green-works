@@ -49,7 +49,7 @@ const Footer = () => {
                 { site.email &&
                   <a
                     className={cn(styles.link, "label")}
-                    href={site.email}
+                    href={`mailto:${site.email}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     alt="Email Link"
