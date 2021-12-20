@@ -23,11 +23,11 @@ const Layout = ({ children, fullPage, previewPage }) => (
     <StaticQuery
       query={layoutQuery}
       render={({site}) => {
+        // css = ``;
         const css = `
           :root {
-            --bg-color: ${site.backgroundColor || ''};
           }
-        `;
+        `; // ${site.backgroundColor || ''};
         return (
           <>
             { site && site.backgroundColor &&
