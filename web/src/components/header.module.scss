@@ -44,6 +44,7 @@
   -webkit-font-smoothing: antialiased;
   flex-basis: 25%;
   padding: 1rem 0;
+  color: var(--accent-color) !important;
 
   @media (--max-medium) {
     flex-basis: auto;

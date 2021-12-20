@@ -47,8 +47,8 @@ const Homepage = ({site, homepage, productsPage}) => {
             <Button
               text={ productsPage.productsCTA || "View All Lighting" }
               link={productsPageSlug}
-              light
               internalLink
+              largePadding
               className={styles.productsButton}
             />
           </div>

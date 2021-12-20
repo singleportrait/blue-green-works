@@ -35,7 +35,7 @@ const Footer = () => {
           return (
             <div className={styles.footer}>
               <div className={styles.footerSection}>
-                <h3 className={cn("lightText", styles.footerSectionTitle)}>
+                <h3 className={cn("accentText", styles.footerSectionTitle)}>
                   { site.footer.firstSectionTitle || "Address" }
                 </h3>
                 { site.footer._rawText &&
@@ -43,7 +43,7 @@ const Footer = () => {
                 }
               </div>
               <div className={cn(styles.footerSection, styles.contactSection)}>
-                <h3 className={cn("lightText", styles.footerSectionTitle)}>
+                <h3 className={cn("accentText", styles.footerSectionTitle)}>
                   { site.footer.secondSectionTitle || "Contact" }
                 </h3>
                 { site.email &&
