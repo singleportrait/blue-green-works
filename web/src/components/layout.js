@@ -25,9 +25,9 @@ const Layout = ({ children, fullPage, previewPage }) => (
       render={({site}) => {
         const css = `
           :root {
-            --bg-color: ${site.backgroundColor || ''};
+            --bg-color: #EEEAE2;
           }
-        `;
+        `; // ${site.backgroundColor || ''};
         return (
           <>
             { site && site.backgroundColor &&

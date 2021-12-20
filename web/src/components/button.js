@@ -3,7 +3,17 @@ import { Link } from "gatsby";
 
 import { cn } from '../lib/helpers';
 
-const Button = ({text, link, targetBlank, filled, fullWidth, light, className = '', internalLink}) => {
+const Button = ({
+  text,
+  link,
+  targetBlank,
+  filled,
+  fullWidth,
+  light,
+  largePadding,
+  className = '',
+  internalLink,
+}) => {
   if (internalLink) {
     return (
       <Link
@@ -13,6 +23,7 @@ const Button = ({text, link, targetBlank, filled, fullWidth, light, className = 
           filled && 'button--filled',
           fullWidth && 'button--fullWidth',
           light && 'button--light',
+          largePadding && 'button--largePadding',
           className
         )}
       >
@@ -28,6 +39,7 @@ const Button = ({text, link, targetBlank, filled, fullWidth, light, className = 
           filled && 'button--filled',
           fullWidth && 'button--fullWidth',
           light && 'button--light',
+          largePadding && 'button--largePadding',
           className
         )}
         target={targetBlank && '_blank'}

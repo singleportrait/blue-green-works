@@ -17,7 +17,6 @@ const Buttons = ({ className = '', contactText, email, tearSheet, tearSheetText 
         link={`mailto:${email}`}
         targetBlank
         fullWidth
-        light
       />
       { tearSheet && tearSheet.PDF && tearSheet.PDF.asset &&
         <Button
@@ -25,7 +24,6 @@ const Buttons = ({ className = '', contactText, email, tearSheet, tearSheetText 
           link={tearSheet.PDF.asset.url}
           targetBlank
           fullWidth
-          light
           className="mt-1"
         />
       }
@@ -59,7 +57,7 @@ const Product = ({product, site}) => {
         styles.productInfo,
         styles.description
       )}>
-        <div className="lightText">
+        <div>
           <h2>
             { product.series && product.series.title }
             { product.series && <br /> }

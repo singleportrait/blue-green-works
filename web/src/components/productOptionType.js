@@ -60,6 +60,7 @@ const ProductOptionType = ({type, i}) => {
       </div>
       { showDetail &&
         <div className={cn(
+          'lightText',
           styles.detail,
           i >=3 && styles.rightDetail
         )}>

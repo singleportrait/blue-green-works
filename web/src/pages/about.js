@@ -109,9 +109,9 @@ const AboutPage = props => {
           />
         </div>
         <div className={cn("col-md-start-8-span-3", styles.info)}>
-          <h2 className="lightText">{ about.title || "About" }</h2>
+          <h2 className="accentText">{ about.title || "About" }</h2>
           { about._rawDescription &&
-            <BlockContent className="lightText" blocks={about._rawDescription} />
+            <BlockContent blocks={about._rawDescription} />
           }
           <Button
             text={about.buttonText || "Contact Us"}
@@ -119,7 +119,6 @@ const AboutPage = props => {
             className="mt-1"
             targetBlank
             fullWidth
-            light
           />
         </div>
       </div>

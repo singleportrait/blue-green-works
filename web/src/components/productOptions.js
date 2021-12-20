@@ -11,7 +11,7 @@ const ProductOptions = ({options}) => {
       { options.map((option, i) =>
         <React.Fragment key={option && option._id}>
           { option &&
-            <div className="lightText">
+            <div>
               <p className={styles.title}>{option.title}:</p>
               <div className={styles.productTypes}>
                 {option.types.map((type, i) =>

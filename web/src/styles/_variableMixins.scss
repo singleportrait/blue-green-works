@@ -1,12 +1,19 @@
 $fontSize: (14 / 16) * 100%;
 $mobileFontSize: (13.5 / 16) * 100%;
 
-$bgColor: #8A7342;
-// Alt less-saturated bg color: #82704b;
+// Dark backgrounds:
+// $bgColor: #8A7342;
+// Alt less-saturated brown bg color: #82704b;
+
+$bgColor: #EEEAE2;
 
 $darkColor: #111;
 $lightColor: #fff;
-$accentColor: #ebe0c6;
+
+// For dark background:
+// $accentColor: #ebe0c6;
+
+$accentColor: #8f744b;
 
 $pageMaxWidth: 1400px;
 
