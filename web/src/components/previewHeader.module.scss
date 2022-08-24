@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../styles/variableMixins';
 @import '../styles/customMedia.css';
 
@@ -21,7 +23,7 @@
 .logoContainer {
   @media (--min-medium) {
     width: 50vw;
-    max-width: #{$pageMaxWidth/2};
+    max-width: #{math.div($pageMaxWidth, 2)};
     height: $desktopLogoHeight;
   }
 }

@@ -1,13 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-// import {
-//   mapEdgesToNodes,
-//   filterOutDocsWithoutSlugs,
-//   filterOutDocsPublishedInTheFuture
-// } from "../lib/helpers";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
-// import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import EmptyLayout from "../components/emptyLayout";
 import logo from '../images/blueGreenWorksComingSoonNewYork.svg';
@@ -42,11 +36,6 @@ const LogoIndexPage = props => {
   }
 
   const site = (data || {}).site;
-  // const projectNodes = (data || {}).projects
-  //   ? mapEdgesToNodes(data.projects)
-  //       .filter(filterOutDocsWithoutSlugs)
-  //       .filter(filterOutDocsPublishedInTheFuture)
-  //   : [];
 
   if (!site) {
     throw new Error(

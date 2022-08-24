@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../styles/variableMixins';
 @import '../styles/customMedia.css';
 
@@ -62,7 +64,7 @@
     position: fixed;
     z-index: 2;
     width: 50vw;
-    max-width: #{$pageMaxWidth/2};
+    max-width: #{math.div($pageMaxWidth, 2)};
     height: var(--logo-height);
     left: 0;
     right: 0;

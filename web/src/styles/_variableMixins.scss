@@ -1,5 +1,7 @@
-$fontSize: (14 / 16) * 100%;
-$mobileFontSize: (13.5 / 16) * 100%;
+@use "sass:math";
+
+$fontSize: math.div(14, 16) * 100%;
+$mobileFontSize: math.div(13.5, 16) * 100%;
 
 $bgColor: #8A7342;
 // Alt less-saturated bg color: #82704b;
