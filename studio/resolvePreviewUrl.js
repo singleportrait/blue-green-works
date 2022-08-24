@@ -4,14 +4,14 @@ export default function generatePreviewUrl (document) {
   const type = document._type;
 
   let slug;
-  const baseUrl = 'https://preview-bluegreenworks.gtsb.io'
+  const baseUrl = 'https://preview-bluegreenworks.gtsb.io';
 
   if (type === 'about') {
-    console.log("About page!");
+    console.log('About page!');
     slug = '/about';
   } else if (type === 'homepage') {
-    console.log("Homepage!");
-    slug = '/'
+    console.log('Homepage!');
+    slug = '/';
   } else if (type === 'product') {
     slug = `/products/${document.slug.current}`;
   } else if (type === 'productsPage') {
@@ -26,6 +26,6 @@ export default function generatePreviewUrl (document) {
 
     return baseUrl + slug;
   } else {
-    return;
+
   }
 }
