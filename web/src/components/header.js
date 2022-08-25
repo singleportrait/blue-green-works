@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
 import { cn } from '../lib/helpers';
 
 import HamburgerIcon from './hamburgerIcon';
 import Logo from './logo';
+
 import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
 
 import * as styles from './header.module.scss';
@@ -21,6 +25,36 @@ const headerQuery = graphql`
 
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
+  const logoContainer = useRef();
+
+  /* Create scroll listeners to shrink logo */
+  useEffect(() => {
+    if (!logoContainer) return;
+    // console.log('Logo container exists now, creating logo animation', logoContainer.current);
+    gsap.registerPlugin(ScrollTrigger);
+    const mm = gsap.matchMedia();
+
+    let logo;
+
+    mm.add('(min-width:769px)', () => {
+      logo = gsap.to(logoContainer.current, {
+        scale: 0.70,
+        y: -20,
+        scrollTrigger: {
+          start: "top 20px",
+          end: "bottom 85%",
+          // markers: true,
+          scrub: true,
+          toggleActions: 'restart pause restart pause',
+          // onToggle: self => console.log("toggled, isActive:", self.isActive),
+        }
+      });
+    });
+
+    return () => {
+      logo.scrollTrigger.kill();
+    }
+  }, [logoContainer]);
 
   return (
     <StaticQuery
@@ -42,7 +76,7 @@ const Header = () => {
                   About
                 </Link>
               </div>
-              <Link className={styles.logoContainer} to={'/'}>
+              <Link ref={logoContainer} className={styles.logoContainer} to={'/'}>
                 <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
                 <Logo className={cn(styles.logo, styles.wideLogo)} />
               </Link>
