@@ -1,9 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&display=swap');
+@font-face {
+  font-family: 'Founders';
+  src: url('../fonts/foundersgrotesk-regular-webfont.woff2') format('woff2'),
+       url('../fonts/foundersgrotesk-regular-webfont.woff') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+}
 
 @font-face {
-  font-family: 'Standard';
-  src: url('../fonts/standard-book-webfont.woff2') format('woff2'),
-       url('../fonts/standard-book-webfont.woff') format('woff2');
+  font-family: 'Floridian';
+  src: url('../fonts/floridian-webfont.woff2') format('woff2'),
+       url('../fonts/floridian-webfont.woff') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('../fonts/selfmodern-book-webfont.woff2') format('woff2'),
+       url('../fonts/selfmodern-book-webfont.woff') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;

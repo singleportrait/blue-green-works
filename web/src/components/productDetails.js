@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from "../lib/helpers";
+import { cn } from '../lib/helpers';
 
 import BlockContent from '../components/block-content';
 import ProductOptions from '../components/productOptions';
@@ -14,27 +14,27 @@ const ProductDetails = ({product, productSettings}) => {
     <>
       { product._rawMaterials &&
         <>
-          <h4 className={cn("label", styles.detailTitle)}>
-            { productSettings.materialsLabel || "Materials" }
+          <h4 className={cn('label', styles.detailTitle)}>
+            { productSettings.materialsLabel || 'Materials' }
           </h4>
-          <BlockContent className="lightText" blocks={product._rawMaterials} />
+          <BlockContent className="smallBodyText" blocks={product._rawMaterials} />
         </>
       }
       <br />
       { product.options.length > 0 &&
         <>
-          <h4 className={cn("label", styles.detailTitle)}>
-            { productSettings.optionsLabel || "Options" }
+          <h4 className={cn('label', styles.detailTitle)}>
+            { productSettings.optionsLabel || 'Options' }
           </h4>
           <ProductOptions options={product.options} />
         </>
       }
       { product._rawDimensions &&
         <>
-          <h4 className={cn("label", styles.detailTitle)}>
-            { productSettings.dimensionsLabel || "Dimensions" }
+          <h4 className={cn('label', styles.detailTitle)}>
+            { productSettings.dimensionsLabel || 'Dimensions' }
           </h4>
-          <BlockContent className="lightText" blocks={product._rawDimensions} />
+          <BlockContent className="smallBodyText" blocks={product._rawDimensions} />
         </>
       }
     </>

@@ -48,8 +48,7 @@
 
   @media (hover: hover) {
     &:hover, &:hover path {
-      color: var(--light-color);
-      fill: var(--light-color);
+      text-decoration: underline;
     }
   }
 }

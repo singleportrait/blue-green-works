@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import GraphQLErrorList from "../components/graphql-error-list";
+import React from 'react';
+import { graphql } from 'gatsby';
+import GraphQLErrorList from '../components/graphql-error-list';
 
-import { cn } from "../lib/helpers";
+import { cn } from '../lib/helpers';
 
-import SEO from "../components/seo";
-import Layout from "../containers/layout";
-import BlockContent from "../components/block-content";
+import SEO from '../components/seo';
+import Layout from '../containers/layout';
+import BlockContent from '../components/block-content';
 import SanityImage from '../components/sanityImage';
 import Button from '../components/button';
 
@@ -82,13 +82,13 @@ const AboutPage = props => {
 
   if (!site) {
     throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
+      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.',
     );
   }
 
   if (!about) {
     throw new Error(
-      'Missing "About". Open the studio at http://localhost:3333 and add some content to "About" and restart the development server.'
+      'Missing "About". Open the studio at http://localhost:3333 and add some content to "About" and restart the development server.',
     );
   }
 
@@ -101,20 +101,20 @@ const AboutPage = props => {
         imageUrl={about.seo && about.seo.openGraphImage && about.seo.openGraphImage.asset.url}
       />
       <div className="row">
-        <div className={cn("col-md-start-1-span-7", styles.imageContainer)}>
+        <div className={cn('col-md-start-1-span-7', styles.imageContainer)}>
           <SanityImage
             image={about.image.image}
             alt={about.image.alt}
             fullHeight
           />
         </div>
-        <div className={cn("col-md-start-8-span-3", styles.info)}>
-          <h2 className="lightText">{ about.title || "About" }</h2>
+        <div className={cn('col-md-start-8-span-3', styles.info)}>
+          <h2 >{ about.title || 'About' }</h2>
           { about._rawDescription &&
-            <BlockContent className="lightText" blocks={about._rawDescription} />
+            <BlockContent blocks={about._rawDescription} />
           }
           <Button
-            text={about.buttonText || "Contact Us"}
+            text={about.buttonText || 'Contact Us'}
             link={`mailto:${site.email}`}
             className="mt-1"
             targetBlank

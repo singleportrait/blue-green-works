@@ -1,9 +1,8 @@
 h1, h2, h3 {
-  font-family: var(--serif);
+  font-family: var(--script);
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: var(--spacing1x);
-  text-transform: uppercase;
 }
 
 h1, .h1 {
@@ -23,7 +22,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 2.2rem;
 }
 
 h4 {
@@ -32,6 +31,7 @@ h4 {
 
 .label {
   text-transform: uppercase;
+  font-family: var(--sans);
 }
 
 .smallLabel {
@@ -40,7 +40,11 @@ h4 {
 }
 
 .lightText {
-  color: var(--light-color);
+  color: var(--white);
+}
+
+.smallBodyText {
+  font-size: var(--small-font-size);
 }
 
 .centeredText {

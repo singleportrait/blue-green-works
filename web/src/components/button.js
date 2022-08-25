@@ -1,19 +1,17 @@
 import React from 'react';
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
 
 import { cn } from '../lib/helpers';
 
-const Button = ({text, link, targetBlank, filled, fullWidth, light, className = '', internalLink}) => {
+const Button = ({text, link, targetBlank, fullWidth, className = '', internalLink}) => {
   if (internalLink) {
     return (
       <Link
         to={link}
         className={cn(
           'button',
-          filled && 'button--filled',
           fullWidth && 'button--fullWidth',
-          light && 'button--light',
-          className
+          className,
         )}
       >
         {text}
@@ -25,10 +23,8 @@ const Button = ({text, link, targetBlank, filled, fullWidth, light, className = 
         href={link}
         className={cn(
           'button',
-          filled && 'button--filled',
           fullWidth && 'button--fullWidth',
-          light && 'button--light',
-          className
+          className,
         )}
         target={targetBlank && '_blank'}
         rel={targetBlank && 'noopener noreferrer'}

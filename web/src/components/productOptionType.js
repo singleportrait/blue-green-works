@@ -2,17 +2,17 @@ import React, { useState, useRef } from 'react';
 import 'lazysizes';
 import 'lazysizes/plugins/attrchange/ls.attrchange';
 
-import { buildImageObj, cn } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
+import { buildImageObj, cn } from '../lib/helpers';
+import { imageUrlFor } from '../lib/image-url';
 
 import * as styles from './productOptionType.module.scss';
 
-const isDocument = typeof document !== `undefined`;
+const isDocument = typeof document !== 'undefined';
 
 const ProductOptionType = ({type, i}) => {
   const [showDetail, setShowDetail] = useState(false);
 
-  const imageUrl = imageUrlFor(buildImageObj(type.image.image)).width("200").fit("crop").url();
+  const imageUrl = imageUrlFor(buildImageObj(type.image.image)).width('200').fit('crop').url();
 
   const aspectRatio = type.image.image.asset.metadata.dimensions.aspectRatio;
   const backgroundColor = type.image.image.asset.metadata.palette.dominant.background;
@@ -26,7 +26,7 @@ const ProductOptionType = ({type, i}) => {
     }
 
     if (isDocument) {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     }
   }
 
@@ -34,7 +34,7 @@ const ProductOptionType = ({type, i}) => {
     setShowDetail(true);
 
     if (isDocument) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
   };
 
@@ -49,11 +49,11 @@ const ProductOptionType = ({type, i}) => {
       <div
         className={styles.thumbnailContainer}
         style={{
-          backgroundColor: backgroundColor
+          backgroundColor: backgroundColor,
         }}
       >
         <img
-          className={cn(styles.thumbnail, "lazyload")}
+          className={cn(styles.thumbnail, 'lazyload')}
           src={imageUrl}
           alt={type.image.alt}
         />
@@ -61,14 +61,14 @@ const ProductOptionType = ({type, i}) => {
       { showDetail &&
         <div className={cn(
           styles.detail,
-          i >=3 && styles.rightDetail
+          i >=3 && styles.rightDetail,
         )}>
-          <h4 className={cn(styles.detailTitle, "label")}>{type.title}</h4>
+          <h4 className={cn(styles.detailTitle, 'label', 'lightText')}>{type.title}</h4>
           <div
             className={styles.detailImageContainer}
             style={{
               paddingBottom: `${(1 / aspectRatio) * 100}%`,
-              backgroundColor: backgroundColor
+              backgroundColor: backgroundColor,
             }}
           >
             <img
