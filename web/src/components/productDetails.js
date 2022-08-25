@@ -17,7 +17,7 @@ const ProductDetails = ({product, productSettings}) => {
           <h4 className={cn('label', styles.detailTitle)}>
             { productSettings.materialsLabel || 'Materials' }
           </h4>
-          <BlockContent className="smallBodyText" blocks={product._rawMaterials} />
+          <BlockContent className="smallBodyText textLeft" blocks={product._rawMaterials} />
         </>
       }
       <br />
@@ -34,7 +34,7 @@ const ProductDetails = ({product, productSettings}) => {
           <h4 className={cn('label', styles.detailTitle)}>
             { productSettings.dimensionsLabel || 'Dimensions' }
           </h4>
-          <BlockContent className="smallBodyText" blocks={product._rawDimensions} />
+          <BlockContent className="smallBodyText textLeft" blocks={product._rawDimensions} />
         </>
       }
     </>

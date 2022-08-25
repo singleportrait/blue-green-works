@@ -32,7 +32,7 @@ const Header = () => {
         return (
           <>
             <div className={styles.header}>
-              <div className={styles.linksContainer}>
+              <div className={cn(styles.linksContainer, styles.leftLinksContainer)}>
                 {productsPage.slug && productsPage.slug.current &&
                   <Link to={`/${productsPage.slug.current}`} className={cn(styles.text, 'label')}>
                     {productsPage.title}
@@ -46,7 +46,7 @@ const Header = () => {
                 <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
                 <Logo className={cn(styles.logo, styles.wideLogo)} />
               </Link>
-              <div className={styles.linksContainer}>
+              <div className={cn(styles.linksContainer, styles.rightLinksContainer)}>
                 <Link to={'/press'} className={cn(styles.text, 'label')}>
                   Press
                 </Link>

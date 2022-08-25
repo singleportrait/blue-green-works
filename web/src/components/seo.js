@@ -20,7 +20,7 @@ function SEO({
         const siteTitle = (data.site && data.site.title) || "";
         const metaImage = imageUrl ? `${imageUrl}?fm=jpg&w=1200&fit=max` : (data.site && data.site.seo && data.site.seo.openGraphImage && `${data.site.seo.openGraphImage.asset.url}?fm=jpg&w=1200&fit=max`);
 
-        // console.log("Data");
+        // console.log("Data", data);
 
         return (
           <Helmet

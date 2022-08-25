@@ -37,7 +37,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 var(--spacing1x);
-  border-bottom: 2px solid var(--dark-color);
+  border-bottom: 1px solid var(--dark-color);
 }
 
 .linksContainer {
@@ -47,13 +47,22 @@
   justify-content: space-around;
 }
 
+.leftLinksContainer {
+  text-align: left;
+}
+
+.rightLinksContainer {
+  text-align: right;
+}
+
 .text {
   font-family: var(--sans);
-  text-align: center;
   -webkit-font-smoothing: antialiased;
+  flex-grow: 1;
 
   @media (--max-medium) {
     padding: 1rem;
+    text-align: center;
   }
 }
 
@@ -71,7 +80,7 @@
   @media (--min-medium) {
     position: fixed;
     z-index: 2;
-    width: 50vw;
+    width: 45vw;
     max-width: #{$pageMaxWidth/2};
     height: var(--logo-height);
     left: 0;

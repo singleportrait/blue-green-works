@@ -89,11 +89,10 @@ const ProductsPage = props => {
         htmlClassName="products"
       />
 
-      <hr className={cn(styles.divider, 'my-0')} />
       <div>
         {homepageSeries.seriesHighlights && homepageSeries.seriesHighlights.map((series, i) =>
           <React.Fragment key={series._key}>
-            <h2 className="h1 centeredText mt-4">
+            <h2 className="h1">
               {series.series.title} {site.seriesDisplayName || '' }
             </h2>
             <div className="mt-2 mb-4">
