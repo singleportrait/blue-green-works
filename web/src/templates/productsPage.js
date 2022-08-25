@@ -86,6 +86,7 @@ const ProductsPage = props => {
         title={productsPage.title}
         description={productsPage.seo && productsPage.seo.metaDescription}
         imageUrl={productsPage.seo && productsPage.seo.openGraphImage && productsPage.seo.openGraphImage.asset.url}
+        htmlClassName="products"
       />
 
       <hr className={cn(styles.divider, 'my-0')} />

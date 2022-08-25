@@ -113,6 +113,7 @@ const ProductTemplate = props => {
         title={product.fullTitle}
         description={product.seo && product.seo.metaDescription}
         imageUrl={shareImageUrl}
+        htmlClassName="product"
       />
       <Product
         product={product}

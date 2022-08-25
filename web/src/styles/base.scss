@@ -33,6 +33,11 @@ html {
   @media (--max-medium) {
     font-size: $mobileFontSize;
   }
+
+  &.products,
+  &.product {
+    background-color: var(--white);
+  }
 }
 
 body {
