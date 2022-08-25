@@ -12,6 +12,7 @@ import previewHomepage from './documents/previewHomepage'
 import homepage from './documents/homepage'
 import product from './documents/product'
 import about from './documents/about'
+import press from './documents/press'
 import option from './documents/option'
 import series from './documents/series'
 import productsPage from './documents/productsPage'
@@ -49,6 +50,7 @@ export default createSchema({
     homepage,
     product,
     about,
+    press,
     productsPage,
     option,
     series,
@@ -60,6 +62,6 @@ export default createSchema({
     optionOption,
     siteFooter,
     productSettings,
-    seo,
+    seo
   ])
 })
