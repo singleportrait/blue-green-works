@@ -109,7 +109,7 @@ const AboutPage = props => {
           />
         </div>
         <div className={cn('col-md-start-8-span-3', styles.info)}>
-          <h2 >{ about.title || 'About' }</h2>
+          <h1 className="mobileH2">{ about.title || 'About' }</h1>
           { about._rawDescription &&
             <BlockContent blocks={about._rawDescription} />
           }

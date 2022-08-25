@@ -32,23 +32,33 @@ const Header = () => {
         return (
           <>
             <div className={styles.header}>
-              { productsPage.slug && productsPage.slug.current &&
-                <Link to={`/${productsPage.slug.current}`} className={cn(styles.text, 'label')}>
-                  { productsPage.title }
+              <div className={styles.linksContainer}>
+                {productsPage.slug && productsPage.slug.current &&
+                  <Link to={`/${productsPage.slug.current}`} className={cn(styles.text, 'label')}>
+                    {productsPage.title}
+                  </Link>
+                }
+                <Link to={'/about'} className={cn(styles.text, 'label')}>
+                  About
                 </Link>
-              }
+              </div>
               <Link className={styles.logoContainer} to={'/'}>
                 <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
                 <Logo className={cn(styles.logo, styles.wideLogo)} />
               </Link>
-              <Link to={'/about'} className={cn(styles.text, 'label')}>
-                About
-              </Link>
+              <div className={styles.linksContainer}>
+                <Link to={'/press'} className={cn(styles.text, 'label')}>
+                  Press
+                </Link>
+                <Link to={'/press'} className={cn(styles.text, 'label')}>
+                  Book
+                </Link>
+              </div>
             </div>
             <div className={cn(
-                styles.mobileHeader,
-                showLinks && styles.mobileHeaderOpen,
-              )}
+              styles.mobileHeader,
+              showLinks && styles.mobileHeaderOpen,
+            )}
             >
               <div className={styles.mobileLogoContainer}>
                 <Link to={'/'}>
@@ -61,15 +71,21 @@ const Header = () => {
                   <HamburgerIcon />
                 </div>
               </div>
-              { showLinks &&
+              {showLinks &&
                 <div className={styles.mobileHeaderLinks}>
-                  { productsPage.slug && productsPage.slug.current &&
-                    <Link to={`/${productsPage.slug.current}`} className={cn(styles.text, 'label')}>
-                      { productsPage.title }
+                  {productsPage.slug && productsPage.slug.current &&
+                    <Link to={`/${productsPage.slug.current}`} className={cn(styles.text, 'label', styles.firstLink)}>
+                      {productsPage.title}
                     </Link>
                   }
-                  <Link to={'/about'} className={cn(styles.text, 'label', styles.aboutLink)}>
+                  <Link to={'/about'} className={cn(styles.text, 'label')}>
                     About
+                  </Link>
+                  <Link to={'/press'} className={cn(styles.text, 'label')}>
+                    Press
+                  </Link>
+                  <Link to={'/press'} className={cn(styles.text, 'label', styles.lastLink)}>
+                    Book
                   </Link>
                 </div>
               }

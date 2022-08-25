@@ -94,7 +94,7 @@ const ProductsPage = props => {
         {homepageSeries.seriesHighlights && homepageSeries.seriesHighlights.map((series, i) =>
           <React.Fragment key={series._key}>
             <h2 className="h1 centeredText mt-4">
-              {series.series.title} {site.seriesDisplayName || 'Series' }
+              {series.series.title} {site.seriesDisplayName || '' }
             </h2>
             <div className="mt-2 mb-4">
               <div className={styles.seriesImages}>

@@ -1,23 +1,21 @@
 h1, h2, h3 {
   font-family: var(--script);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1;
   margin-bottom: var(--spacing1x);
 }
 
 h1, .h1 {
-  font-size: 3.3rem;
-
-  @media (--max-medium) {
-    font-size: 2.7rem;
-  }
+  font-size: 4.3rem;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.8rem;
+}
 
+.mobileH2 {
   @media (--max-medium) {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 }
 
@@ -40,7 +38,7 @@ h4 {
 }
 
 .lightText {
-  color: var(--white);
+  color: var(--light-color);
 }
 
 .smallBodyText {

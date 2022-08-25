@@ -3,7 +3,52 @@
 @import './fonts.css';
 
 @import './variableMixins';
-@import './rootVariables';
+
+:root {
+  --bg-color: #{$mintColor};
+  --sans: 'Founders', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: 'Self Modern', serif;
+  --script: 'Floridian', serif;
+  --dark-color: #{$darkColor};
+  --dark-color-barely-transparent: #{rgba($darkColor, 0.7)};
+  --dark-color-very-transparent: #{rgba($darkColor, 0.1)};
+  --light-color: #{$lightColor};
+  --accent-color: #{$accentColor};
+
+  --page-max-width: #{$pageMaxWidth};
+
+  --button-padding: 0.4em 0.4em 0.4em;
+  --mobile-lead-image-height: 59vh;
+  --mobile-homepage-lead-image-height: 71vh;
+
+  --spacing1x: #{$spacing1x};
+  --spacing2x: #{$spacing2x};
+  --spacing3x: #{$spacing2x};
+  --spacing4x: #{$spacing4x};
+
+  --mobile-spacing1x: #{$mobileSpacing1x};
+  --mobile-spacing2x: #{$mobileSpacing2x};
+
+  --logo-height: #{$desktopLogoHeight};
+
+  --small-font-size: #{$smallFontSize};
+}
+
+html.products:root,
+html.product:root {
+  --bg-color: #{$lightColor};
+}
+
+@media (--max-medium) {
+  :root {
+    --spacing1x: #{$mobileSpacing1x};
+    --spacing2x: #{$mobileSpacing1x};
+    --spacing3x: #{$mobileSpacing2x};
+    --spacing4x: #{$mobileSpacing2x};
+
+    --logo-height: #{$mobileLogoHeight};
+  }
+}
 
 @import './utils';
 @import './grid';
@@ -24,7 +69,7 @@ body > div:not(#portal) > div {
 html {
   // background-image: url('../images/fuzzyBg.png');
   // background-attachment: fixed;
-  background-color: var(--mint-color);
+  background-color: var(--bg-color);
   font-family: var(--serif);
   font-size: $fontSize;
   -webkit-font-smoothing: antialiased;
@@ -32,11 +77,6 @@ html {
 
   @media (--max-medium) {
     font-size: $mobileFontSize;
-  }
-
-  &.products,
-  &.product {
-    background-color: var(--white);
   }
 }
 
@@ -76,7 +116,7 @@ hr {
 
   &:hover {
     background-color: var(--dark-color);
-    color: var(--white);
+    color: var(--light-color);
   }
 }
 
