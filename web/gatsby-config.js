@@ -1,6 +1,6 @@
 // Load variables from `.env` as soon as possible
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'development'}`
+  path: `.env.${process.env.NODE_ENV || 'development'}`,
 })
 
 const clientConfig = require('./client-config')
@@ -24,29 +24,29 @@ module.exports = {
         ...clientConfig.sanity,
         token,
         watchMode: !isProd,
-        overlayDrafts: !isProd && token
-      }
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Blue Green Works`,
-        short_name: `BGW`,
-        start_url: `/`,
-        background_color: `#8A7342`,
-        theme_color: `#8A7342`,
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: `standalone`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        overlayDrafts: !isProd && token,
       },
     },
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Blue Green Works',
+        short_name: 'BGW',
+        start_url: '/',
+        background_color: '#8A7342',
+        theme_color: '#8A7342',
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: 'standalone',
+        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-469QTW1D8N", // Google Analytics / GA
+          'G-469QTW1D8N', // Google Analytics / GA
           // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
           // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
@@ -68,5 +68,5 @@ module.exports = {
         },
       },
     },
-  ]
+  ],
 }

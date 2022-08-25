@@ -34,7 +34,7 @@ async function createProductPages (graphql, actions) {
     createPage({
       path: path,
       component: require.resolve('./src/templates/product.js'),
-      context: {id}
+      context: {id},
     });
   });
 }
@@ -68,7 +68,7 @@ async function createProductsPage (graphql, actions) {
   createPage({
     path: path,
     component: require.resolve('./src/templates/productsPage.js'),
-    context: {id}
+    context: {id},
   });
 }
 
