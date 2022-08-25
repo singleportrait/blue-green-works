@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from "../lib/helpers";
+import { cn } from '../lib/helpers';
 
 import BlockContent from './block-content';
 import Button from './button';
@@ -13,7 +13,7 @@ const Buttons = ({ className = '', contactText, email, tearSheet, tearSheetText 
   return (
     <div className={cn(styles.buttons, className)}>
       <Button
-        text={contactText || "Contact Us"}
+        text={contactText || 'Contact Us'}
         link={`mailto:${email}`}
         targetBlank
         fullWidth
@@ -21,7 +21,7 @@ const Buttons = ({ className = '', contactText, email, tearSheet, tearSheetText 
       />
       { tearSheet && tearSheet.PDF && tearSheet.PDF.asset &&
         <Button
-          text={tearSheetText || "Download Tear Sheet"}
+          text={tearSheetText || 'Download Tear Sheet'}
           link={tearSheet.PDF.asset.url}
           targetBlank
           fullWidth
@@ -54,13 +54,13 @@ const Product = ({product, site}) => {
         </div>
       }
       <div className={cn(
-        "col-lg-start-1-span-2",
-        "col-md-start-1-span-3",
+        'col-lg-start-1-span-2',
+        'col-md-start-1-span-3',
         styles.productInfo,
-        styles.description
+        styles.description,
       )}>
-        <div className="lightText">
-          <h2>
+        <div>
+          <h2 className={styles.title}>
             { product.series && product.series.title }
             { product.series && <br /> }
             { product.title }
@@ -78,8 +78,8 @@ const Product = ({product, site}) => {
         />
       </div>
       <div className={cn(
-        "col-lg-start-3-span-6 col-md-start-4-span-5",
-        styles.images
+        'col-lg-start-3-span-6 col-md-start-4-span-5',
+        styles.images,
       )}>
         { firstImage &&
           <div className={cn(styles.firstImageContainer, styles.image)}>
@@ -99,7 +99,7 @@ const Product = ({product, site}) => {
             />
           </div>
         }
-        { product.images.map((figure, i) =>
+        { product.images.map((figure) =>
           <div
             key={figure._key}
             className={cn(!product.firstImage ? styles.firstImageContainer : '', styles.image)}
@@ -110,10 +110,10 @@ const Product = ({product, site}) => {
                 alt={figure.alt}
               />
             }
-          </div>
+          </div>,
         )}
       </div>
-      <div className={cn("col-md-start-9-span-2", styles.productInfo, styles.details)}>
+      <div className={cn('col-md-start-9-span-2', styles.productInfo, styles.details)}>
         { site.productSettings &&
           <ProductDetails productSettings={site.productSettings} product={product} />
         }

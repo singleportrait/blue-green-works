@@ -1,16 +1,19 @@
 :root {
   --bg-color: #{$bgColor};
-  --sans: 'Standard', -apple-system, BlinkMacSystemFont, sans-serif;
-  --serif: 'Bodoni Moda', serif;
+  --sans: 'Founders', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: 'Self Modern', serif;
+  --script: 'Floridian', serif;
   --dark-color: #{$darkColor};
   --dark-color-barely-transparent: #{rgba($darkColor, 0.7)};
   --dark-color-very-transparent: #{rgba($darkColor, 0.1)};
   --light-color: #{$lightColor};
   --accent-color: #{$accentColor};
+  --mint-color: #F2FFF8;
+  --white: #ffffff;
 
   --page-max-width: #{$pageMaxWidth};
 
-  --button-padding: 0.4em 0.4em 0.2em;
+  --button-padding: 0.4em 0.4em 0.4em;
   --mobile-lead-image-height: 59vh;
   --mobile-homepage-lead-image-height: 71vh;
 
@@ -23,6 +26,8 @@
   --mobile-spacing2x: #{$mobileSpacing2x};
 
   --logo-height: #{$desktopLogoHeight};
+
+  --small-font-size: #{$smallFontSize};
 }
 
 @media (--max-medium) {

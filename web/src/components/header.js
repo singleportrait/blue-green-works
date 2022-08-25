@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { StaticQuery, graphql } from "gatsby";
-import { Link } from "gatsby";
-import { cn } from "../lib/helpers";
+import React, { useState } from 'react';
+import { StaticQuery, graphql, Link } from 'gatsby';
+import { cn } from '../lib/helpers';
 
 import HamburgerIcon from './hamburgerIcon';
 import Logo from './logo';
 import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
 
-import * as styles from "./header.module.scss";
+import * as styles from './header.module.scss';
 
 const headerQuery = graphql`
   query DefaultHeaderQuery {
@@ -20,7 +19,7 @@ const headerQuery = graphql`
   }
 `;
 
-const Header = (props) => {
+const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
 
   return (
@@ -38,21 +37,21 @@ const Header = (props) => {
                   { productsPage.title }
                 </Link>
               }
-              <Link className={styles.logoContainer} to={`/`}>
+              <Link className={styles.logoContainer} to={'/'}>
                 <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
                 <Logo className={cn(styles.logo, styles.wideLogo)} />
               </Link>
-              <Link to={`/about`} className={cn(styles.text, 'label')}>
+              <Link to={'/about'} className={cn(styles.text, 'label')}>
                 About
               </Link>
             </div>
             <div className={cn(
                 styles.mobileHeader,
-                showLinks && styles.mobileHeaderOpen
+                showLinks && styles.mobileHeaderOpen,
               )}
             >
               <div className={styles.mobileLogoContainer}>
-                <Link to={`/`}>
+                <Link to={'/'}>
                   <Logo className={styles.logo} />
                 </Link>
                 <div
@@ -69,7 +68,7 @@ const Header = (props) => {
                       { productsPage.title }
                     </Link>
                   }
-                  <Link to={`/about`} className={cn(styles.text, 'label', styles.aboutLink)}>
+                  <Link to={'/about'} className={cn(styles.text, 'label', styles.aboutLink)}>
                     About
                   </Link>
                 </div>

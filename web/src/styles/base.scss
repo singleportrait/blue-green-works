@@ -22,12 +22,13 @@ body > div:not(#portal) > div {
 }
 
 html {
-  background-image: url('../images/fuzzyBg.png');
-  background-attachment: fixed;
-  background-color: var(--bg-color);
-  font-family: var(--sans);
+  // background-image: url('../images/fuzzyBg.png');
+  // background-attachment: fixed;
+  background-color: var(--mint-color);
+  font-family: var(--serif);
   font-size: $fontSize;
   -webkit-font-smoothing: antialiased;
+  color: var(--dark-color);
 
   @media (--max-medium) {
     font-size: $mobileFontSize;
@@ -58,40 +59,19 @@ hr {
 .button {
   display: inline-block;
   cursor: pointer;
-  border: 2px solid var(--dark-color);
-  background-color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  background-color: transparent;
+  text-align: center;
   padding: var(--button-padding);
   text-transform: uppercase;
+  font-family: var(--sans);
 
-  &, &:visited, &:hover {
-    color: var(--bg-color);
-  }
-
-  &:hover {
-    background-color: var(--light-color);
-    border-color: var(--light-color);
-  }
-}
-
-.button--filled {
-  background-color: var(--bg-color);
-
-  &, &:visited, &:hover {
-    color: var(--dark-color);
-  }
+  // &, &:visited, &:hover {
+  // }
 
   &:hover {
-    background-color: var(--dark-color-very-transparent);
-  }
-}
-
-.button--light {
-  border-color: var(--light-color);
-  background-color: var(--light-color);
-
-  &:hover {
-    border-color: var(--dark-color);
     background-color: var(--dark-color);
+    color: var(--white);
   }
 }
 

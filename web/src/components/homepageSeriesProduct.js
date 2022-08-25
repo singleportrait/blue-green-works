@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
 
-import { cn } from "../lib/helpers";
+import { cn } from '../lib/helpers';
 
 import SanityImage from './sanityImage';
 
@@ -29,7 +29,7 @@ const HomepageSeriesProduct = ({product, series}) => {
             fullHeight
           />
           }
-          <div className={cn(styles.seriesImageCaption, 'smallLabel')}>
+          <div className={cn(styles.seriesImageCaption)}>
             { series.series.title } { product.title }
           </div>
         </Link>
