@@ -4,7 +4,7 @@ import React from 'react';
 import Emoji from "react-emoji-render";
 
 const hiddenDocTypes = listItem =>
-  !['category', 'person', 'sampleProject', 'siteSettings', 'previewHomepage', 'homepage', 'product', 'about', 'option', 'series', 'productsPage'].includes(listItem.getId())
+  !['category', 'siteSettings', 'previewHomepage', 'homepage', 'product', 'about', 'option', 'series', 'productsPage'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -19,6 +19,7 @@ export default () =>
             .documentId('siteSettings')
         )
         .icon(MdSettings),
+      S.divider(),
       S.listItem()
         .title('Homepage')
         .icon(() => <Emoji style={{ fontSize: 30 }} text="🏠" />)
@@ -69,15 +70,6 @@ export default () =>
             .schemaType('about')
             .documentId('about')
         ),
-      S.divider(),
-      S.listItem()
-        .title('Sample projects')
-        .schemaType('sampleProject')
-        .child(S.documentTypeList('sampleProject').title('Sample projects')),
-      S.listItem()
-        .title('People')
-        .schemaType('person')
-        .child(S.documentTypeList('person').title('People')),
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above
