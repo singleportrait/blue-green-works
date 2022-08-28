@@ -1,0 +1,31 @@
+@import '../styles/customMedia.css';
+
+.article {
+  &:hover {
+    color: var(--image-color);
+  }
+
+  &:hover .source {
+    color: var(--image-color);
+    text-decoration: underline;
+  }
+}
+
+.articleImageContainer {
+  @media (--max-small) {
+    padding-bottom: 85vw !important;
+  }
+  @media (--min-small) {
+    padding-bottom: 40vw !important;
+  }
+  @media (--min-medium) {
+    padding-bottom: 33vw !important;
+  }
+}
+
+.source {
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

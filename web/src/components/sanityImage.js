@@ -1,13 +1,19 @@
-import React from 'react';
-import 'lazysizes';
-import 'lazysizes/plugins/attrchange/ls.attrchange';
+import React from "react";
+import "lazysizes";
+import "lazysizes/plugins/attrchange/ls.attrchange";
 import { buildImageObj, cn } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
-import * as styles from './sanityImage.module.scss';
+import * as styles from "./sanityImage.module.scss";
 
-const SanityImage = ({image, alt, className = "", containerClassName = "", fullHeight}) => {
-
+const SanityImage = ({
+  image,
+  alt,
+  className = "",
+  containerClassName = "",
+  fullHeight,
+  paddingBottom,
+}) => {
   /* Get image metadata if it exists */
   let aspectRatio = image.asset.metadata.dimensions.aspectRatio || null;
   const backgroundColor = image.asset.metadata.palette.dominant.background || null;
@@ -48,7 +54,8 @@ const SanityImage = ({image, alt, className = "", containerClassName = "", fullH
 
   /* Sizes to use for lazysizes */
   const sizes = [800, 1200, 1600, 2000, null];
-  const htmlSizes = "(max-width: 600px) 800px, (min-width: 601px) 1200px, (min-width: 1000px) 1600px, 2400";
+  const htmlSizes =
+    "(max-width: 600px) 800px, (min-width: 601px) 1200px, (min-width: 1000px) 1600px, 2400";
 
   const getImageUrl = (size) => {
     let imageUrl;
@@ -59,30 +66,27 @@ const SanityImage = ({image, alt, className = "", containerClassName = "", fullH
     }
 
     return imageUrl;
-  }
+  };
 
   const imageUrls = sizes.map((size) => {
     const url = getImageUrl(size);
-    const width = size ? ` ${size}w` : '';
+    const width = size ? ` ${size}w` : "";
     return url + width;
   });
 
   // console.log(image);
   // console.log(imageUrls);
 
-  const backgroundStyle = (!hasAlpha && backgroundColor) && backgroundColor;
-  const paddingStyle = (!fullHeight && aspectRatio) && `${(1 / aspectRatio) * 100}%`;
+  const backgroundStyle = !hasAlpha && backgroundColor && backgroundColor;
+  const paddingStyle =
+    !fullHeight && (paddingBottom || (aspectRatio && `${(1 / aspectRatio) * 100}%`));
 
   return (
     <div
-      className={cn(
-        styles.container,
-        fullHeight ? styles.fullHeight : '',
-        containerClassName
-      )}
+      className={cn(styles.container, fullHeight ? styles.fullHeight : "", containerClassName)}
       style={{
         backgroundColor: backgroundStyle,
-        paddingBottom: paddingStyle
+        paddingBottom: paddingStyle,
       }}
     >
       <img
@@ -91,10 +95,10 @@ const SanityImage = ({image, alt, className = "", containerClassName = "", fullH
         data-srcset={imageUrls}
         src={getImageUrl(600)}
         alt={alt}
-        className={cn(styles.image, className, 'lazyload')}
+        className={cn(styles.image, className, "lazyload")}
       />
     </div>
   );
-}
+};
 
 export default SanityImage;

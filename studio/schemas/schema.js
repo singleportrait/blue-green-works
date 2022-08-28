@@ -27,6 +27,7 @@ import seriesHighlight from './objects/seriesHighlight'
 import tearSheet from './objects/tearSheet'
 import optionOption from './objects/optionOption'
 import member from './objects/member'
+import article from './objects/article'
 import siteFooter from './objects/siteFooter'
 import productSettings from './objects/productSettings'
 import seo from './objects/seo'
@@ -62,6 +63,7 @@ export default createSchema({
     tearSheet,
     optionOption,
     member,
+    article,
     siteFooter,
     productSettings,
     seo
