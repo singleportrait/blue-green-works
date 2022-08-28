@@ -23,6 +23,12 @@ h3 {
   font-size: 2.2rem;
 }
 
+.h3sans {
+  font-size: 1.3rem;
+  font-family: var(--sans);
+  text-transform: uppercase;
+}
+
 h4 {
   font-weight: 500;
 }
@@ -51,4 +57,9 @@ h4 {
 
 .textLeft {
   text-align: left;
+}
+
+.sans {
+  font-family: var(--sans);
+  font-size: 1.2em; /* To account for Founders to be quite a bit smaller than Self Modern */
 }
