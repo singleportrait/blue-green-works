@@ -164,36 +164,40 @@ const AboutPage = (props) => {
           />
         </div>
       </div>
-      <hr />
-      <h2>{about.teamTitle || "The Team"}</h2>
-      <div className={cn("row", styles.members)}>
-        {about?.members.map((member, i) => (
-          <Fragment key={member._key}>
-            <div
-              className={cn(
-                i % 2 === 0 && "col-md-start-1-span-2",
-                i % 2 !== 0 && "col-md-start-6-span-2",
-                styles.memberImage
-              )}
-            >
-              <SanityImage image={member.image.image} alt={member.image.alt} />
-            </div>
-            <div
-              className={cn(
-                i % 2 === 0 && "col-md-start-3-span-3",
-                i % 2 !== 0 && "col-md-start-8-span-3",
-                styles.memberInfo
-              )}
-            >
-              <h3 className="h3sans my-0">{member.name}</h3>
-              {member.title && <p>{member.title}</p>}
-              {member.description && (
-                <p className={styles.memberDescription}>{member.description}</p>
-              )}
-            </div>
-          </Fragment>
-        ))}
-      </div>
+      {about.members.length > 0 && (
+        <>
+          <hr />
+          <h2>{about.teamTitle || "The Team"}</h2>
+          <div className={cn("row", styles.members)}>
+            {about?.members.map((member, i) => (
+              <Fragment key={member._key}>
+                <div
+                  className={cn(
+                    i % 2 === 0 && "col-md-start-1-span-2",
+                    i % 2 !== 0 && "col-md-start-6-span-2",
+                    styles.memberImage
+                  )}
+                >
+                  <SanityImage image={member.image.image} alt={member.image.alt} />
+                </div>
+                <div
+                  className={cn(
+                    i % 2 === 0 && "col-md-start-3-span-3",
+                    i % 2 !== 0 && "col-md-start-8-span-3",
+                    styles.memberInfo
+                  )}
+                >
+                  <h3 className="h3sans my-0">{member.name}</h3>
+                  {member.title && <p>{member.title}</p>}
+                  {member.description && (
+                    <p className={styles.memberDescription}>{member.description}</p>
+                  )}
+                </div>
+              </Fragment>
+            ))}
+          </div>
+        </>
+      )}
     </Layout>
   );
 };
