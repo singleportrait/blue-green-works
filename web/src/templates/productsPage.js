@@ -132,7 +132,7 @@ const ProductsPage = (props) => {
                 </h2>
                 <h3 className={cn("h3sans", styles.description)}>{series.series?.description}</h3>
               </div>
-              {series.series.image.image && (
+              {series.series?.image?.image && (
                 <SanityImage
                   image={series.series.image.image}
                   alt={series.series.image.alt}
