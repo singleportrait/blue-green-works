@@ -1,7 +1,7 @@
 h1, h2, h3 {
   font-family: var(--script);
   font-weight: 500;
-  line-height: 1;
+  line-height: 0.9;
   margin-bottom: var(--spacing1x);
 }
 
@@ -25,6 +25,7 @@ h3 {
 
 .h3sans {
   font-size: 1.3rem;
+  line-height: 1;
   font-family: var(--sans);
   text-transform: uppercase;
 }
@@ -57,6 +58,10 @@ h4 {
 
 .textLeft {
   text-align: left;
+}
+
+.textRight {
+  text-align: right;
 }
 
 .sans {

@@ -1,14 +1,15 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react";
+import { graphql } from "gatsby";
 
-import { cn } from '../lib/helpers';
+import { cn } from "../lib/helpers";
 
-import GraphQLErrorList from '../components/graphql-error-list';
-import SEO from '../components/seo';
-import Layout from '../containers/layout';
-import HomepageSeriesProduct from '../components/homepageSeriesProduct';
+import GraphQLErrorList from "../components/graphql-error-list";
+import SEO from "../components/seo";
+import Layout from "../containers/layout";
+import HomepageSeriesProduct from "../components/homepageSeriesProduct";
 
-import * as styles from './productsPage.module.scss';
+import * as styles from "./productsPage.module.scss";
+import SanityImage from "../components/sanityImage";
 
 export const query = graphql`
   query ProductsPageQuery {
@@ -22,6 +23,34 @@ export const query = graphql`
           _key
           title
           description
+          image {
+            _key
+            image {
+              crop {
+                _key
+                _type
+                top
+                bottom
+                left
+                right
+              }
+              asset {
+                _id
+                metadata {
+                  hasAlpha
+                  dimensions {
+                    aspectRatio
+                  }
+                  palette {
+                    dominant {
+                      background
+                    }
+                  }
+                }
+              }
+            }
+            alt
+          }
         }
         products {
           _id
@@ -47,7 +76,7 @@ export const query = graphql`
   }
 `;
 
-const ProductsPage = props => {
+const ProductsPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -64,19 +93,19 @@ const ProductsPage = props => {
 
   if (!site) {
     throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.',
+      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     );
   }
 
   if (!homepageSeries) {
     throw new Error(
-      'Missing "Homepage". Open the studio at http://localhost:3333 and add some content to "Homepage" and restart the development server.',
+      'Missing "Homepage". Open the studio at http://localhost:3333 and add some content to "Homepage" and restart the development server.'
     );
   }
 
   if (!productsPage) {
     throw new Error(
-      'Missing "Products Page". Open the studio at http://localhost:3333 and add some content to "Products page" and restart the development server.',
+      'Missing "Products Page". Open the studio at http://localhost:3333 and add some content to "Products page" and restart the development server.'
     );
   }
 
@@ -85,32 +114,49 @@ const ProductsPage = props => {
       <SEO
         title={productsPage.title}
         description={productsPage.seo && productsPage.seo.metaDescription}
-        imageUrl={productsPage.seo && productsPage.seo.openGraphImage && productsPage.seo.openGraphImage.asset.url}
+        imageUrl={
+          productsPage.seo &&
+          productsPage.seo.openGraphImage &&
+          productsPage.seo.openGraphImage.asset.url
+        }
         htmlClassName="products"
       />
 
       <div>
-        {homepageSeries.seriesHighlights && homepageSeries.seriesHighlights.map((series, i) =>
-          <React.Fragment key={series._key}>
-            <h2 className="h1">
-              {series.series.title} {site.seriesDisplayName || '' }
-            </h2>
-            <div className="mt-2 mb-4">
-              <div className={styles.seriesImages}>
-                {series.products && series.products.map((product) =>
-                  <HomepageSeriesProduct
-                    product={product}
-                    series={series}
-                    key={product && product._id}
-                  />,
+        {homepageSeries.seriesHighlights &&
+          homepageSeries.seriesHighlights.map((series, i) => (
+            <React.Fragment key={series._key}>
+              <div className={cn("mt-4", styles.info)}>
+                <h2 className={cn("h1 my-0", styles.title)}>
+                  {series.series.title} {site.seriesDisplayName || ""}
+                </h2>
+                <h3 className={cn("h3sans", styles.description)}>{series.series?.description}</h3>
+              </div>
+              {series.series.image.image && (
+                <SanityImage
+                  image={series.series.image.image}
+                  alt={series.series.image.alt}
+                  containerClassName={cn("mt-1", styles.imageContainer)}
+                  paddingBottom="55%"
+                />
+              )}
+              <div className="mt-1 mb-4">
+                <div className={styles.seriesImages}>
+                  {series.products &&
+                    series.products.map((product) => (
+                      <HomepageSeriesProduct
+                        product={product}
+                        series={series}
+                        key={product && product._id}
+                      />
+                    ))}
+                </div>
+                {i !== homepageSeries.seriesHighlights.length - 1 && (
+                  <hr className={cn(styles.divider, "my-0 mt-4")} />
                 )}
               </div>
-              { i !== (homepageSeries.seriesHighlights.length - 1) &&
-                <hr className={cn(styles.divider, 'my-0 mt-4')} />
-              }
-            </div>
-          </React.Fragment>,
-        )}
+            </React.Fragment>
+          ))}
       </div>
     </Layout>
   );

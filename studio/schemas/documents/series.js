@@ -12,7 +12,7 @@ export default {
     {
       name: 'description',
       type: 'text',
-      title: 'Description',
+      title: 'Description'
     },
     {
       name: 'slug',
@@ -23,5 +23,10 @@ export default {
         maxLength: 96
       }
     },
+    {
+      name: 'image',
+      type: 'figure',
+      title: 'Editorial Image'
+    }
   ]
 }
