@@ -1,4 +1,3 @@
-import React from "react";
 import { graphql } from "gatsby";
 
 export const homepageHeaderImageQuery = graphql`
@@ -127,6 +126,9 @@ export const productFirstImageNarrowQuery = graphql`
             }
             palette {
               dominant {
+                background
+              }
+              darkVibrant {
                 background
               }
             }
