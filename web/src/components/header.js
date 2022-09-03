@@ -7,6 +7,7 @@ import { cn } from "../lib/helpers";
 
 import HamburgerIcon from "./hamburgerIcon";
 import Logo from "./logo";
+import BookingLink from "./bookingLink";
 
 import narrowLogo from "../images/blueGreenWorksComingSoonMobile.svg";
 
@@ -19,6 +20,9 @@ const headerQuery = graphql`
       slug {
         current
       }
+    }
+    site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
+      bookingUrl
     }
   }
 `;
@@ -60,7 +64,7 @@ const Header = () => {
     <StaticQuery
       query={headerQuery}
       render={(data) => {
-        const productsPage = data.productsPage;
+        const { productsPage, site } = data;
 
         return (
           <>
@@ -83,9 +87,9 @@ const Header = () => {
                 <Link to={"/press"} className={cn(styles.text, "label")}>
                   Press
                 </Link>
-                <Link to={"/press"} className={cn(styles.text, "label")}>
-                  Book
-                </Link>
+                {site.bookingUrl && (
+                  <BookingLink url={site.bookingUrl} className={cn(styles.text, "label")} />
+                )}
               </div>
             </div>
             <div className={cn(styles.mobileHeader, showLinks && styles.mobileHeaderOpen)}>
@@ -113,9 +117,12 @@ const Header = () => {
                   <Link to={"/press"} className={cn(styles.text, "label")}>
                     Press
                   </Link>
-                  <Link to={"/press"} className={cn(styles.text, "label", styles.lastLink)}>
-                    Book
-                  </Link>
+                  {site.bookingUrl && (
+                    <BookingLink
+                      url={site.bookingUrl}
+                      className={cn(styles.text, "label", styles.lastLink)}
+                    />
+                  )}
                 </div>
               )}
             </div>

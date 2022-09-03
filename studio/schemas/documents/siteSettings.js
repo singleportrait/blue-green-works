@@ -48,6 +48,13 @@ export default {
       description: "This gets used in the site footer. Don't include the @ symbol. If blank, this will fall back to 'Instagram'"
     },
     {
+      name: 'bookingUrl',
+      type: 'url',
+      title: 'Booking URL',
+      description: 'If this is a Calendly URL, this will open in a popup. Otherwise it will open in a new tab',
+      validation: (Rule) => Rule.required()
+    },
+    {
       name: 'productSettings',
       type: 'productSettings',
       title: 'Product Settings',

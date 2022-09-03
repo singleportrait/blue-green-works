@@ -101,6 +101,17 @@ hr {
   margin: var(--spacing3x) 0;
 }
 
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-align: inherit;
+}
+
 .button {
   display: inline-block;
   cursor: pointer;
@@ -145,4 +156,13 @@ hr {
       color: var(--light-color);
     }
   }
+}
+
+/* Calendly overrides */
+.calendly-popup {
+  overflow: hidden;
+}
+
+.calendly-popup-content {
+  margin-right: -16px;
 }
