@@ -67,4 +67,5 @@ h4 {
 .sans {
   font-family: var(--sans);
   font-size: 1.2em; /* To account for Founders to be quite a bit smaller than Self Modern */
+  line-height: 1.3;
 }
