@@ -2,11 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 
-import { cn } from "../lib/helpers";
-
 import Layout from "../containers/layout";
-import SEO from '../components/seo';
-import Product from '../components/product';
+import Container from "../components/container";
+import SEO from "../components/seo";
+import Product from "../components/product";
 
 export const query = graphql`
   query ProductTemplateQuery($id: String!) {
@@ -94,7 +93,7 @@ export const query = graphql`
   }
 `;
 
-const ProductTemplate = props => {
+const ProductTemplate = (props) => {
   const { data, errors } = props;
   const product = data && data.product;
   const site = data && data.site;
@@ -102,10 +101,12 @@ const ProductTemplate = props => {
   if (product.series) {
     product.fullTitle = `${product.series.title} ${product.title}`;
   } else {
-    product.fullTitle = product.title
+    product.fullTitle = product.title;
   }
 
-  const shareImageUrl = (product.seo && product.seo.openGraphImage && product.seo.openGraphImage.asset.url) || (product.firstImage && product.firstImage.image.asset.url)
+  const shareImageUrl =
+    (product.seo && product.seo.openGraphImage && product.seo.openGraphImage.asset.url) ||
+    (product.firstImage && product.firstImage.image.asset.url);
 
   return (
     <Layout>
@@ -115,17 +116,14 @@ const ProductTemplate = props => {
         imageUrl={shareImageUrl}
         htmlClassName="product"
       />
-      <Product
-        product={product}
-        site={site}
-      />
+      <Product product={product} site={site} />
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
     </Layout>
-  )
-}
+  );
+};
 
 export default ProductTemplate;

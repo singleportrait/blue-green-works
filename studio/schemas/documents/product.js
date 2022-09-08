@@ -1,4 +1,4 @@
-import client from 'part:@sanity/base/client';
+import client from 'part:@sanity/base/client'
 
 export default {
   name: 'product',
@@ -16,7 +16,7 @@ export default {
       title: 'Title',
       type: 'string',
       description: "Don't include the name of the series in the title, the front-end will do that",
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.required()
     },
     {
       name: 'slug',
@@ -25,10 +25,10 @@ export default {
       options: {
         source: async (doc) => {
           if (!doc.series) {
-            return doc.title;
+            return doc.title
           }
-          const series = await client.getDocument(doc.series._ref);
-          return `${series.title} ${doc.title}`;
+          const series = await client.getDocument(doc.series._ref)
+          return `${series.title} ${doc.title}`
         },
         maxLength: 96
       },
@@ -37,13 +37,13 @@ export default {
     {
       name: 'description',
       title: 'Description',
-      type: 'simplePortableText',
+      type: 'simplePortableText'
     },
     {
       name: 'firstImage',
       title: 'First Product Image - Horizontal',
       type: 'figure',
-      description: 'For wide screens',
+      description: 'For wide screens'
     },
     {
       name: 'firstImageNarrow',
@@ -55,18 +55,18 @@ export default {
       name: 'images',
       type: 'array',
       title: 'Images',
-      of: [{ type: 'figure' }],
+      of: [{type: 'figure'}],
       validation: Rule => Rule.error('You must have at least 1 image').min(1)
     },
     {
       name: 'tearSheet',
       title: 'Tear Sheet',
-      type: 'tearSheet',
+      type: 'tearSheet'
     },
     {
       name: 'materials',
       title: 'Materials',
-      type: 'simplePortableText',
+      type: 'simplePortableText'
     },
     {
       name: 'options',
@@ -83,7 +83,7 @@ export default {
     {
       name: 'dimensions',
       title: 'Dimensions',
-      type: 'simplePortableText',
+      type: 'simplePortableText'
     },
     {
       name: 'category',
@@ -97,17 +97,17 @@ export default {
     {
       name: 'seo',
       type: 'seo',
-      title: 'SEO Product Info',
+      title: 'SEO Product Info'
     }
   ],
   preview: {
     select: {
       title: 'title',
       series: 'series.title',
-      media: 'firstImage.image',
+      media: 'firstImage.image'
     },
-    prepare(selection) {
-      const {title, series, media} = selection;
+    prepare (selection) {
+      const {title, series, media} = selection
       return {
         title: title,
         subtitle: series ? `${series} Series` : '',
