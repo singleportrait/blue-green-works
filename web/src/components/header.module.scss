@@ -81,7 +81,7 @@
     position: fixed;
     z-index: 2;
     width: 45vw;
-    max-width: #{$pageMaxWidth/2};
+    max-width: calc(#{$pageMaxWidth} / 2);
     height: var(--logo-height);
     left: 0;
     right: 0;

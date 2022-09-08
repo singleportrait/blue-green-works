@@ -1,6 +1,8 @@
-$fontSize: (14 / 16) * 100%;
-$mobileFontSize: (13.5 / 16) * 100%;
-$smallFontSize: (12 / 14) * 100%;
+@use "sass:math";
+
+$fontSize: math.div(14, 16) * 100%;
+$mobileFontSize: math.div(13.5, 16) * 100%;
+$smallFontSize: math.div(12, 14) * 100%;
 
 $darkColor: #111;
 $lightColor: #fff;
