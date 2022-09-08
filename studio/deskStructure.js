@@ -11,16 +11,6 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
-        .title('Site Settings')
-        .child(
-          S.editor()
-            .id('siteSettings')
-            .schemaType('siteSettings')
-            .documentId('siteSettings')
-        )
-        .icon(MdSettings),
-      S.divider(),
-      S.listItem()
         .title('Homepage')
         .icon(() => <Emoji style={{fontSize: 30}} text='🏠' />)
         .child(
@@ -79,6 +69,16 @@ export default () =>
             .schemaType('press')
             .documentId('press')
         ),
+      S.divider(),
+      S.listItem()
+        .title('Site Settings')
+        .child(
+          S.editor()
+            .id('siteSettings')
+            .schemaType('siteSettings')
+            .documentId('siteSettings')
+        )
+        .icon(MdSettings),
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above
