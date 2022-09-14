@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 
@@ -115,6 +115,18 @@ const ProductTemplate = (props) => {
   const shareImageUrl =
     (product.seo && product.seo.openGraphImage && product.seo.openGraphImage.asset.url) ||
     (product.firstImage && product.firstImage.image.asset.url);
+
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    _learnq.push([
+      "trackViewedItem",
+      {
+        Title: product.fullTitle,
+        ImageUrl: shareImageUrl,
+        Url: window.location.href,
+      },
+    ]);
+  }, []);
 
   return (
     <Layout>
