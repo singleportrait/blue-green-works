@@ -36,7 +36,7 @@ const InstructionsTemplate = (props) => {
   const { data, errors } = props;
   const product = data && data.product;
   useEffect(() => {
-    window.location.href = product?.instructionsFile?.asset?.url;
+    window.location.replace(product?.instructionsFile?.asset?.url);
   }, []);
   // console.log("Data", data);
 
