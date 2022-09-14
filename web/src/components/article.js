@@ -19,11 +19,13 @@ const Article = ({ key, article }) => {
         "--image-color": imageColor,
       }}
     >
-      <SanityImage
-        image={article.image.image}
-        alt={article.image.alt}
-        containerClassName={styles.articleImageContainer}
-      />
+      {article?.image?.image && (
+        <SanityImage
+          image={article.image.image}
+          alt={article.image.alt}
+          containerClassName={styles.articleImageContainer}
+        />
+      )}
       <div className={styles.source}>
         <h4 className="label">{article.source}</h4>
         <LineArrow />
