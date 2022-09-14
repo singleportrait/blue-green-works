@@ -141,7 +141,7 @@ const AboutPage = (props) => {
           <SanityImage image={about.image.image} alt={about.image.alt} fullHeight />
         </div>
         <div className={cn("col-md-start-8-span-3 col-lg-start-5-span-3", styles.info)}>
-          <h1 className="mobileH2">{about.title || "About"}</h1>
+          <h1 className="h2">{about.title || "About"}</h1>
           {about._rawDescription && <BlockContent blocks={about._rawDescription} />}
         </div>
         <div

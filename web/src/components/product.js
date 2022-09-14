@@ -70,11 +70,11 @@ const Product = ({ product, site }) => {
         )}
       >
         <div>
-          <h2 className={styles.title}>
+          <h1 className={cn("h2", styles.title)}>
             {product.series && product.series.title}
             {product.series && <br />}
             {product.title}
-          </h2>
+          </h1>
           {product._rawDescription && <BlockContent blocks={product._rawDescription} />}
         </div>
         <Buttons

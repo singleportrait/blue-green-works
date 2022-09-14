@@ -103,7 +103,7 @@ const PressPage = (props) => {
       />
       <div className="row">
         <div className="col-md-start-1-span-2">
-          <h1 className={cn("mobileH2", styles.title)}>{press.title || "Press"}</h1>
+          <h1 className={cn("h2", styles.title)}>{press.title || "Press"}</h1>
         </div>
         <div className={cn("col-md-start-3-span-8", styles.articles)}>
           {press.articles?.map((article) => (
