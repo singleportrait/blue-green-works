@@ -25,8 +25,11 @@ export default {
     },
     {
       name: 'image',
-      type: 'figure',
-      title: 'Editorial Image'
+      type: 'image',
+      title: 'Editorial Image',
+      options: {
+        hotspot: true
+      }
     }
   ]
 }

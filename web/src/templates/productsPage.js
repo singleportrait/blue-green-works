@@ -25,31 +25,28 @@ export const query = graphql`
           description
           image {
             _key
-            image {
-              crop {
-                _key
-                _type
-                top
-                bottom
-                left
-                right
-              }
-              asset {
-                _id
-                metadata {
-                  hasAlpha
-                  dimensions {
-                    aspectRatio
-                  }
-                  palette {
-                    dominant {
-                      background
-                    }
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            asset {
+              _id
+              metadata {
+                hasAlpha
+                dimensions {
+                  aspectRatio
+                }
+                palette {
+                  dominant {
+                    background
                   }
                 }
               }
             }
-            alt
           }
         }
         products {
@@ -132,10 +129,10 @@ const ProductsPage = (props) => {
                 </h2>
                 <h3 className={cn("h3sans", styles.description)}>{series.series?.description}</h3>
               </div>
-              {series.series?.image?.image && (
+              {series.series?.image && (
                 <SanityImage
-                  image={series.series.image.image}
-                  alt={series.series.image.alt}
+                  image={series.series.image}
+                  alt={series.series.title}
                   containerClassName={cn("mt-1", styles.imageContainer)}
                   paddingBottom="55%"
                 />
