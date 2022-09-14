@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../styles/customMedia.css';
 
 .type {
@@ -30,7 +32,7 @@
 }
 
 $imageWidth: 120px;
-$halfImageWidth: $imageWidth / 2;
+$halfImageWidth: math.div($imageWidth, 2);
 $detailPadding: 1rem;
 
 .detail {
