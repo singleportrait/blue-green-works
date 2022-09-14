@@ -27,13 +27,15 @@ $aboveTheFoldHeight: calc(100vh - #{$desktopLogoHeight} - #{$totalPadding}px);
 }
 
 .description {
-  @media (--min-medium) {
-    text-align: right;
-  }
-
   @media (--max-medium) {
     order: 2;
     margin-bottom: var(--spacing2x);
+  }
+}
+
+.title {
+  @media (--min-medium) {
+    margin-bottom: var(--spacing4x);
   }
 }
 

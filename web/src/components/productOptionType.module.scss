@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../styles/customMedia.css';
 
 .type {
@@ -6,16 +8,8 @@
   position: relative;
   padding-top: .25rem;
   padding-bottom: .25rem;
-  padding-left: .25rem;
+  padding-right: .5rem;
   border-radius: var(--spacing1x);
-
-  &:first-child {
-    margin-left: -.25rem;
-  }
-
-  &:not(:last-child) {
-    padding-right: .25rem;
-  }
 
   &:hover {
     cursor: pointer;
@@ -38,7 +32,7 @@
 }
 
 $imageWidth: 120px;
-$halfImageWidth: $imageWidth / 2;
+$halfImageWidth: math.div($imageWidth, 2);
 $detailPadding: 1rem;
 
 .detail {

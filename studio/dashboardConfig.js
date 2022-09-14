@@ -44,11 +44,6 @@ export default {
     {
       name: "gatsby",
       options: { sites: [{ siteUrl: "https://preview.bluegreenworks.com" }] },
-    },
-    {
-      name: 'document-list',
-      options: {title: 'Recent projects', order: '_createdAt desc', types: ['sampleProject']},
-      layout: {width: 'medium'}
     }
   ]
 }

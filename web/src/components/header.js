@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import { StaticQuery, graphql } from "gatsby";
-import { Link } from "gatsby";
+import React, { useEffect, useRef, useState } from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import { cn } from "../lib/helpers";
 
-import HamburgerIcon from './hamburgerIcon';
-import Logo from './logo';
-import narrowLogo from '../images/blueGreenWorksComingSoonMobile.svg';
+import HamburgerIcon from "./hamburgerIcon";
+import Logo from "./logo";
+import BookingLink from "./bookingLink";
+
+import narrowLogo from "../images/blueGreenWorksComingSoonMobile.svg";
 
 import * as styles from "./header.module.scss";
 
@@ -17,69 +21,116 @@ const headerQuery = graphql`
         current
       }
     }
+    site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
+      bookingUrl
+    }
   }
 `;
 
-const Header = (props) => {
+const Header = () => {
   const [showLinks, setShowLinks] = useState(false);
+  const logoContainer = useRef();
+
+  /* Create scroll listeners to shrink logo */
+  useEffect(() => {
+    if (!logoContainer) return;
+    // console.log('Logo container exists now, creating logo animation', logoContainer.current);
+    gsap.registerPlugin(ScrollTrigger);
+    const mm = gsap.matchMedia();
+
+    let logo;
+
+    mm.add("(min-width:769px)", () => {
+      logo = gsap.to(logoContainer.current, {
+        scale: 0.7,
+        y: -20,
+        scrollTrigger: {
+          start: "top 20px",
+          end: "bottom 85%",
+          // markers: true,
+          scrub: true,
+          toggleActions: "restart pause restart pause",
+          // onToggle: self => console.log("toggled, isActive:", self.isActive),
+        },
+      });
+    });
+
+    return () => {
+      logo?.scrollTrigger?.kill();
+    };
+  }, [logoContainer]);
 
   return (
     <StaticQuery
       query={headerQuery}
-      render={data => {
-
-        const productsPage = data.productsPage;
+      render={(data) => {
+        const { productsPage, site } = data;
 
         return (
           <>
             <div className={styles.header}>
-              { productsPage.slug && productsPage.slug.current &&
-                <Link to={`/${productsPage.slug.current}`} className={cn(styles.text, 'label')}>
-                  { productsPage.title }
+              <div className={cn(styles.linksContainer, styles.leftLinksContainer)}>
+                {productsPage.slug && productsPage.slug.current && (
+                  <Link to={`/${productsPage.slug.current}`} className={cn(styles.text, "label")}>
+                    {productsPage.title}
+                  </Link>
+                )}
+                <Link to={"/about"} className={cn(styles.text, "label")}>
+                  About
                 </Link>
-              }
-              <Link className={styles.logoContainer} to={`/`}>
+              </div>
+              <Link ref={logoContainer} className={styles.logoContainer} to={"/"}>
                 <img src={narrowLogo} alt="Logo" className={styles.narrowLogo} />
                 <Logo className={cn(styles.logo, styles.wideLogo)} />
               </Link>
-              <Link to={`/about`} className={cn(styles.text, 'label')}>
-                About
-              </Link>
+              <div className={cn(styles.linksContainer, styles.rightLinksContainer)}>
+                <Link to={"/press"} className={cn(styles.text, "label")}>
+                  Press
+                </Link>
+                {site.bookingUrl && (
+                  <BookingLink url={site.bookingUrl} className={cn(styles.text, "label")} />
+                )}
+              </div>
             </div>
-            <div className={cn(
-                styles.mobileHeader,
-                showLinks && styles.mobileHeaderOpen
-              )}
-            >
+            <div className={cn(styles.mobileHeader, showLinks && styles.mobileHeaderOpen)}>
               <div className={styles.mobileLogoContainer}>
-                <Link to={`/`}>
+                <Link to={"/"}>
                   <Logo className={styles.logo} />
                 </Link>
-                <div
-                  onClick={() => setShowLinks(!showLinks)}
-                  className={styles.hamburgerMenu}
-                >
+                <div onClick={() => setShowLinks(!showLinks)} className={styles.hamburgerMenu}>
                   <HamburgerIcon />
                 </div>
               </div>
-              { showLinks &&
+              {showLinks && (
                 <div className={styles.mobileHeaderLinks}>
-                  { productsPage.slug && productsPage.slug.current &&
-                    <Link to={`/${productsPage.slug.current}`} className={cn(styles.text, 'label')}>
-                      { productsPage.title }
+                  {productsPage.slug && productsPage.slug.current && (
+                    <Link
+                      to={`/${productsPage.slug.current}`}
+                      className={cn(styles.text, "label", styles.firstLink)}
+                    >
+                      {productsPage.title}
                     </Link>
-                  }
-                  <Link to={`/about`} className={cn(styles.text, 'label', styles.aboutLink)}>
+                  )}
+                  <Link to={"/about"} className={cn(styles.text, "label")}>
                     About
                   </Link>
+                  <Link to={"/press"} className={cn(styles.text, "label")}>
+                    Press
+                  </Link>
+                  {site.bookingUrl && (
+                    <BookingLink
+                      url={site.bookingUrl}
+                      className={cn(styles.text, "label", styles.lastLink)}
+                    />
+                  )}
                 </div>
-              }
+              )}
             </div>
           </>
-        )
+        );
       }}
     />
-  )
+  );
 };
 
 export default Header;

@@ -4,11 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-async function createProductPages (graphql, actions) {
-  const {createPage} = actions;
+async function createProductAndInstructionsPages(graphql, actions) {
+  const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityProduct(filter: {slug: {current: {ne: null}}}) {
+      allSanityProduct(filter: { slug: { current: { ne: null } } }) {
         edges {
           node {
             id
@@ -16,34 +16,49 @@ async function createProductPages (graphql, actions) {
             slug {
               current
             }
+            instructionsFile {
+              asset {
+                url
+              }
+            }
           }
         }
       }
     }
   `);
 
-  if (result.errors) throw result.errors
+  if (result.errors) throw result.errors;
 
   const productEdges = (result.data.allSanityProduct || {}).edges || [];
 
-  productEdges.forEach(edge => {
+  productEdges.forEach((edge) => {
     const id = edge.node.id;
     const slug = edge.node.slug.current;
     const path = `/products/${slug}`;
 
     createPage({
       path: path,
-      component: require.resolve('./src/templates/product.js'),
-      context: {id}
+      component: require.resolve("./src/templates/product.js"),
+      context: { id },
+    });
+
+    // Make instructions pages
+    if (!edge.node.instructionsFile) return;
+
+    const instructionsPath = `/products/${slug}/instructions`;
+    createPage({
+      path: instructionsPath,
+      component: require.resolve("./src/templates/instructions.js"),
+      context: { id },
     });
   });
 }
 
-async function createProductsPage (graphql, actions) {
-  const {createPage} = actions;
+async function createProductsPage(graphql, actions) {
+  const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityProductsPage(filter: {slug: {current: {ne: null}}}, limit: 1) {
+      allSanityProductsPage(filter: { slug: { current: { ne: null } } }, limit: 1) {
         edges {
           node {
             id
@@ -57,7 +72,7 @@ async function createProductsPage (graphql, actions) {
     }
   `);
 
-  if (result.errors) throw result.errors
+  if (result.errors) throw result.errors;
 
   const productsPageNode = (result.data.allSanityProductsPage || {}).edges[0].node || [];
 
@@ -67,52 +82,12 @@ async function createProductsPage (graphql, actions) {
 
   createPage({
     path: path,
-    component: require.resolve('./src/templates/productsPage.js'),
-    context: {id}
+    component: require.resolve("./src/templates/productsPage.js"),
+    context: { id },
   });
 }
 
-// const {isFuture} = require('date-fns')
-
-// async function createProjectPages (graphql, actions) {
-//   const {createPage} = actions
-//   const result = await graphql(`
-//     {
-//       allSanitySampleProject(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
-//         edges {
-//           node {
-//             id
-//             publishedAt
-//             slug {
-//               current
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
-
-//   if (result.errors) throw result.errors
-
-//   const projectEdges = (result.data.allSanitySampleProject || {}).edges || []
-
-//   projectEdges
-//     .filter(edge => !isFuture(edge.node.publishedAt))
-//     .forEach(edge => {
-//       const id = edge.node.id
-//       const slug = edge.node.slug.current
-//       const path = `/project/${slug}/`
-
-//       createPage({
-//         path,
-//         component: require.resolve('./src/templates/project.js'),
-//         context: {id}
-//       })
-//     })
-// }
-
-exports.createPages = async ({graphql, actions}) => {
-  // await createProjectPages(graphql, actions)
-  await createProductPages(graphql, actions)
-  await createProductsPage(graphql, actions)
-}
+exports.createPages = async ({ graphql, actions }) => {
+  await createProductAndInstructionsPages(graphql, actions);
+  await createProductsPage(graphql, actions);
+};

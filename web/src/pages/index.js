@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
-import Homepage from '../components/homepage';
+import Homepage from "../components/homepage";
 
 export const query = graphql`
   query PreviewHomepagePageQuery {
@@ -16,6 +16,8 @@ export const query = graphql`
     homepage: sanityHomepage(_id: { regex: "/(drafts.|)homepage/" }) {
       title
       _rawDescription
+      buttonText
+      buttonUrl
       ...HomepageHeaderImageQuery
       ...HomepageHeaderImageNarrowQuery
       seriesHighlights {
@@ -37,7 +39,6 @@ export const query = graphql`
     }
     productsPage: sanityProductsPage(_id: { regex: "/(drafts.|)productsPage/" }) {
       title
-      productsCTA
       slug {
         current
       }
@@ -45,7 +46,7 @@ export const query = graphql`
   }
 `;
 
-const PreviewHomepagePage = props => {
+const PreviewHomepagePage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -84,12 +85,7 @@ const PreviewHomepagePage = props => {
   return (
     <Layout>
       <SEO title={site.title} />
-      <Homepage
-        site={site}
-        homepage={homepage}
-        productsPage={productsPage}
-      />
-
+      <Homepage site={site} homepage={homepage} productsPage={productsPage} />
     </Layout>
   );
 };

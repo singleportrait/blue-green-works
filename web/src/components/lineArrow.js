@@ -1,0 +1,10 @@
+import React from "react";
+
+const LineArrow = () => (
+  <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.93481 1L11.2499 5.31507L6.93481 9.63015" stroke="currentColor" />
+    <path d="M11.0959 5.31494L0 5.31494" stroke="currentColor" />
+  </svg>
+);
+
+export default LineArrow;

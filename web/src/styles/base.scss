@@ -3,7 +3,52 @@
 @import './fonts.css';
 
 @import './variableMixins';
-@import './rootVariables';
+
+:root {
+  --bg-color: #{$mintColor};
+  --sans: 'Founders', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: 'Self Modern', serif;
+  --script: 'Floridian', serif;
+  --dark-color: #{$darkColor};
+  --dark-color-barely-transparent: #{rgba($darkColor, 0.7)};
+  --dark-color-very-transparent: #{rgba($darkColor, 0.1)};
+  --light-color: #{$lightColor};
+  --accent-color: #{$accentColor};
+
+  --page-max-width: #{$pageMaxWidth};
+
+  --button-padding: 0.4em 0.4em 0.4em;
+  --mobile-lead-image-height: 59vh;
+  --mobile-homepage-lead-image-height: 71vh;
+
+  --spacing1x: #{$spacing1x};
+  --spacing2x: #{$spacing2x};
+  --spacing3x: #{$spacing2x};
+  --spacing4x: #{$spacing4x};
+
+  --mobile-spacing1x: #{$mobileSpacing1x};
+  --mobile-spacing2x: #{$mobileSpacing2x};
+
+  --logo-height: #{$desktopLogoHeight};
+
+  --small-font-size: #{$smallFontSize};
+}
+
+html.products:root,
+html.product:root {
+  --bg-color: #{$lightColor};
+}
+
+@media (--max-medium) {
+  :root {
+    --spacing1x: #{$mobileSpacing1x};
+    --spacing2x: #{$mobileSpacing1x};
+    --spacing3x: #{$mobileSpacing2x};
+    --spacing4x: #{$mobileSpacing2x};
+
+    --logo-height: #{$mobileLogoHeight};
+  }
+}
 
 @import './utils';
 @import './grid';
@@ -22,12 +67,13 @@ body > div:not(#portal) > div {
 }
 
 html {
-  background-image: url('../images/fuzzyBg.png');
-  background-attachment: fixed;
+  // background-image: url('../images/fuzzyBg.png');
+  // background-attachment: fixed;
   background-color: var(--bg-color);
-  font-family: var(--sans);
+  font-family: var(--serif);
   font-size: $fontSize;
   -webkit-font-smoothing: antialiased;
+  color: var(--dark-color);
 
   @media (--max-medium) {
     font-size: $mobileFontSize;
@@ -51,47 +97,37 @@ a, a:visited, a:hover {
 }
 
 hr {
-  border-top: 2px solid var(--dark-color);
+  border-top: 1px solid var(--dark-color);
   margin: var(--spacing3x) 0;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-align: inherit;
 }
 
 .button {
   display: inline-block;
   cursor: pointer;
-  border: 2px solid var(--dark-color);
-  background-color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  background-color: transparent;
+  text-align: center;
   padding: var(--button-padding);
   text-transform: uppercase;
+  font-family: var(--sans);
 
-  &, &:visited, &:hover {
-    color: var(--bg-color);
-  }
-
-  &:hover {
-    background-color: var(--light-color);
-    border-color: var(--light-color);
-  }
-}
-
-.button--filled {
-  background-color: var(--bg-color);
-
-  &, &:visited, &:hover {
-    color: var(--dark-color);
-  }
+  // &, &:visited, &:hover {
+  // }
 
   &:hover {
-    background-color: var(--dark-color-very-transparent);
-  }
-}
-
-.button--light {
-  border-color: var(--light-color);
-  background-color: var(--light-color);
-
-  &:hover {
-    border-color: var(--dark-color);
     background-color: var(--dark-color);
+    color: var(--light-color);
   }
 }
 
@@ -120,4 +156,13 @@ hr {
       color: var(--light-color);
     }
   }
+}
+
+/* Calendly overrides */
+.calendly-popup {
+  overflow: hidden;
+}
+
+.calendly-popup-content {
+  margin-right: -16px;
 }

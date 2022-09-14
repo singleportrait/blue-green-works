@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'string'
       // validation: Rule => Rule.error('The title is required!').required()
     },
     {
@@ -15,8 +15,8 @@ export default {
       type: 'file',
       // validation: Rule => Rule.error('The file is required!').required(),
       options: {
-        accept: '.pdf',
-      },
+        accept: '.pdf'
+      }
     }
   ]
 }

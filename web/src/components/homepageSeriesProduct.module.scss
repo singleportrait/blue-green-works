@@ -18,8 +18,12 @@
   }
 
   @media (hover: hover) {
+    &:hover {
+      color: var(--image-color);
+    }
+
     &:hover .seriesImageCaption {
-      color: var(--dark-color);
+      text-decoration: underline;
     }
   }
 }
@@ -46,15 +50,13 @@
   }
 
   @media (--max-medium) {
-    // height: 60vw;
     height: 100vw;
   }
 }
 
 .seriesImageCaption {
-  height: 1rem;
   padding-top: .5rem;
-  color: var(--accent-color);
-  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-

@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
 import { Link } from "gatsby";
 
 import { cn } from "../lib/helpers";
 
-import SanityImage from './sanityImage';
-import Button from './button';
-import BlockContent from '../components/block-content';
-import HomepageSeriesProduct from './homepageSeriesProduct';
+import SanityImage from "./sanityImage";
+import Button from "./button";
+import BlockContent from "../components/block-content";
 
-import * as styles from './homepage.module.scss';
+import * as styles from "./homepage.module.scss";
 
-const Homepage = ({site, homepage, productsPage}) => {
+const Homepage = ({ site, homepage, productsPage }) => {
   if (!site || !homepage || !productsPage) return;
 
   const productsPageSlug = `/${productsPage.slug.current}`;
@@ -38,24 +37,23 @@ const Homepage = ({site, homepage, productsPage}) => {
 
       <div className={cn("row", styles.descriptionRow)}>
         <div className={cn("col-md-start-2-span-3", styles.descriptionSection)}>
-          { homepage._rawDescription &&
-            <BlockContent blocks={homepage._rawDescription} />
-          }
+          {homepage._rawDescription && <BlockContent blocks={homepage._rawDescription} />}
         </div>
-        { site.email &&
+        {site.email && (
           <div className={cn("col-md-start-7-span-3", styles.descriptionSection)}>
             <Button
-              text={ productsPage.productsCTA || "View All Lighting" }
-              link={productsPageSlug}
+              text={homepage.buttonText || "View All Lighting"}
+              link={homepage.buttonUrl || productsPageSlug}
               light
-              internalLink
+              internalLink={!homepage.buttonUrl}
+              targetBlank={homepage.buttonUrl}
               className={styles.productsButton}
             />
           </div>
-        }
+        )}
       </div>
     </>
   );
-}
+};
 
 export default Homepage;

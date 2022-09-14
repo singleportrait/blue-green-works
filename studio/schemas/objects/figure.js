@@ -10,7 +10,7 @@ export default {
       validation: Rule => Rule.error('You must add an image').required(),
       options: {
         hotspot: true
-      },
+      }
     },
     {
       title: 'Caption',
@@ -37,12 +37,12 @@ export default {
       caption: 'caption',
       alt: 'alt'
     },
-    prepare(selection) {
-      const { media, caption, alt } = selection;
+    prepare (selection) {
+      const {media, caption, alt} = selection
       return {
         media: media,
         title: caption || alt,
-        subtitle: !caption && !alt && "Missing alt text"
+        subtitle: !caption && !alt && 'Missing alt text'
       }
     }
   }

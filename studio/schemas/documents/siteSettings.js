@@ -1,4 +1,5 @@
-const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+// eslint-disable-next-line no-useless-escape
+const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 
 export default {
   name: 'siteSettings',
@@ -33,18 +34,25 @@ export default {
       name: 'seriesDisplayName',
       type: 'string',
       title: 'Series Display Name',
-      description: "If blank, this will fall back to 'SERIES'"
+      description: 'If blank, this will fall back to nothing.'
     },
     {
       name: 'instagram',
       type: 'url',
-      title: 'Instagram URL',
+      title: 'Instagram URL'
     },
     {
       name: 'instagramHandle',
       type: 'string',
       title: 'Instagram Handle',
-      description: "This gets used in the site footer. Don't include the @ symbol. If blank, this will fall back to 'Instagram'",
+      description: "This gets used in the site footer. Don't include the @ symbol. If blank, this will fall back to 'Instagram'"
+    },
+    {
+      name: 'bookingUrl',
+      type: 'url',
+      title: 'Booking URL',
+      description: 'If this is a Calendly URL, this will open in a popup. Otherwise it will open in a new tab',
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'productSettings',

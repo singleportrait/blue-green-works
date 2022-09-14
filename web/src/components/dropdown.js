@@ -17,13 +17,13 @@ const Dropdown = ({tearSheets, reversed}) => {
 
   useEffect(() => {
     if (dropdownIsOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [dropdownIsOpen]);
 
@@ -31,9 +31,9 @@ const Dropdown = ({tearSheets, reversed}) => {
     <div ref={node} className={cn(styles.dropdown, 'label')}>
       <div
         className={cn(
-          'button button--filled button--fullWidth',
+          'button',
           styles.dropdownTrigger,
-          reversed && styles.dropdownReversed
+          reversed && styles.dropdownReversed,
         )}
         onClick={() => setDropdownIsOpen(!dropdownIsOpen)}
       >
@@ -43,7 +43,7 @@ const Dropdown = ({tearSheets, reversed}) => {
 
       { dropdownIsOpen &&
         <div className={cn(styles.dropdownMenu)}>
-          {tearSheets.map((tearSheet, i) =>
+          {tearSheets.map((tearSheet) =>
             <a
               key={tearSheet._key}
               href={tearSheet.PDF.asset.url}
@@ -52,7 +52,7 @@ const Dropdown = ({tearSheets, reversed}) => {
               rel="noreferrer noopener"
             >
               {tearSheet.title}
-            </a>
+            </a>,
           )}
         </div>
       }

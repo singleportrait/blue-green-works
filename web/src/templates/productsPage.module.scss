@@ -1,4 +1,41 @@
+@import '../styles/variableMixins.scss';
 @import '../styles/customMedia.css';
+
+.info {
+  @media (--max-medium) {
+    padding-top: $spacing2x;
+  }
+
+  @media (--min-medium) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.title {
+  margin-right: 2rem;
+  line-height: 0.6;
+}
+
+.description {
+  max-width: 29ch;
+
+  @media (--max-medium) {
+    margin-top: $spacing1x;
+  }
+
+  @media (--min-medium) {
+    text-align: right;
+    margin-bottom: 0;
+  }
+}
+
+.imageContainer {
+  @media (--max-medium) {
+    display: none;
+  }
+}
 
 .seriesImages {
   display: flex;

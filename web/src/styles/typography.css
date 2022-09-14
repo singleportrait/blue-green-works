@@ -1,29 +1,33 @@
 h1, h2, h3 {
-  font-family: var(--serif);
+  font-family: var(--script);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 0.9;
   margin-bottom: var(--spacing1x);
-  text-transform: uppercase;
 }
 
 h1, .h1 {
-  font-size: 3.3rem;
-
-  @media (--max-medium) {
-    font-size: 2.7rem;
-  }
+  font-size: 4.3rem;
 }
 
-h2 {
-  font-size: 3rem;
+h2, .h2 {
+  font-size: 2.8rem;
+}
 
+.mobileH2 {
   @media (--max-medium) {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 2.2rem;
+}
+
+.h3sans {
+  font-size: 1.2rem;
+  line-height: 1;
+  font-family: var(--sans);
+  text-transform: uppercase;
 }
 
 h4 {
@@ -32,6 +36,7 @@ h4 {
 
 .label {
   text-transform: uppercase;
+  font-family: var(--sans);
 }
 
 .smallLabel {
@@ -43,6 +48,28 @@ h4 {
   color: var(--light-color);
 }
 
-.centeredText {
+.smallBodyText {
+  font-size: var(--small-font-size);
+}
+
+.textCentered {
   text-align: center;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.textRight {
+  text-align: right;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.sans {
+  font-family: var(--sans);
+  font-size: 1.2em; /* To account for Founders to be quite a bit smaller than Self Modern */
+  line-height: 1.3;
 }

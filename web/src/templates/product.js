@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 
-import { cn } from "../lib/helpers";
-
 import Layout from "../containers/layout";
-import SEO from '../components/seo';
-import Product from '../components/product';
+import Container from "../components/container";
+import SEO from "../components/seo";
+import Product from "../components/product";
 
 export const query = graphql`
   query ProductTemplateQuery($id: String!) {
@@ -23,6 +22,9 @@ export const query = graphql`
     product: sanityProduct(id: { eq: $id }) {
       id
       title
+      slug {
+        current
+      }
       ...ProductFirstImageQuery
       ...ProductFirstImageNarrowQuery
       ...ProductImagesQuery
@@ -73,6 +75,11 @@ export const query = graphql`
         }
         title
       }
+      instructionsFile {
+        asset {
+          url
+        }
+      }
       _rawDescription
       _rawDimensions
       _rawMaterials
@@ -94,7 +101,7 @@ export const query = graphql`
   }
 `;
 
-const ProductTemplate = props => {
+const ProductTemplate = (props) => {
   const { data, errors } = props;
   const product = data && data.product;
   const site = data && data.site;
@@ -102,10 +109,28 @@ const ProductTemplate = props => {
   if (product.series) {
     product.fullTitle = `${product.series.title} ${product.title}`;
   } else {
-    product.fullTitle = product.title
+    product.fullTitle = product.title;
   }
 
-  const shareImageUrl = (product.seo && product.seo.openGraphImage && product.seo.openGraphImage.asset.url) || (product.firstImage && product.firstImage.image.asset.url)
+  const shareImageUrl =
+    (product.seo && product.seo.openGraphImage && product.seo.openGraphImage.asset.url) ||
+    (product.firstImage && product.firstImage.image.asset.url);
+
+  useEffect(() => {
+    try {
+      // eslint-disable-next-line no-undef
+      _learnq.push([
+        "trackViewedItem",
+        {
+          Title: product.fullTitle,
+          ImageUrl: shareImageUrl,
+          Url: window.location.href,
+        },
+      ]);
+    } catch (e) {
+      console.log("Error loading Klaviyo", e);
+    }
+  }, []);
 
   return (
     <Layout>
@@ -113,18 +138,16 @@ const ProductTemplate = props => {
         title={product.fullTitle}
         description={product.seo && product.seo.metaDescription}
         imageUrl={shareImageUrl}
+        htmlClassName="product"
       />
-      <Product
-        product={product}
-        site={site}
-      />
+      <Product product={product} site={site} />
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
     </Layout>
-  )
-}
+  );
+};
 
 export default ProductTemplate;

@@ -6,22 +6,19 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Document types
 import category from './documents/category'
-import person from './documents/person'
-import sampleProject from './documents/sampleProject'
 
 import siteSettings from './documents/siteSettings'
 import previewHomepage from './documents/previewHomepage'
 import homepage from './documents/homepage'
 import product from './documents/product'
 import about from './documents/about'
+import press from './documents/press'
 import option from './documents/option'
 import series from './documents/series'
 import productsPage from './documents/productsPage'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
-import projectMember from './objects/projectMember'
-import projectPortableText from './objects/projectPortableText'
 import simplePortableText from './objects/simplePortableText'
 
 import figure from './objects/figure'
@@ -29,6 +26,8 @@ import homepageSeries from './objects/homepageSeries'
 import seriesHighlight from './objects/seriesHighlight'
 import tearSheet from './objects/tearSheet'
 import optionOption from './objects/optionOption'
+import member from './objects/member'
+import article from './objects/article'
 import siteFooter from './objects/siteFooter'
 import productSettings from './objects/productSettings'
 import seo from './objects/seo'
@@ -44,19 +43,16 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     bioPortableText,
     figure,
-    projectMember,
-    projectPortableText,
     simplePortableText,
     // The following are document types which will appear
     // in the studio.
-    person,
-    sampleProject,
     siteSettings,
 
     previewHomepage,
     homepage,
     product,
     about,
+    press,
     productsPage,
     option,
     series,
@@ -66,8 +62,10 @@ export default createSchema({
     seriesHighlight,
     tearSheet,
     optionOption,
+    member,
+    article,
     siteFooter,
     productSettings,
-    seo,
+    seo
   ])
 })
