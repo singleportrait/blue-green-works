@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 
@@ -35,6 +35,9 @@ export const query = graphql`
 const InstructionsTemplate = (props) => {
   const { data, errors } = props;
   const product = data && data.product;
+  useEffect(() => {
+    window.location.href = product?.instructionsFile?.asset?.url;
+  }, []);
   // console.log("Data", data);
 
   if (product.series) {
