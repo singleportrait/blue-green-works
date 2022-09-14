@@ -1,5 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { Helmet } from "react-helmet";
+
 import Header from "./header";
 import PreviewHeader from "./previewHeader";
 import Container from "./container";
@@ -20,6 +22,9 @@ const layoutQuery = graphql`
 
 const Layout = ({ children, fullPage, previewPage }) => (
   <Container noFixedHeader={previewPage}>
+    <Helmet>
+      <script async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=UdV4LN" />
+    </Helmet>
     <StaticQuery
       query={layoutQuery}
       render={({ site }) => {
