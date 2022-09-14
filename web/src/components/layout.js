@@ -1,14 +1,14 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import Header from './header';
-import PreviewHeader from './previewHeader';
-import Container from './container';
-import Footer from './footer';
-import PreviewFooter from './previewFooter';
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import Header from "./header";
+import PreviewHeader from "./previewHeader";
+import Container from "./container";
+import Footer from "./footer";
+import PreviewFooter from "./previewFooter";
 
 import "../styles/base.scss";
 
-import * as styles from './layout.module.css';
+import * as styles from "./layout.module.css";
 
 const layoutQuery = graphql`
   query LayoutQuery {
@@ -22,27 +22,21 @@ const Layout = ({ children, fullPage, previewPage }) => (
   <Container noFixedHeader={previewPage}>
     <StaticQuery
       query={layoutQuery}
-      render={({site}) => {
+      render={({ site }) => {
         const css = `
           :root {
-            --bg-color: ${site.backgroundColor || ''};
+            --bg-color: ${site.backgroundColor || ""};
           }
         `;
-        return (
-          <>
-            { site && site.backgroundColor &&
-              <style>{css}</style>
-            }
-          </>
-        )
+        return <>{site && site.backgroundColor && <style>{css}</style>}</>;
       }}
     />
 
-    { previewPage && <PreviewHeader /> }
-    { !previewPage && <Header /> }
+    {previewPage && <PreviewHeader />}
+    {!previewPage && <Header />}
     <div className={fullPage && styles.fullpage}>{children}</div>
-    { previewPage && <PreviewFooter /> }
-    { !previewPage && <Footer /> }
+    {previewPage && <PreviewFooter />}
+    {!previewPage && <Footer />}
   </Container>
 );
 
