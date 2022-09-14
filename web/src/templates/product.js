@@ -117,15 +117,19 @@ const ProductTemplate = (props) => {
     (product.firstImage && product.firstImage.image.asset.url);
 
   useEffect(() => {
-    // eslint-disable-next-line no-undef
-    _learnq.push([
-      "trackViewedItem",
-      {
-        Title: product.fullTitle,
-        ImageUrl: shareImageUrl,
-        Url: window.location.href,
-      },
-    ]);
+    try {
+      // eslint-disable-next-line no-undef
+      _learnq.push([
+        "trackViewedItem",
+        {
+          Title: product.fullTitle,
+          ImageUrl: shareImageUrl,
+          Url: window.location.href,
+        },
+      ]);
+    } catch (e) {
+      console.log("Error loading Klaviyo", e);
+    }
   }, []);
 
   return (
