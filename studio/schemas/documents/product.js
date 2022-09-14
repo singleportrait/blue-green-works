@@ -64,6 +64,15 @@ export default {
       type: 'tearSheet'
     },
     {
+      name: 'instructionsFile',
+      title: 'Instructions PDF',
+      type: 'file',
+      description: 'This will create a new URL that can be linked directly to the PDF, e.g. `/products/palm-pendant/instructions`',
+      options: {
+        accept: '.pdf'
+      }
+    },
+    {
       name: 'materials',
       title: 'Materials',
       type: 'simplePortableText'
