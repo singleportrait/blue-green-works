@@ -38,7 +38,7 @@ const Footer = () => {
                   { site.footer.firstSectionTitle || 'Address' }
                 </h3>
                 { site.footer._rawText &&
-                  <BlockContent blocks={site.footer._rawText} />
+                  <BlockContent blocks={site.footer._rawText} className={styles.footerText} />
                 }
               </div>
               <div className={cn(styles.footerSection, styles.contactSection)}>
