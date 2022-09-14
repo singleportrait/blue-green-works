@@ -22,6 +22,9 @@ export const query = graphql`
     product: sanityProduct(id: { eq: $id }) {
       id
       title
+      slug {
+        current
+      }
       ...ProductFirstImageQuery
       ...ProductFirstImageNarrowQuery
       ...ProductImagesQuery
@@ -71,6 +74,11 @@ export const query = graphql`
           }
         }
         title
+      }
+      instructionsFile {
+        asset {
+          url
+        }
       }
       _rawDescription
       _rawDimensions
