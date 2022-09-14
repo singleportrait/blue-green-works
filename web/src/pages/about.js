@@ -178,7 +178,11 @@ const AboutPage = (props) => {
                     styles.memberImage
                   )}
                 >
-                  <SanityImage image={member.image.image} alt={member.image.alt} />
+                  <SanityImage
+                    image={member.image.image}
+                    alt={member.image.alt}
+                    showBackgroundDespiteAlpha
+                  />
                 </div>
                 <div
                   className={cn(

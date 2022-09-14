@@ -13,6 +13,7 @@ const SanityImage = ({
   containerClassName = "",
   fullHeight,
   paddingBottom,
+  showBackgroundDespiteAlpha,
 }) => {
   /* Get image metadata if it exists */
   let aspectRatio = image.asset.metadata.dimensions.aspectRatio || null;
@@ -77,7 +78,9 @@ const SanityImage = ({
   // console.log(image);
   // console.log(imageUrls);
 
-  const backgroundStyle = !hasAlpha && backgroundColor && backgroundColor;
+  const backgroundStyle = showBackgroundDespiteAlpha
+    ? backgroundColor
+    : !hasAlpha && backgroundColor;
   const paddingStyle =
     !fullHeight && (paddingBottom || (aspectRatio && `${(1 / aspectRatio) * 100}%`));
 

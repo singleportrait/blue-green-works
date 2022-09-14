@@ -24,6 +24,7 @@ const Layout = ({ children, fullPage, previewPage }) => (
   <Container noFixedHeader={previewPage}>
     <Helmet>
       <script async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=UdV4LN" />
+      <meta name="theme-color" content="#F2FFF8" />
     </Helmet>
     <StaticQuery
       query={layoutQuery}
