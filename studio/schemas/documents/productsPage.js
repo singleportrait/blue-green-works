@@ -12,22 +12,16 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
+      title: 'Title'
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
       options: {
-        source: 'title',
+        source: 'title'
       },
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'productsCTA',
-      type: 'string',
-      title: 'Products Button CTA',
-      description: "When linking from other pages, what the button should say. If blank, this will default to 'View All Lighting'",
+      validation: Rule => Rule.required()
     },
     {
       name: 'seo',

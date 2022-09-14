@@ -42,10 +42,11 @@ const Homepage = ({ site, homepage, productsPage }) => {
         {site.email && (
           <div className={cn("col-md-start-7-span-3", styles.descriptionSection)}>
             <Button
-              text={productsPage.productsCTA || "View All Lighting"}
-              link={productsPageSlug}
+              text={homepage.buttonText || "View All Lighting"}
+              link={homepage.buttonUrl || productsPageSlug}
               light
-              internalLink
+              internalLink={!homepage.buttonUrl}
+              targetBlank={homepage.buttonUrl}
               className={styles.productsButton}
             />
           </div>

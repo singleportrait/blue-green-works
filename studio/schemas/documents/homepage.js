@@ -12,22 +12,34 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'headerImage',
       title: 'Header Image - Horizontal',
-      type: 'figure',
+      type: 'figure'
     },
     {
       name: 'headerImageNarrow',
       title: 'Header Image - Vertical',
-      type: 'figure',
+      type: 'figure'
     },
     {
       name: 'description',
       type: 'simplePortableText',
-      title: 'Description',
+      title: 'Description'
+    },
+    {
+      name: 'buttonText',
+      type: 'string',
+      title: 'Button Text',
+      description: "When linking from other pages, what the button should say. If blank, this will default to 'View All Lighting'"
+    },
+    {
+      name: 'buttonUrl',
+      type: 'url',
+      title: 'Button URL',
+      description: 'Leave this blank if you want to go to the products page. If you add a link, it will open in a new window'
     },
     {
       name: 'contactHeader',
@@ -40,7 +52,7 @@ export default {
       name: 'seriesHighlights',
       title: 'Series Highlights',
       type: 'array',
-      of: [{ type: 'seriesHighlight' }]
+      of: [{type: 'seriesHighlight'}]
     }
   ]
 }
