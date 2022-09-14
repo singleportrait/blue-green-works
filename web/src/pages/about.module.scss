@@ -21,6 +21,11 @@
 }
 
 .additionalInfo {
+  margin-top: 1rem;
+
+  @media (--min-medium) {
+    margin-top: -1.5rem;
+  }
   @media (--min-large) {
     margin-top: 1rem;
   }
