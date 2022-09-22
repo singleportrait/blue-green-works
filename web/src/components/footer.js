@@ -1,12 +1,12 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import { cn } from '../lib/helpers';
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import { cn } from "../lib/helpers";
 
-import BlockContent from './block-content';
-import EmailIcon from './emailIcon';
-import InstagramIcon from './instagramIcon';
+import BlockContent from "./block-content";
+import EmailIcon from "./emailIcon";
+import InstagramIcon from "./instagramIcon";
 
-import * as styles from './footer.module.scss';
+import * as styles from "./footer.module.scss";
 
 const footerQuery = graphql`
   query FooterQuery {
@@ -24,28 +24,27 @@ const footerQuery = graphql`
 `;
 
 const Footer = () => {
-
   return (
     <>
       <hr />
       <StaticQuery
         query={footerQuery}
-        render={({site}) => {
+        render={({ site }) => {
           return (
             <div className={styles.footer}>
               <div className={styles.footerSection}>
                 <h3 className={cn(styles.footerSectionTitle)}>
-                  { site.footer.firstSectionTitle || 'Address' }
+                  {site.footer.firstSectionTitle || "Address"}
                 </h3>
-                { site.footer._rawText &&
+                {site.footer._rawText && (
                   <BlockContent blocks={site.footer._rawText} className={styles.footerText} />
-                }
+                )}
               </div>
               <div className={cn(styles.footerSection, styles.contactSection)}>
                 <h3 className={cn(styles.footerSectionTitle)}>
-                  { site.footer.secondSectionTitle || 'Contact' }
+                  {site.footer.secondSectionTitle || "Contact"}
                 </h3>
-                { site.email &&
+                {site.email && (
                   <a
                     className={cn(styles.link)}
                     href={`mailto:${site.email}`}
@@ -54,10 +53,10 @@ const Footer = () => {
                     alt="Email Link"
                   >
                     <EmailIcon className={styles.linkImage} />
-                    { site.email }
+                    {site.email}
                   </a>
-                }
-                { site.instagram &&
+                )}
+                {site.instagram && (
                   <a
                     className={cn(styles.link)}
                     href={site.instagram}
@@ -66,16 +65,16 @@ const Footer = () => {
                     alt="Instagram Link"
                   >
                     <InstagramIcon className={styles.linkImage} />
-                    { site.instagramHandle && `@${site.instagramHandle}` || 'Instagram' }
+                    {(site.instagramHandle && `@${site.instagramHandle}`) || "Instagram"}
                   </a>
-                }
+                )}
               </div>
             </div>
-          )
+          );
         }}
       />
     </>
   );
-}
+};
 
 export default Footer;
