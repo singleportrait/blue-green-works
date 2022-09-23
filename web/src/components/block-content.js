@@ -1,17 +1,14 @@
-import BaseBlockContent from "@sanity/block-content-to-react";
+import { PortableText } from "@portabletext/react";
 import React from "react";
 import clientConfig from "../../client-config";
 import { cn } from "../lib/helpers";
 
-import * as styles from './blockContent.module.scss';
+import * as styles from "./blockContent.module.scss";
 
-const BlockContent = ({ blocks = [], className = '' }) => (
-  <BaseBlockContent
-    className={cn(className, styles.blockContent)}
-    renderContainerOnSingleChild={true}
-    blocks={blocks}
-    {...clientConfig.sanity}
-  />
+const BlockContent = ({ blocks = [], className = "" }) => (
+  <div className={cn(className, styles.blockContent)}>
+    <PortableText value={blocks} {...clientConfig.sanity} />
+  </div>
 );
 
 export default BlockContent;
