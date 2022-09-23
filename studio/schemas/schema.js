@@ -16,6 +16,7 @@ import press from './documents/press'
 import option from './documents/option'
 import series from './documents/series'
 import productsPage from './documents/productsPage'
+import privacyPolicy from './documents/privacyPolicy'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -54,6 +55,7 @@ export default createSchema({
     about,
     press,
     productsPage,
+    privacyPolicy,
     option,
     series,
     category,

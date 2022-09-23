@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import { cn } from "../lib/helpers";
 
 import BlockContent from "./block-content";
@@ -39,6 +39,9 @@ const Footer = () => {
                 {site.footer._rawText && (
                   <BlockContent blocks={site.footer._rawText} className={styles.footerText} />
                 )}
+                <Link to="/privacy-policy" className={cn(styles.footerText, "underline")}>
+                  Privacy Policy
+                </Link>
               </div>
               <div className={cn(styles.footerSection, styles.contactSection)}>
                 <h3 className={styles.footerSectionTitle}>
