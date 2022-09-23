@@ -41,12 +41,12 @@ const Footer = () => {
                 )}
               </div>
               <div className={cn(styles.footerSection, styles.contactSection)}>
-                <h3 className={cn(styles.footerSectionTitle)}>
+                <h3 className={styles.footerSectionTitle}>
                   {site.footer.secondSectionTitle || "Contact"}
                 </h3>
                 {site.email && (
                   <a
-                    className={cn(styles.link)}
+                    className={styles.link}
                     href={`mailto:${site.email}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -58,7 +58,7 @@ const Footer = () => {
                 )}
                 {site.instagram && (
                   <a
-                    className={cn(styles.link)}
+                    className={styles.link}
                     href={site.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -68,6 +68,14 @@ const Footer = () => {
                     {(site.instagramHandle && `@${site.instagramHandle}`) || "Instagram"}
                   </a>
                 )}
+                <a
+                  href="https://manage.kmail-lists.com/subscriptions/subscribe?a=UdV4LN&g=SfzV7U"
+                  className={cn(styles.link, "underline")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Subscribe to our list
+                </a>
               </div>
             </div>
           );
