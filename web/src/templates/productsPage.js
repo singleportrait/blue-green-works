@@ -16,7 +16,8 @@ export const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       seriesDisplayName
     }
-    homepageSeries: sanityHomepage(_id: { regex: "/(drafts.|)homepage/" }) {
+    productsPage: sanityProductsPage(_id: { regex: "/(drafts.|)productsPage/" }) {
+      title
       seriesHighlights {
         _key
         series {
@@ -58,9 +59,6 @@ export const query = graphql`
           ...ProductFirstImageNarrowQuery
         }
       }
-    }
-    productsPage: sanityProductsPage(_id: { regex: "/(drafts.|)productsPage/" }) {
-      title
       seo {
         metaDescription
         openGraphImage {
@@ -85,18 +83,11 @@ const ProductsPage = (props) => {
   }
 
   const site = (data || {}).site;
-  const homepageSeries = (data || {}).homepageSeries;
   const productsPage = (data || {}).productsPage;
 
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
-  }
-
-  if (!homepageSeries) {
-    throw new Error(
-      'Missing "Homepage". Open the studio at http://localhost:3333 and add some content to "Homepage" and restart the development server.'
     );
   }
 
@@ -120,8 +111,8 @@ const ProductsPage = (props) => {
       />
 
       <div>
-        {homepageSeries.seriesHighlights &&
-          homepageSeries.seriesHighlights.map((series, i) => (
+        {productsPage.seriesHighlights &&
+          productsPage.seriesHighlights.map((series, i) => (
             <React.Fragment key={series._key}>
               <div className={cn("mt-4", styles.info)}>
                 <h2 className={cn("h1 my-0", styles.title)}>
@@ -140,15 +131,18 @@ const ProductsPage = (props) => {
               <div className="mt-1 mb-4">
                 <div className={styles.seriesImages}>
                   {series.products &&
-                    series.products.map((product) => (
-                      <HomepageSeriesProduct
-                        product={product}
-                        series={series}
-                        key={product && product._id}
-                      />
-                    ))}
+                    series.products.map(
+                      (product) =>
+                        product._id && (
+                          <HomepageSeriesProduct
+                            product={product}
+                            series={series}
+                            key={product && product._id}
+                          />
+                        )
+                    )}
                 </div>
-                {i !== homepageSeries.seriesHighlights.length - 1 && (
+                {i !== productsPage.seriesHighlights.length - 1 && (
                   <hr className={cn(styles.divider, "my-0 mt-4")} />
                 )}
               </div>

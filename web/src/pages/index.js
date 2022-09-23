@@ -20,22 +20,6 @@ export const query = graphql`
       buttonUrl
       ...HomepageHeaderImageQuery
       ...HomepageHeaderImageNarrowQuery
-      seriesHighlights {
-        _key
-        series {
-          _key
-          title
-          description
-        }
-        products {
-          _id
-          title
-          slug {
-            current
-          }
-          ...ProductFirstImageNarrowQuery
-        }
-      }
     }
     productsPage: sanityProductsPage(_id: { regex: "/(drafts.|)productsPage/" }) {
       title

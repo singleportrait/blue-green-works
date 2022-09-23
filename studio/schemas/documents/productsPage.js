@@ -24,6 +24,12 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'seriesHighlights',
+      title: 'Series Highlights',
+      type: 'array',
+      of: [{type: 'seriesHighlight'}]
+    },
+    {
       name: 'seo',
       type: 'seo',
       title: 'SEO Page Info'

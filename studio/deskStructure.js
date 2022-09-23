@@ -20,6 +20,15 @@ export default () =>
             .documentId('homepage')
         ),
       S.listItem()
+        .title('Products Page')
+        .icon(() => <Emoji style={{fontSize: 30}} text='💡' />)
+        .child(
+          S.editor()
+            .id('productsPage')
+            .schemaType('productsPage')
+            .documentId('productsPage')
+        ),
+      S.listItem()
         .title('Products')
         .icon(() => <Emoji style={{fontSize: 30}} text='✨' />)
         .schemaType('product')
@@ -42,15 +51,6 @@ export default () =>
         .icon(() => <Emoji style={{fontSize: 30}} text='🗄' />)
         .schemaType('category')
         .child(S.documentTypeList('category').title('Categories')),
-      S.listItem()
-        .title('Products Page')
-        .icon(() => <Emoji style={{fontSize: 30}} text='💡' />)
-        .child(
-          S.editor()
-            .id('productsPage')
-            .schemaType('productsPage')
-            .documentId('productsPage')
-        ),
       S.listItem()
         .title('About')
         .icon(() => <Emoji style={{fontSize: 30}} text='📝' />)
