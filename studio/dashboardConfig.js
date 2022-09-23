@@ -40,10 +40,6 @@ export default {
         ]
       }
     },
-    {name: 'project-users', layout: {height: 'auto'}},
-    {
-      name: "gatsby",
-      options: { sites: [{ siteUrl: "https://preview.bluegreenworks.com" }] },
-    }
+    {name: 'project-users', layout: {height: 'auto'}}
   ]
 }
