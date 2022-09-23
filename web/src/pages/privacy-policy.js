@@ -2,13 +2,9 @@ import React from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 
-// import { cn } from "../lib/helpers";
-
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import BlockContent from "../components/block-content";
-
-// import * as styles from "./privacyPolicy.module.scss";
 
 export const query = graphql`
   query PrivacyPolicyPageQuery {
@@ -71,13 +67,6 @@ const PrivacyPolicyPage = (props) => {
       />
       <h1 className="h2">{privacyPolicy.title || "Privacy Policy"}</h1>
       {privacyPolicy._rawText && <BlockContent blocks={privacyPolicy._rawText} />}
-      {/* <div className="row">
-        <div className={cn("col-md-start-1-span-7 col-lg-start-1-span-4", styles.imageContainer)}>
-        </div>
-        <div className={cn("col-md-start-8-span-3 col-lg-start-5-span-3", styles.info)}>
-        </div>
-
-      </div> */}
     </Layout>
   );
 };
