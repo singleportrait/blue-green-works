@@ -4,7 +4,7 @@ import React from 'react'
 import Emoji from 'react-emoji-render'
 
 const hiddenDocTypes = listItem =>
-  !['category', 'siteSettings', 'previewHomepage', 'homepage', 'product', 'about', 'press', 'option', 'series', 'productsPage'].includes(listItem.getId())
+  !['category', 'siteSettings', 'previewHomepage', 'homepage', 'product', 'about', 'press', 'option', 'series', 'productsPage', 'privacyPolicy'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -18,6 +18,15 @@ export default () =>
             .id('homepage')
             .schemaType('homepage')
             .documentId('homepage')
+        ),
+      S.listItem()
+        .title('Products Page')
+        .icon(() => <Emoji style={{fontSize: 30}} text='💡' />)
+        .child(
+          S.editor()
+            .id('productsPage')
+            .schemaType('productsPage')
+            .documentId('productsPage')
         ),
       S.listItem()
         .title('Products')
@@ -43,15 +52,6 @@ export default () =>
         .schemaType('category')
         .child(S.documentTypeList('category').title('Categories')),
       S.listItem()
-        .title('Products Page')
-        .icon(() => <Emoji style={{fontSize: 30}} text='💡' />)
-        .child(
-          S.editor()
-            .id('productsPage')
-            .schemaType('productsPage')
-            .documentId('productsPage')
-        ),
-      S.listItem()
         .title('About')
         .icon(() => <Emoji style={{fontSize: 30}} text='📝' />)
         .child(
@@ -68,6 +68,15 @@ export default () =>
             .id('press')
             .schemaType('press')
             .documentId('press')
+        ),
+      S.listItem()
+        .title('Privacy Policy')
+        .icon(() => <Emoji style={{fontSize: 30}} text='🔏' />)
+        .child(
+          S.editor()
+            .id('privacyPolicy')
+            .schemaType('privacyPolicy')
+            .documentId('privacyPolicy')
         ),
       S.divider(),
       S.listItem()

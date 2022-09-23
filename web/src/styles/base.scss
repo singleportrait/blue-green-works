@@ -137,6 +137,21 @@ button {
   box-sizing: border-box;
 }
 
+.input {
+  border: 1px solid var(--dark-color);
+  background-color: transparent;
+  border-radius: 0;
+  font-family: var(--sans);
+  padding: var(--button-padding);
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+
+  &:focus, :focus-visible {
+    outline: 1px solid var(--dark-color);
+  }
+}
+
 /* REVEALING LOADED IMAGES */
 .lazyload,
 .lazyloading {

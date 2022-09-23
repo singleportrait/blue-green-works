@@ -41,7 +41,7 @@ const ProductDetails = ({ product, productSettings }) => {
               to={`/products/${product.slug.current}/instructions`}
               className={cn("smallBodyText underline", styles.instructionsLink)}
             >
-              Setup instructions
+              Install instructions
             </Link>
           )}
         </>
