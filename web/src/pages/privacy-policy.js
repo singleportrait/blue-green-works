@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 
+import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
 import BlockContent from "../components/block-content";
 
 export const query = graphql`

@@ -4,8 +4,8 @@ import { graphql } from "gatsby";
 import { cn } from "../lib/helpers";
 
 import GraphQLErrorList from "../components/graphql-error-list";
+import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
 import HomepageSeriesProduct from "../components/homepageSeriesProduct";
 
 import * as styles from "./productsPage.module.scss";
