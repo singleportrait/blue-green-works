@@ -53,7 +53,6 @@ const Homepage = ({ site, homepage, productsPage }) => {
               <Button
                 text={homepage.buttonText || "View All Lighting"}
                 link={productsPageSlug}
-                light
                 internalLink
                 className={styles.productsButton}
               />
