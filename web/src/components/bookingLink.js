@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PopupModal } from "react-calendly";
 
-const BookingLink = ({ url, className }) => {
+const BookingLink = ({ text = "Book", url, className }) => {
   if (!url) return null;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const BookingLink = ({ url, className }) => {
   return (
     <>
       <button type="button" className={className} onClick={() => handleUrl()}>
-        Book
+        {text}
       </button>
       <PopupModal
         url={url}

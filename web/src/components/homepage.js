@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import { cn } from "../lib/helpers";
 
 import SanityImage from "./sanityImage";
+import BookingLink from "./bookingLink";
 import Button from "./button";
 import BlockContent from "../components/block-content";
 
@@ -41,14 +42,22 @@ const Homepage = ({ site, homepage, productsPage }) => {
         </div>
         {site.email && (
           <div className={cn("col-md-start-7-span-3", styles.descriptionSection)}>
-            <Button
-              text={homepage.buttonText || "View All Lighting"}
-              link={homepage.buttonUrl || productsPageSlug}
-              light
-              internalLink={!homepage.buttonUrl}
-              targetBlank={homepage.buttonUrl}
-              className={styles.productsButton}
-            />
+            {homepage.buttonUrl && (
+              <BookingLink
+                text={homepage.buttonText || "View All Lighting"}
+                url={homepage.buttonUrl}
+                className={cn("button", styles.productsButton)}
+              />
+            )}
+            {!homepage.buttonUrl && (
+              <Button
+                text={homepage.buttonText || "View All Lighting"}
+                link={productsPageSlug}
+                light
+                internalLink
+                className={styles.productsButton}
+              />
+            )}
           </div>
         )}
       </div>
