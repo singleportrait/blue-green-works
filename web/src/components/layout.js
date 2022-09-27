@@ -3,14 +3,10 @@ import { StaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 
 import Header from "./header";
-import PreviewHeader from "./previewHeader";
 import Container from "./container";
 import Footer from "./footer";
-import PreviewFooter from "./previewFooter";
 
 import "../styles/base.scss";
-
-import * as styles from "./layout.module.css";
 
 const layoutQuery = graphql`
   query LayoutQuery {
@@ -20,8 +16,8 @@ const layoutQuery = graphql`
   }
 `;
 
-const Layout = ({ children, fullPage, previewPage }) => (
-  <Container noFixedHeader={previewPage}>
+const Layout = ({ children }) => (
+  <Container>
     <Helmet>
       <script async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=UdV4LN" />
       <meta name="theme-color" content="#F2FFF8" />
@@ -38,11 +34,9 @@ const Layout = ({ children, fullPage, previewPage }) => (
       }}
     />
 
-    {previewPage && <PreviewHeader />}
-    {!previewPage && <Header />}
-    <div className={fullPage && styles.fullpage}>{children}</div>
-    {previewPage && <PreviewFooter />}
-    {!previewPage && <Footer />}
+    <Header />
+    <div>{children}</div>
+    <Footer />
   </Container>
 );
 

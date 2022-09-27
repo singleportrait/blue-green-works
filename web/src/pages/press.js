@@ -4,8 +4,8 @@ import GraphQLErrorList from "../components/graphql-error-list";
 
 import { cn } from "../lib/helpers";
 
+import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
 import Article from "../components/article";
 
 import * as styles from "./press.module.scss";

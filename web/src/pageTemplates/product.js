@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 
-import Layout from "../containers/layout";
-import Container from "../components/container";
+import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Product from "../components/product";
 
@@ -141,11 +140,7 @@ const ProductTemplate = (props) => {
         htmlClassName="product"
       />
       <Product product={product} site={site} />
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
+      {errors && <GraphQLErrorList errors={errors} />}
     </Layout>
   );
 };

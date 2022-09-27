@@ -38,7 +38,7 @@ async function createProductAndInstructionsPages(graphql, actions) {
 
     createPage({
       path: path,
-      component: require.resolve("./src/templates/product.js"),
+      component: require.resolve("./src/pageTemplates/product.js"),
       context: { id },
     });
 
@@ -48,7 +48,7 @@ async function createProductAndInstructionsPages(graphql, actions) {
     const instructionsPath = `/products/${slug}/instructions`;
     createPage({
       path: instructionsPath,
-      component: require.resolve("./src/templates/instructions.js"),
+      component: require.resolve("./src/pageTemplates/instructions.js"),
       context: { id },
     });
   });
@@ -82,7 +82,7 @@ async function createProductsPage(graphql, actions) {
 
   createPage({
     path: path,
-    component: require.resolve("./src/templates/productsPage.js"),
+    component: require.resolve("./src/pageTemplates/productsPage.js"),
     context: { id },
   });
 }

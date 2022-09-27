@@ -4,8 +4,8 @@ import GraphQLErrorList from "../components/graphql-error-list";
 
 import { cn } from "../lib/helpers";
 
+import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
 import BlockContent from "../components/block-content";
 import SanityImage from "../components/sanityImage";
 import Button from "../components/button";
