@@ -3,24 +3,24 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
-function SEO({
-  description,
-  lang,
-  htmlClassName,
-  meta,
-  keywords,
-  title,
-  imageUrl = ''
-}) {
+function SEO({ description, lang, htmlClassName, meta, keywords, title, imageUrl = "" }) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
-        const metaDescription = description || (data.site && data.site.seo && data.site.seo.metaDescription) || "";
+      render={(data) => {
+        const metaDescription =
+          description || (data.site && data.site.seo && data.site.seo.metaDescription) || "";
         const siteTitle = (data.site && data.site.title) || "";
-        const metaImage = imageUrl ? `${imageUrl}?fm=jpg&w=1200&fit=max` : (data.site && data.site.seo && data.site.seo.openGraphImage && `${data.site.seo.openGraphImage.asset.url}?fm=jpg&w=1200&fit=max`);
+        const metaImage = imageUrl
+          ? `${imageUrl}?fm=jpg&w=1200&fit=max`
+          : data.site &&
+            data.site.seo &&
+            data.site.seo.openGraphImage &&
+            `${data.site.seo.openGraphImage.asset.url}?fm=jpg&w=1200&fit=max`;
 
         // console.log("Data", data);
+
+        const fullTitle = title === siteTitle ? siteTitle : `${title} | ${siteTitle}`;
 
         return (
           <Helmet
@@ -29,46 +29,46 @@ function SEO({
               class: htmlClassName,
             }}
             title={title}
-            titleTemplate={title === siteTitle ? "%s" : `%s | ${siteTitle}`}
+            titleTemplate={fullTitle}
             meta={[
               {
                 name: "description",
-                content: metaDescription
+                content: metaDescription,
               },
               {
                 property: "og:title",
-                content: title
+                content: fullTitle,
               },
               {
                 property: "og:description",
-                content: metaDescription
+                content: metaDescription,
               },
               {
                 property: "og:type",
-                content: "website"
+                content: "website",
               },
               {
                 property: "og:image",
-                content: metaImage
+                content: metaImage,
               },
               {
                 name: "twitter:card",
-                content: "summary"
+                content: "summary",
               },
               {
                 name: "twitter:title",
-                content: title
+                content: fullTitle,
               },
               {
                 name: "twitter:description",
-                content: metaDescription
-              }
+                content: metaDescription,
+              },
             ]
               .concat(
                 keywords && keywords.length > 0
                   ? {
                       name: "keywords",
-                      content: keywords.join(", ")
+                      content: keywords.join(", "),
                     }
                   : []
               )
@@ -84,7 +84,7 @@ SEO.defaultProps = {
   lang: "en",
   className: "",
   meta: [],
-  keywords: []
+  keywords: [],
 };
 
 SEO.propTypes = {
@@ -92,7 +92,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default SEO;
