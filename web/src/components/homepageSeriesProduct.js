@@ -18,19 +18,32 @@ const HomepageSeriesProduct = ({ product, series }) => {
       <Link
         className={cn(
           styles.seriesImageContainer,
-          series.products.length == 3 ? styles.seriesImageThirds : "",
-          series.products.length == 4 ? styles.seriesImageQuarters : ""
+          series.products.length === 1 ? styles.seriesImageFull : "",
+          series.products.length === 2 ? styles.seriesImageHalves : "",
+          series.products.length === 3 ? styles.seriesImageThirds : "",
+          series.products.length === 4 ? styles.seriesImageQuarters : ""
         )}
         to={`/products/${product.slug.current}`}
         style={{
           "--image-color": imageColor,
         }}
       >
+        {series.products.length === 1 && product.firstImage && product.firstImage.image.asset && (
+          <SanityImage
+            image={product.firstImage.image}
+            alt={product.firstImage.alt}
+            containerClassName={cn(styles.seriesImage, styles.showOnMedium)}
+            fullHeight
+          />
+        )}
         {product.firstImageNarrow && product.firstImageNarrow.image.asset && (
           <SanityImage
             image={product.firstImageNarrow.image}
             alt={product.firstImageNarrow.alt}
-            containerClassName={styles.seriesImage}
+            containerClassName={cn(
+              styles.seriesImage,
+              series.products.length === 1 ? styles.hideOnMedium : ""
+            )}
             fullHeight
           />
         )}

@@ -57,6 +57,7 @@ export const query = graphql`
             current
           }
           ...ProductFirstImageNarrowQuery
+          ...ProductFirstImageQuery
         }
       }
       seo {
@@ -129,7 +130,14 @@ const ProductsPage = (props) => {
                 />
               )}
               <div className="mt-1 mb-4">
-                <div className={styles.seriesImages}>
+                <div
+                  className={cn(
+                    styles.seriesImages,
+                    series.products.length > 2 ? styles.seriesImagesGrid : "",
+                    series.products.length === 2 ? styles.seriesImagesTwo : "",
+                    series.products.length === 1 ? styles.seriesImagesOne : ""
+                  )}
+                >
                   {series.products &&
                     series.products.map(
                       (product) =>

@@ -40,20 +40,37 @@
 .seriesImages {
   display: flex;
 
-  /* Show images in a 2x2 grid on medium screens */
-  @media (--max-large) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    column-gap: var(--spacing1x);
-    row-gap: var(--spacing1x);
-  }
-
   /* And full width on narrow screens */
   @media (--max-medium) {
     display: flex;
     flex-direction: column;
     row-gap: 0;
+  }
+}
+
+.seriesImagesOne {
+  @media (--max-large) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.seriesImagesTwo {
+  @media (--max-large) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--spacing1x);
+  }
+}
+
+.seriesImagesGrid {
+  /* Show images in a 2x2 grid on medium screens */
+  @media (--min-medium) and (--max-large) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: var(--spacing1x);
+    row-gap: var(--spacing1x);
   }
 }
 
