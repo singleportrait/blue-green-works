@@ -21,7 +21,8 @@ const HomepageSeriesProduct = ({ product, series }) => {
           series.products.length === 1 ? styles.seriesImageFull : "",
           series.products.length === 2 ? styles.seriesImageHalves : "",
           series.products.length === 3 ? styles.seriesImageThirds : "",
-          series.products.length === 4 ? styles.seriesImageQuarters : ""
+          series.products.length === 4 ? styles.seriesImageQuarters : "",
+          series.products.length > 4 ? styles.seriesImageMany : ""
         )}
         to={`/products/${product.slug.current}`}
         style={{

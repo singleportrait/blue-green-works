@@ -135,7 +135,8 @@ const ProductsPage = (props) => {
                     styles.seriesImages,
                     series.products.length > 2 ? styles.seriesImagesGrid : "",
                     series.products.length === 2 ? styles.seriesImagesTwo : "",
-                    series.products.length === 1 ? styles.seriesImagesOne : ""
+                    series.products.length === 1 ? styles.seriesImagesOne : "",
+                    series.products.length > 4 ? styles.seriesImagesMany : ""
                   )}
                 >
                   {series.products &&

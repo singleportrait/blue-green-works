@@ -2,14 +2,11 @@
 
 .seriesImageContainer {
   display: block;
+  flex-grow: 1;
 
   &:last-child {
     margin-right: 0;
     margin-bottom: 0;
-  }
-
-  @media (--min-large) {
-    margin-right: var(--spacing1x);
   }
 
   @media (--max-medium) {
@@ -49,6 +46,12 @@
 .seriesImageQuarters {
   @media (--min-large) {
     width: 25%;
+  }
+}
+
+.seriesImageMany {
+  @media (--min-large) {
+    width: calc(33.33% - var(--spacing1x));
   }
 }
 
