@@ -46,6 +46,11 @@
     flex-direction: column;
     row-gap: 0;
   }
+
+  @media (--min-large) {
+    column-gap: var(--spacing1x);
+    row-gap: var(--spacing1x);
+  }
 }
 
 .seriesImagesOne {
@@ -60,6 +65,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: var(--spacing1x);
+  }
+}
+
+.seriesImagesMany {
+  @media (--min-large) {
+    flex-wrap: wrap;
   }
 }
 
