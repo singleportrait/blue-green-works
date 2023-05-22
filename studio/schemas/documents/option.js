@@ -21,5 +21,11 @@ export default {
       of: [{type: 'optionOption'}],
       validation: Rule => Rule.error('You must have at least 1 option').min(1)
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'description'
+    }
+  }
 }
